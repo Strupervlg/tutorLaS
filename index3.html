@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="./js/task3.js"></script>
+	<script src="./js/prism.js"></script>
+	<link href="./style/style.css" rel="stylesheet">
+	<link href="./style/prism.css" rel="stylesheet">
+	<title>Task3</title>
+</head>
+
+<body>
+	<div class="main">
+		<div class="task">
+			<div class="problem-situation" id="question"></div>
+			<div class="answers">
+				<div class="expression">
+					<pre><code id="editor" class="language-c"></code></pre>
+				</div>
+			</div>
+			<div id="answer">
+				
+			</div>
+			<div class="container-btn">
+			</div>
+			<div id="error-text" class="error-text"></div>
+			<div id="tip-text" class="tip-text"></div>
+		</div>
+		<input id="taskInTTL" type="hidden" value=''>
+		<input id="var" type="hidden" value=''>
+		<input id="taskId" type="hidden" value=''>
+</body>
+<script>
+    window.Prism = window.Prism || {};
+</script>
+
+</html>
