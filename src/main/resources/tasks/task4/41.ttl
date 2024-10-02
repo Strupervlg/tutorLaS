@@ -1,0 +1,122 @@
+@prefix : <poas:poas/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Код на C++
+# bool test() {
+#     int c = 2;
+#     std::cout << c;
+#     return false;
+# }
+# int b = 0;
+# int main()
+# {
+#     int b = 3;
+#     std::cout << b;
+#     int a = 4;
+# }
+#
+# Трасса
+# Условие задачи переменная b из 2 строки программы
+
+# 1. определение функции test
+# 2. объявление глобальной переменной b и присвоение ей числа 0
+# 3. начало функции main
+#     4. объявление переменной b и присвоение ей числа 3
+#     5. вывод значения переменной b
+#     6. объявление переменной a и присвоение ей числа 4
+# 7. конец функции main
+
+
+###  poas:poas/GlobalContext
+:GlobalContext rdf:type owl:NamedIndividual ,
+                        :Context ;
+               rdfs:label "GlobalContext" .
+
+
+###  poas:poas/MainContext
+:MainContext rdf:type owl:NamedIndividual ,
+                      :Context ;
+             :endsIn :step7 ;
+             rdfs:label "MainContext" .
+
+
+###  poas:poas/VariableB
+:VariableB rdf:type owl:NamedIndividual ,
+                    :Variable ;
+           rdfs:label "VariableB" ;
+           :isGlobal "true"^^xsd:boolean ;
+           :isStatic "false"^^xsd:boolean ;
+           :text "b"^^xsd:string .
+
+
+###  poas:poas/step1
+:step1 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :GlobalContext ;
+       :directlyNext :step2 ;
+       rdfs:label "step1" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :text "1. определение функции test"^^xsd:string .
+
+
+###  poas:poas/step2
+:step2 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :GlobalContext ;
+       :directlyNext :step3 ;
+       rdfs:label "step2" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :text "2. объявление глобальной переменной b и присвоение ей числа 0"^^xsd:string .
+
+
+###  poas:poas/step3
+:step3 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step4 ;
+       rdfs:label "step3" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :text "3. начало функции main"^^xsd:string .
+
+
+###  poas:poas/step4
+:step4 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step5 ;
+       rdfs:label "step4" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :text "4. объявление переменной b и присвоение ей числа 3"^^xsd:string .
+
+
+###  poas:poas/step5
+:step5 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step6 ;
+       rdfs:label "step5" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :text "5. вывод значения переменной b"^^xsd:string .
+
+
+###  poas:poas/step6
+:step6 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step7 ;
+       rdfs:label "step6" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :text "6. объявление переменной a и присвоение ей числа 4"^^xsd:string .
+
+
+###  poas:poas/step7
+:step7 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       rdfs:label "step7" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :text "7. конец функции main"^^xsd:string .

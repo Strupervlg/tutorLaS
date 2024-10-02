@@ -1,0 +1,4 @@
+isStatic|BOOLEAN||FALSE|Variable|
+isGlobal|BOOLEAN||FALSE|Variable|
+isEvaluated|BOOLEAN||FALSE|Step|
+number|INTEGER||FALSE|Step|1-999

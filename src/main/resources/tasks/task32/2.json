@@ -1,0 +1,6 @@
+{
+	"question": "Какой тип имеет переменная \"d\"?",
+	"function_def": "test(in, mutable, out);",
+	"var": "varD3",
+	"expression": "v = d - test(a, b, d) * d"
+}

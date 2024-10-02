@@ -1,0 +1,8 @@
+transparent|BOOLEAN||FALSE|ContextType|
+allowsViewAfter|BOOLEAN||FALSE|ContextType|
+canViewAfter|BOOLEAN||FALSE|ContextType|
+name|STRING||FALSE|Context;ContextType;DeclarationLine;Token|
+isStatic|BOOLEAN||FALSE|Context|
+hasNamedContext|BOOLEAN||FALSE|Prefix|
+text|STRING||FALSE|ContextRelationType|
+isEvaluated|BOOLEAN||FALSE|Line|

@@ -1,0 +1,6 @@
+{
+	"question": "Какой тип имеет переменная \"d\"?",
+	"function_def": "",
+	"var": "varD3",
+	"expression": "v = d - c * d;"
+}
