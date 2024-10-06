@@ -137,8 +137,6 @@
 }
 
 
-
-
 /*TASK 2*/
 .code li {
 	white-space: pre;
@@ -156,15 +154,15 @@
 	margin-bottom: 2px;
 }
 
-.code li:hover {
+.code li[data-id]:not([data-id=""]):hover {
 	background-color: #e8e8e8;
 }
 
-.code li.correct {
+.code li.correct[data-id]:not([data-id=""]) {
 	background-color: lime;
 }
 
-.code li.incorrect {
+.code li.incorrect[data-id]:not([data-id=""]) {
 	background-color: red;
 }
 
