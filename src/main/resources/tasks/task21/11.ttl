@@ -90,7 +90,7 @@
         :belongsTo :forB10 ;
         :directlyNextLine :Line16 ;
         rdfs:label "Line15" ;
-        :isEvaluated "false"^^xsd:boolean ;
+        :isEvaluated "true"^^xsd:boolean ;
         :number 15 .
 
 
@@ -99,7 +99,7 @@
                  :Line ;
         :belongsTo :mainB7 ;
         rdfs:label "Line16" ;
-        :isEvaluated "false"^^xsd:boolean ;
+        :isEvaluated "true"^^xsd:boolean ;
         :number 16 .
 
 

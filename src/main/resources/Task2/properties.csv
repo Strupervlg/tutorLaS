@@ -6,3 +6,7 @@ isStatic|BOOLEAN||FALSE|Context|
 hasNamedContext|BOOLEAN||FALSE|Prefix|
 text|STRING||FALSE|ContextRelationType|
 isEvaluated|BOOLEAN||FALSE|Line|
+number|INTEGER||FALSE|Line|1-99
+nameLI|STRING||FALSE|ContextType|
+nameR|STRING||FALSE|ContextType|
+errorText|STRING||FALSE|VisibilityModifierType|
