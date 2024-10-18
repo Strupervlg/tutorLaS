@@ -76,15 +76,15 @@ public class Task3Service {
             }
         }
 
-//        if(!solutionRepository.hasSolution(request.getUid(), request.getTaskId())) {
-//            solutionRepository.create(request.getUid(), request.getTaskId());
-//        }
+        if(!solutionRepository.hasSolution(request.getUid(), request.getTaskId())) {
+            solutionRepository.create(request.getUid(), request.getTaskId());
+        }
 
-//        if(errorText.isEmpty()) {
-//            solutionRepository.addCountOfCorrect(request.getUid(), request.getTaskId());
-//        } else {
-//            solutionRepository.addCountOfMistakes(request.getUid(), request.getTaskId());
-//        }
+        if(errorText.isEmpty()) {
+            solutionRepository.addCountOfCorrect(request.getUid(), request.getTaskId());
+        } else {
+            solutionRepository.addCountOfMistakes(request.getUid(), request.getTaskId());
+        }
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
