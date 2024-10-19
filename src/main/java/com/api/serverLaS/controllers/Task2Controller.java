@@ -9,7 +9,6 @@ import com.api.serverLaS.response.CheckAnswerResponse;
 import com.api.serverLaS.response.CompleteTaskResponse;
 import com.api.serverLaS.response.task2.GetHintResponse;
 import com.api.serverLaS.response.GetNextTaskResponse;
-import com.api.serverLaS.services.ErrorMessageService;
 import com.api.serverLaS.services.Task2Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,9 +22,6 @@ public class Task2Controller {
 
     @Autowired
     public Task2Service task2Service;
-
-    @Autowired
-    public ErrorMessageService errorMessageService;
 
     @PostMapping("/task-2/check-answer")
     public CheckAnswerResponse checkAnswer(@RequestBody CheckAnswerRequest checkAnswerRequest) {

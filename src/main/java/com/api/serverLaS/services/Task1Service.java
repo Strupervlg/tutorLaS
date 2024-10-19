@@ -105,6 +105,7 @@ public class Task1Service {
 
         situationDomain.validateAndThrow();
         String correctStep = "";
+        String hintText = "";
         for(String step : request.getSteps()) {
             LearningSituation situation = new LearningSituation(situationDomain,
                     new HashMap<>(Map.of(
@@ -113,24 +114,19 @@ public class Task1Service {
                             "var", new ObjectRef(request.getVar())
                     ))
             );
-            boolean answer = DecisionTreeReasoner.getAnswer(model.getDecisionTree().getMainBranch(), situation);
-            if(answer) {
+            List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+            hintText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
+            if(!hintText.isEmpty()) {
                 correctStep = step;
                 break;
             }
         }
 
-        if(!solutionRepository.hasSolution(request.getUid(), request.getTaskId())) {
-            solutionRepository.create(request.getUid(), request.getTaskId());
-        }
-
-        if(!correctStep.isEmpty()) {
-            solutionRepository.addCountOfHints(request.getUid(), request.getTaskId());
-        }
+        commonTaskService.addCountOfHintsToDB(correctStep, request.getUid(), request.getTaskId());
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
-        return new GetHintResponse(correctStep, stringWriter.toString());
+        return new GetHintResponse(correctStep, hintText, stringWriter.toString());
     }
 
     public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {

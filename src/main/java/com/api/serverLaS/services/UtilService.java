@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
-public class ErrorMessageService {
+public class UtilService {
 
     private Map<String, String> enumToString = Map.of(
             "positionExpression:right", "правым",

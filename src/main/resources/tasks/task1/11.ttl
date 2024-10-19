@@ -45,14 +45,16 @@
 :ForContext rdf:type owl:NamedIndividual ,
                                    :Context ;
                           :endsIn :step19 ;
-                          rdfs:label "ForContext" .
+                          rdfs:label "ForContext" ;
+                          :text "for" .
 
 
 ###  poas:poas/MainContext
 :MainContext rdf:type owl:NamedIndividual ,
                                     :Context ;
                            :endsIn :step21 ;
-                           rdfs:label "MainContext" .
+                           rdfs:label "MainContext" ;
+                           :text "main" .
 
 
 ###  poas:poas/GlobalContext

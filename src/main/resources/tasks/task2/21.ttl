@@ -35,14 +35,16 @@
 :IfContext rdf:type owl:NamedIndividual ,
                     :Context ;
            :endsIn :step10 ;
-           rdfs:label "IfContext" .
+           rdfs:label "IfContext" ;
+           :text "if" .
 
 
 ###  poas:poas/MainContext
 :MainContext rdf:type owl:NamedIndividual ,
                       :Context ;
              :endsIn :step12 ;
-             rdfs:label "MainContext" .
+             rdfs:label "MainContext" ;
+             :text "main" .
 
 
 ###  poas:poas/GlobalContext

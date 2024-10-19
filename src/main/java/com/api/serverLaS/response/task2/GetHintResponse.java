@@ -6,12 +6,15 @@ public class GetHintResponse {
 
     String taskInTTL;
 
+    String hint;
+
     public GetHintResponse() {
 
     }
 
-    public GetHintResponse(String line, String taskInTTL) {
+    public GetHintResponse(String line, String hint, String taskInTTL) {
         this.line = line;
+        this.hint = hint;
         this.taskInTTL = taskInTTL;
     }
 
@@ -21,5 +24,9 @@ public class GetHintResponse {
 
     public String getTaskInTTL() {
         return taskInTTL;
+    }
+
+    public String getHint() {
+        return hint;
     }
 }

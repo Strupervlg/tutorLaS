@@ -31,7 +31,7 @@ public class CommonTaskService {
     private SolutionRepository solutionRepository;
 
     @Autowired
-    public ErrorMessageService errorMessageService;
+    public UtilService utilService;
 
     public String generateErrorText(List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes, Domain situationDomain, String uid, int taskId) {
         String errorText = "";
@@ -42,7 +42,7 @@ public class CommonTaskService {
                 continue;
             }
             if(!branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
-                errorText += errorMessageService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";
+                errorText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";
                 countErrors++;
             }
         }
@@ -54,14 +54,8 @@ public class CommonTaskService {
             errorText += "И еще " + (countErrors-4) + " ошибок.";
         }
 
+        this.addCountOfMistakesToDB(errorText, uid, taskId);
 
-        if(!solutionRepository.hasSolution(uid, taskId)) {
-            solutionRepository.create(uid, taskId);
-        }
-
-        if(!errorText.isEmpty()) {
-            solutionRepository.addCountOfMistakes(uid, taskId);
-        }
         return errorText;
     }
 
@@ -90,5 +84,38 @@ public class CommonTaskService {
 
         JsonObject jsonobj = reader.read().asJsonObject();
         return new NextTaskData(task.getId(), taskInTtl, jsonobj);
+    }
+
+    public String generateHintText(List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes, Domain situationDomain) {
+        String hintText = "";
+        for(DecisionTreeReasoner.DecisionTreeEvaluationResult branchResultNode : branchResultNodes) {
+            if (!branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
+                break;
+            } else if (branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
+                hintText = utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain);
+                break;
+            }
+        }
+        return hintText;
+    }
+
+    public void addCountOfMistakesToDB(String errorText, String uid, int taskId) {
+        if(!solutionRepository.hasSolution(uid, taskId)) {
+            solutionRepository.create(uid, taskId);
+        }
+
+        if(!errorText.isEmpty()) {
+            solutionRepository.addCountOfMistakes(uid, taskId);
+        }
+    }
+
+    public void addCountOfHintsToDB(String correctAnswer, String uid, int taskId) {
+        if(!solutionRepository.hasSolution(uid, taskId)) {
+            solutionRepository.create(uid, taskId);
+        }
+
+        if(!correctAnswer.isEmpty()) {
+            solutionRepository.addCountOfHints(uid, taskId);
+        }
     }
 }
