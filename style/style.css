@@ -169,3 +169,8 @@
 .mono {
 	font-family: monospace;
 }
+
+/*TASK 3*/
+.expression {
+	display: flex;
+}

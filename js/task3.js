@@ -19,7 +19,8 @@ function getNextTask() {
 				$('#editor')[0].innerHTML = Prism.highlight(response.task.expression, Prism.languages.c, 'c');
 				$('#question')[0].innerHTML = response.task.question;
 				if (response.task.function_def != "") {
-					$('#question')[0].innerHTML += " Прототип функции: <span class='mono'>" + response.task.function_def + "</span>";
+					$('#function-def')[0].innerHTML = '<div class="problem-situation">Прототип функции: </div><pre><code id="editor" class="language-c">' + Prism.highlight(response.task.function_def, Prism.languages.c, 'c') + '</code></pre>';
+
 				}
 				$('#taskId')[0].value = response.taskId;
 				updateTask();
