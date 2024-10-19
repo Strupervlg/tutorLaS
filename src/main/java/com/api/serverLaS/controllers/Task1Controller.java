@@ -55,7 +55,7 @@ public class Task1Controller {
 
     @PostMapping("/task-1/get-next")
     public GetNextTaskResponse getNext(@RequestBody GetNextTaskRequest getNextTaskRequest) {
-        return task1Service.getNext(getNextTaskRequest, 1);
+        return task1Service.getNext(getNextTaskRequest);
     }
 
 

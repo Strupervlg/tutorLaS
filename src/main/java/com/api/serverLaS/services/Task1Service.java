@@ -1,9 +1,8 @@
 package com.api.serverLaS.services;
 
+import com.api.serverLaS.data.NextTaskData;
 import com.api.serverLaS.data.Task1Data;
-import com.api.serverLaS.models.Task;
 import com.api.serverLaS.repositories.SolutionRepository;
-import com.api.serverLaS.repositories.TaskRepository;
 import com.api.serverLaS.requests.task1.CheckAnswerRequest;
 import com.api.serverLaS.requests.task1.CompleteTaskRequest;
 import com.api.serverLaS.requests.task1.GetHintRequest;
@@ -19,31 +18,22 @@ import its.model.definition.rdf.DomainRDFFiller;
 import its.model.definition.rdf.DomainRDFWriter;
 import its.reasoner.LearningSituation;
 import its.reasoner.nodes.DecisionTreeReasoner;
-import jakarta.json.*;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.StringWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 @Service
 public class Task1Service {
 
     @Autowired
-    private TaskRepository taskRepository;
-
-    @Autowired
     private SolutionRepository solutionRepository;
 
     @Autowired
-    public ErrorMessageService errorMessageService;
+    public CommonTaskService commonTaskService;
 
     public DomainSolvingModel model = new DomainSolvingModel(
 				this.getClass().getClassLoader().getResource("Task1/"),
@@ -53,7 +43,6 @@ public class Task1Service {
     public CheckAnswerResponse checkAnswer(CheckAnswerRequest request) {
         Domain situationDomain = this.model.getDomain().copy();
         DomainRDFFiller.fillDomain(situationDomain,
-//                this.getClass().getClassLoader().getResource("Task1/11.ttl").getPath(),
                 ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
                 Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
                 null);
@@ -68,25 +57,8 @@ public class Task1Service {
                 ))
         );
 
-//        boolean answer =
-//                DecisionTreeReasoner.getAnswer(model.getDecisionTree().getMainBranch(), situation);
         List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
-        String errorText = "";
-        for(DecisionTreeReasoner.DecisionTreeEvaluationResult branchResultNode : branchResultNodes) {
-            if(!branchResultNode.getNode().getValue()) {
-                errorText += errorMessageService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain)  + "<br>";
-            }
-        }
-
-        if(!solutionRepository.hasSolution(request.getUid(), request.getTaskId())) {
-            solutionRepository.create(request.getUid(), request.getTaskId());
-        }
-
-        if(errorText.isEmpty()) {
-            solutionRepository.addCountOfCorrect(request.getUid(), request.getTaskId());
-        } else {
-            solutionRepository.addCountOfMistakes(request.getUid(), request.getTaskId());
-        }
+        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId());
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
@@ -110,7 +82,6 @@ public class Task1Service {
         );
 
         List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTrees().get("all"), situation);
-        String errorText = "";
         branchResultNodes.sort(
                 Comparator.comparingInt(
                         (DecisionTreeReasoner.DecisionTreeEvaluationResult node) -> {
@@ -119,19 +90,8 @@ public class Task1Service {
                             } else {
                                 return 0;
                             }}));
-        for(DecisionTreeReasoner.DecisionTreeEvaluationResult branchResultNode : branchResultNodes) {
-            if(!branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
-                errorText += errorMessageService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";
-            }
-        }
 
-        if(!solutionRepository.hasSolution(request.getUid(), request.getTaskId())) {
-            solutionRepository.create(request.getUid(), request.getTaskId());
-        }
-
-        if(!errorText.isEmpty()) {
-            solutionRepository.addCountOfMistakes(request.getUid(), request.getTaskId());
-        }
+        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId());
 
         return new CompleteTaskResponse(errorText.isEmpty(), errorText);
     }
@@ -173,31 +133,9 @@ public class Task1Service {
         return new GetHintResponse(correctStep, stringWriter.toString());
     }
 
-    public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest, int sectionId) {
-        List<Task> tasks = taskRepository.getFreeList(sectionId, getNextTaskRequest.getUid());
-        if(tasks.isEmpty()) {
-            return new GetNextTaskResponse(-1, "", null);
-        }
-        Random random = new Random();
-        int randomIndex = random.nextInt(tasks.size());
-        Task task = tasks.get(randomIndex);
+    public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {
+        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 1);
 
-        JsonReader reader;
-        try {
-            reader = Json.createReader(new FileReader(this.getClass().getClassLoader().getResource("tasks/"+task.getName()+"/").getPath() + task.getNameJson()));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        String taskInTtl = "";
-        try {
-            String fileTtl = this.getClass().getClassLoader().getResource("tasks/"+task.getName()+"/").getPath() + task.getNameTtl();
-            taskInTtl = new String(Files.readAllBytes(Paths.get(fileTtl)));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        JsonObject jsonobj = reader.read().asJsonObject();
-
-        return new GetNextTaskResponse(task.getId(), taskInTtl, Task1Data.fromJson(jsonobj));
+        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task1Data.fromJson(data.getTask()) : data.getTask());
     }
 }
