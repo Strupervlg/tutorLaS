@@ -142,7 +142,7 @@ function updateTask() {
 				} else if (response.step != "") {
 					$('[data-id="' + response.step + '"]').addClass("correct");
 					$('#taskInTTL')[0].value = response.taskInTTL;
-					$('#tip-text')[0].innerHTML = "Следующая правильная строка - номер " + response.step.replace("step", "");
+					$('#tip-text')[0].innerHTML = response.hint;
 					$('#error-text')[0].innerHTML = "";
 				}
 

@@ -140,7 +140,7 @@ function updateTask() {
 				} else if (response.line != "") {
 					$('[data-id="' + response.line + '"]').addClass("correct");
 					$('#taskInTTL')[0].value = response.taskInTTL;
-					$('#tip-text')[0].innerHTML = "Следующая правильная строка - номер " + response.line.replace("Line", "");
+					$('#tip-text')[0].innerHTML = response.hint;
 					$('#error-text')[0].innerHTML = "";
 				}
 
