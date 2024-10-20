@@ -1,6 +1,23 @@
 {
-	"question": "Какой тип имеет переменная \"d\"?",
-	"function_def": "test(in, mutable, out);",
-	"var": "varD3",
+	"question": "Чем являются переменные?",
+	"function_def": "/**\n * @brief test\n * \n * @param[in] a\n * @param[in,out] b\n * @param[out] result\n */\nvoid test(int a, int b, int &result);",
+	"vars": [
+		{
+			"name": "v",
+			"object": "varV1"
+		},
+		{
+			"name": "d",
+			"object": "varD3"
+		},
+		{
+			"name": "a",
+			"object": "varA6"
+		},
+		{
+			"name": "b",
+			"object": "varB7"
+		}
+	],
 	"expression": "v = d - test(a, b, d) * d"
 }

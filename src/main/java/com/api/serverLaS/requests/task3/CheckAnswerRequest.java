@@ -4,9 +4,7 @@ public class CheckAnswerRequest {
 
     private String uid;
 
-    private String answer;
-
-    private String var;
+    private AnswerDataRequest[] answers;
 
     private String taskInTTL;
 
@@ -14,11 +12,10 @@ public class CheckAnswerRequest {
 
     public CheckAnswerRequest() {}
 
-    public CheckAnswerRequest(String uid, String answer, String taskInTTL, String var, int taskId) {
+    public CheckAnswerRequest(String uid, AnswerDataRequest[] answers, String taskInTTL, int taskId) {
         this.uid = uid;
-        this.answer = answer;
+        this.answers = answers;
         this.taskInTTL = taskInTTL;
-        this.var = var;
         this.taskId = taskId;
     }
 
@@ -26,16 +23,12 @@ public class CheckAnswerRequest {
         return uid;
     }
 
-    public String getAnswer() {
-        return answer;
+    public AnswerDataRequest[] getAnswers() {
+        return answers;
     }
 
     public String getTaskInTTL() {
         return taskInTTL;
-    }
-
-    public String getVar() {
-        return var;
     }
 
     public int getTaskId() {

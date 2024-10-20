@@ -1,6 +1,19 @@
 {
-	"question": "Какой тип имеет переменная \"d\"?",
+	"question": "Чем являются переменные?",
 	"function_def": "",
-	"var": "varD3",
+	"vars": [
+		{
+			"name": "v",
+			"object": "varV1"
+		},
+		{
+			"name": "d",
+			"object": "varD3"
+		},
+		{
+			"name": "c",
+			"object": "varC5"
+		}
+	],
 	"expression": "v = d - c * d;"
 }

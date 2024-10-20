@@ -4,6 +4,7 @@ import com.api.serverLaS.data.NextTaskData;
 import com.api.serverLaS.data.Task3Data;
 import com.api.serverLaS.repositories.SolutionRepository;
 import com.api.serverLaS.requests.GetNextTaskRequest;
+import com.api.serverLaS.requests.task3.AnswerDataRequest;
 import com.api.serverLaS.requests.task3.CheckAnswerRequest;
 import com.api.serverLaS.response.CheckAnswerResponse;
 import com.api.serverLaS.response.GetNextTaskResponse;
@@ -37,23 +38,27 @@ public class Task3Service {
 		);
 
     public CheckAnswerResponse checkAnswer(CheckAnswerRequest request) {
+        String errorText = "";
         Domain situationDomain = this.model.getDomain().copy();
-        DomainRDFFiller.fillDomain(situationDomain,
-                ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
-                Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
-                null);
+        for(AnswerDataRequest answer : request.getAnswers()) {
+            Domain newSituationDomain = situationDomain.copy();
+            DomainRDFFiller.fillDomain(newSituationDomain,
+                    ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
+                    Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
+                    null);
 
-        situationDomain.validateAndThrow();
+            newSituationDomain.validateAndThrow();
 
-        LearningSituation situation = new LearningSituation(situationDomain,
-                new HashMap<>(Map.of(
-                        "answer", new ObjectRef(request.getAnswer()),
-                        "var", new ObjectRef(request.getVar())
-                ))
-        );
+            LearningSituation situation = new LearningSituation(newSituationDomain,
+                    new HashMap<>(Map.of(
+                            "answer", new ObjectRef(answer.getAnswer()),
+                            "var", new ObjectRef(answer.getVar())
+                    ))
+            );
 
-        List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
-        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId());
+            List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+            errorText += commonTaskService.generateErrorText(branchResultNodes, newSituationDomain, request.getUid(), request.getTaskId());
+        }
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
