@@ -34,6 +34,8 @@ function getNextTask() {
 				$('#question')[0].innerHTML = '';
 				$('#trace')[0].innerHTML = '';
 				$('#taskId')[0].value = '';
+				$('.answers')[0].innerHTML = '';
+				$('.container-btn')[0].innerHTML = '';
 				$('#question')[0].innerHTML = "Все задачи выполнены.";
 			}
 		},

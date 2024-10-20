@@ -1,4 +1,17 @@
 function getNextTask() {
+	let answers = `<div>
+					<input type="radio" id="answerInput-tempVar" name="tempVar" value="answerInput" checked />
+					<label for="answerInput-tempVar">Входная</label>
+				</div>
+				<div>
+					<input type="radio" id="answerOutput-tempVar" name="tempVar" value="answerOutput" />
+					<label for="answerOutput-tempVar">Выходная</label>
+				</div>
+				<div>
+					<input type="radio" id="answerMutable-tempVar" name="tempVar" value="answerMutable" />
+					<label for="answerMutable-tempVar">Изменяемая</label>
+				</div>`;
+
 	var data = {
 		uid: getCookie('auth')
 	};
@@ -15,21 +28,30 @@ function getNextTask() {
 		success: function (response) {
 			if (response.taskId != -1) {
 				$('#taskInTTL')[0].value = response.taskInTTL;
-				$('#var')[0].value = response.task.var;
 				$('#editor')[0].innerHTML = Prism.highlight(response.task.expression, Prism.languages.c, 'c');
 				$('#question')[0].innerHTML = response.task.question;
 				if (response.task.function_def != "") {
-					$('#function-def')[0].innerHTML = '<div class="problem-situation">Прототип функции: </div><pre><code id="editor" class="language-c">' + Prism.highlight(response.task.function_def, Prism.languages.c, 'c') + '</code></pre>';
-
+					$('#function-def')[0].innerHTML = '<div class="problem-situation">Прототип функции: </div><pre><code id="editor" class="language-c">'
+						+ Prism.highlight(response.task.function_def, Prism.languages.c, 'c') + '</code></pre>';
+				} else {
+					$('#function-def')[0].innerHTML = "";
 				}
 				$('#taskId')[0].value = response.taskId;
+				$('#answer')[0].innerHTML = "";
+				for (let i = 0; i < response.task.vars.length; i++) {
+					$('#answer')[0].innerHTML += '<div>Переменная ' + response.task.vars[i].name + '</div>';
+					$('#answer')[0].innerHTML += answers.replaceAll('tempVar', response.task.vars[i].object);
+				}
 				updateTask();
 				console.log(response);
 			} else {
 				$('#taskInTTL')[0].value = '';
-				$('#var')[0].value = '';
 				$('#editor')[0].innerHTML = '';
 				$('#question')[0].innerHTML = '';
+				$('#function-def')[0].innerHTML = "";
+				$('.problem-situation')[1].innerHTML = '';
+				$('.expression')[0].innerHTML = '';
+				$('.container-btn')[0].innerHTML = '';
 				$('#taskId')[0].value = '';
 				$('#answer')[0].innerHTML = '';
 				$('#question')[0].innerHTML = "Все задачи выполнены.";
@@ -42,13 +64,11 @@ function getNextTask() {
 }
 
 function updateBtnComplete2() {
-	$('#answer')[0].innerHTML = '';
-	$('.container-btn')[0].innerHTML += '<button id="btn-complete2">Следующая задача</button>';
 	$('#btn-complete2').on('click', function () {
-		$('#error-text')[0].innerHTML = "";
 		$('#tip-text')[0].innerHTML = "";
 		getNextTask();
 		$('#btn-complete2').remove();
+		$('#btn-complete').removeClass('hidden');
 	});
 }
 
@@ -62,21 +82,6 @@ $(document).ready(function () {
 
 
 function updateTask() {
-	$('#answer')[0].innerHTML = `<div>
-					<input type="radio" id="answerInput" name="answer" value="answerInput" checked />
-					<label for="answerInput">Входная</label>
-				</div>
-				<div>
-					<input type="radio" id="answerOutput" name="answer" value="answerOutput" />
-					<label for="answerOutput">Выходная</label>
-				</div>
-				<div>
-					<input type="radio" id="answerMutable" name="answer" value="answerMutable" />
-					<label for="answerMutable">Изменяемая</label>
-				</div>
-				<div class="container-btn">
-					<button id="btn-confirm">Принять</button>
-				</div>`;
 	//TODO: придумать как будет работать подсказка в этой задачи			
 	// $('#btn-tip').on('click', function () {
 	// 	var steps = $.map($('li'), function (elementOrValue, indexOrKey) {
@@ -123,14 +128,19 @@ function updateTask() {
 	// 	});
 	// });
 
-	$('#btn-confirm').on('click', function () {
+	$('#btn-complete').on('click', function () {
 
-		var answer = $('input[name="answer"]:checked').val();
+		var answers = $("#answer input[type='radio']:checked").map(function () {
+			return {
+				var: $(this).attr('name'),
+				answer: $(this).val()
+			};
+		}).get();
+
 		var data = {
 			uid: getCookie('auth'),
 			taskId: $('#taskId')[0].value,
-			answer: answer,
-			var: $('#var')[0].value,
+			answers: answers,
 			taskInTTL: $('#taskInTTL')[0].value,
 		};
 
@@ -150,9 +160,12 @@ function updateTask() {
 				console.log(response);
 				if (!response.result) {
 					$('#error-text')[0].innerHTML = response.errorText;
-					updateBtnComplete2();
+					$('#tip-text')[0].innerHTML = "";
 				} else if (response.result) {
+					$('#error-text')[0].innerHTML = "";
 					$('#tip-text')[0].innerHTML = "Задача выполнена!";
+					$('#btn-complete').addClass('hidden');
+					$('.container-btn')[0].innerHTML += '<button id="btn-complete2">Следующая задача</button>';
 					updateBtnComplete2();
 				}
 			},
