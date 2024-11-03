@@ -92,8 +92,9 @@ public class Task1Service {
                             }}));
 
         String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId());
+        String[] steps = commonTaskService.getErrorLines(branchResultNodes, situationDomain, "step");
 
-        return new CompleteTaskResponse(errorText.isEmpty(), errorText);
+        return new CompleteTaskResponse(errorText.isEmpty(), errorText, steps);
     }
 
     public GetHintResponse getHint(GetHintRequest request) {

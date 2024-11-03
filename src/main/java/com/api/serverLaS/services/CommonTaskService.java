@@ -18,6 +18,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -117,5 +118,22 @@ public class CommonTaskService {
         if(!correctAnswer.isEmpty()) {
             solutionRepository.addCountOfHints(uid, taskId);
         }
+    }
+
+    public String[] getErrorLines(List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes, Domain situationDomain, String nameVar) {
+        ArrayList<String> lines = new ArrayList<String>();
+        int countErrors = 0;
+        for(DecisionTreeReasoner.DecisionTreeEvaluationResult branchResultNode : branchResultNodes) {
+            if(!branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null && countErrors>=4) {
+                countErrors++;
+                continue;
+            }
+            if(!branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
+                lines.add(branchResultNode.getVariablesSnapshot().get(nameVar).findIn(situationDomain).getName());
+                countErrors++;
+            }
+        }
+
+        return lines.toArray(new String[0]);
     }
 }

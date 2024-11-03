@@ -6,13 +6,16 @@ public class CompleteTaskResponse {
 
     String errorText;
 
+    String[] lines;
+
     public CompleteTaskResponse() {
 
     }
 
-    public CompleteTaskResponse(boolean result, String errorText) {
+    public CompleteTaskResponse(boolean result, String errorText, String[] lines) {
         this.result = result;
         this.errorText = errorText;
+        this.lines = lines;
     }
 
     public boolean getResult() {
@@ -21,5 +24,9 @@ public class CompleteTaskResponse {
 
     public String getErrorText() {
         return errorText;
+    }
+
+    public String[] getLines() {
+        return lines;
     }
 }
