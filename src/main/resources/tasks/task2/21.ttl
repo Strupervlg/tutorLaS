@@ -93,7 +93,7 @@
        rdfs:label "step3" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 3 ;
-       :text "3. stmt int d = 2;"^^xsd:string .
+       :text "3. int d = 2;"^^xsd:string .
 
 
 ###  poas:poas/step4
@@ -104,7 +104,7 @@
        rdfs:label "step4" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 4 ;
-       :text "4. stmt int b = 5;"^^xsd:string .
+       :text "4. int b = 5;"^^xsd:string .
 
 
 ###  poas:poas/step5
@@ -115,7 +115,7 @@
        rdfs:label "step5" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 5 ;
-       :text "5. stmt int c = b + 3;"^^xsd:string .
+       :text "5. int c = b + 3;"^^xsd:string .
 
 
 ###  poas:poas/step6
@@ -148,7 +148,7 @@
        rdfs:label "step8" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 8 ;
-       :text "8. stmt int b = 2;"^^xsd:string .
+       :text "8. int b = 2;"^^xsd:string .
 
 
 ###  poas:poas/step9
@@ -159,7 +159,7 @@
        rdfs:label "step9" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 9 ;
-       :text "9. stmt c = d + 2;"^^xsd:string .
+       :text "9. c = d + 2;"^^xsd:string .
 
 
 ###  poas:poas/step10
@@ -181,7 +181,7 @@
        rdfs:label "step11" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 11 ;
-       :text "11. stmt int a = 1;"^^xsd:string .
+       :text "11. int a = 1;"^^xsd:string .
 
 
 ###  poas:poas/step12

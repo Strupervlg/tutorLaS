@@ -101,7 +101,7 @@
                      :belongsTo :MainContext ;
                      :directlyNext :step4 ;
                      rdfs:label "step3"^^xsd:string ;
-                     :text "3. stmt int a = 5;"^^xsd:string ;
+                     :text "3. int a = 5;"^^xsd:string ;
                      :number 3 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -112,7 +112,7 @@
                      :belongsTo :ForContext ;
                      :directlyNext :step5 ;
                      rdfs:label "step4" ;
-                     :text "4. stmt int c = 0;"^^xsd:string ;
+                     :text "4. int c = 0;"^^xsd:string ;
                      :number 4 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -145,7 +145,7 @@
                      :belongsTo :ForContext ;
                      :directlyNext :step8 ;
                      rdfs:label "step7" ;
-                     :text "7. stmt int d = 3; executed 1st time"^^xsd:string ;
+                     :text "7. int d = 3; executed 1st time"^^xsd:string ;
                      :number 7 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -156,7 +156,7 @@
                      :belongsTo :ForContext ;
                      :directlyNext :step9 ;
                      rdfs:label "step8" ;
-                     :text "8. stmt int a = 2; executed 1st time"^^xsd:string ;
+                     :text "8. int a = 2; executed 1st time"^^xsd:string ;
                      :number 8 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -167,7 +167,7 @@
                      :belongsTo :ForContext ;
                      :directlyNext :step10 ;
                      rdfs:label "step9" ;
-                     :text "9. stmt d = d + c; executed 1st time"^^xsd:string ;
+                     :text "9. d = d + c; executed 1st time"^^xsd:string ;
                      :number 9 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -178,7 +178,7 @@
                       :belongsTo :ForContext ;
                       :directlyNext :step11 ;
                       rdfs:label "step10" ;
-                      :text "10. stmt c++; executed 1st time"^^xsd:string ;
+                      :text "10. c++; executed 1st time"^^xsd:string ;
                       :number 10 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -222,7 +222,7 @@
                       :belongsTo :ForContext ;
                       :directlyNext :step15 ;
                       rdfs:label "step14" ;
-                      :text "14. stmt int d = 3; executed 2nd time"^^xsd:string ;
+                      :text "14. int d = 3; executed 2nd time"^^xsd:string ;
                       :number 14 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -233,7 +233,7 @@
                       :belongsTo :ForContext ;
                       :directlyNext :step16 ;
                       rdfs:label "step15" ;
-                      :text "15. stmt int a = 2; executed 2nd time"^^xsd:string ;
+                      :text "15. int a = 2; executed 2nd time"^^xsd:string ;
                       :number 15 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -244,7 +244,7 @@
                       :belongsTo :ForContext ;
                       :directlyNext :step17 ;
                       rdfs:label "step16" ;
-                      :text "16. stmt d = d + c; executed 2nd time"^^xsd:string ;
+                      :text "16. d = d + c; executed 2nd time"^^xsd:string ;
                       :number 16 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -255,7 +255,7 @@
         :belongsTo :ForContext ;
         :directlyNext :step18 ;
         rdfs:label "step17" ;
-        :text "17. stmt c++; executed 2nd time"^^xsd:string ;
+        :text "17. c++; executed 2nd time"^^xsd:string ;
         :number 17 ;
         :isEvaluated "false"^^xsd:boolean .
 
@@ -288,7 +288,7 @@
         :belongsTo :MainContext ;
         :directlyNext :step21 ;
         rdfs:label "step20" ;
-        :text "20. stmt a += 3;"^^xsd:string ;
+        :text "20. a += 3;"^^xsd:string ;
         :number 20 ;
         :isEvaluated "false"^^xsd:boolean .
 

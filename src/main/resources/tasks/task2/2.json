@@ -13,15 +13,15 @@
 			"step": "step2"
 		},
 		{
-			"text": "<span class='action'>stmt</span> <span class='variable'>int</span> <span class='variable'>d</span> = <span class='number'>2</span>;",
+			"text": "<span class='variable'>int</span> <span class='variable'>d</span> = <span class='number'>2</span>;",
 			"step": "step3"
 		},
 		{
-			"text": "<span class='action'>stmt</span> <span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>5</span>;",
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>5</span>;",
 			"step": "step4"
 		},
 		{
-			"text": "<span class='action'>stmt</span> <span class='variable'>int</span> <span class='variable'>c</span> = <span class='variable'>b</span> + <span class='number'>3</span>;",
+			"text": "<span class='variable'>int</span> <span class='variable'>c</span> = <span class='variable'>b</span> + <span class='number'>3</span>;",
 			"step": "step5"
 		},
 		{
@@ -33,11 +33,11 @@
 			"step": "step7"
 		},
 		{
-			"text": "<span class='action'>stmt</span> <span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>2</span>;",
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>2</span>;",
 			"step": "step8"
 		},
 		{
-			"text": "<span class='action'>stmt</span> <span class='variable'>c</span> = <span class='variable'>d</span> + <span class='number'>2</span>;",
+			"text": "<span class='variable'>c</span> = <span class='variable'>d</span> + <span class='number'>2</span>;",
 			"step": "step9"
 		},
 		{
@@ -45,7 +45,7 @@
 			"step": "step10"
 		},
 		{
-			"text": "<span class='action'>stmt</span> <span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>1</span>;",
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>1</span>;",
 			"step": "step11"
 		},
 		{
