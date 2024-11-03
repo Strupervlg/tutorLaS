@@ -5,11 +5,11 @@
 	"code": "1.int main() {\n2. \tint d = 2;\n3. \tint b = 5;\n4. \tint c = b + 3;\n5. \tif(c > 5) {\n6. \t\tint b = 2;\n7. \t\tc = d + 2;\n8. \t}\n9. \tint a = 1;\n10.}",
 	"trace": [
 		{
-			"text": "<span class='program'>Программа</span> <span class='keyword'>начинается</span>",
+			"text": "<span class='program'>program</span> <span class='keyword'>began</span>",
 			"step": "step1"
 		},
 		{
-			"text": "<span class='program'>функция main</span> <span class='keyword'>начинается</span>",
+			"text": "<span class='program'>func main</span> <span class='keyword'>began</span>",
 			"step": "step2"
 		},
 		{
@@ -25,11 +25,11 @@
 			"step": "step5"
 		},
 		{
-			"text": "<span class='struct'>условие</span> <span class='variable'>c</span> > <span class='number'>5</span> <span class='keyword'>вычисляется</span> - <span class='atom'>true</span>",
+			"text": "<span class='struct'>condition</span> <span class='variable'>c</span> > <span class='number'>5</span> <span class='keyword'>evaluated</span> - <span class='atom'>true</span>",
 			"step": "step6"
 		},
 		{
-			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>начинается</span>",
+			"text": "<span class='struct'>body</span> <span class='struct'>of</span> <span class='struct'>if</span> <span class='keyword'>began</span>",
 			"step": "step7"
 		},
 		{
@@ -41,7 +41,7 @@
 			"step": "step9"
 		},
 		{
-			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>закончилось</span>",
+			"text": "<span class='struct'>body</span> <span class='struct'>of</span> <span class='struct'>if</span> <span class='keyword'>ended</span>",
 			"step": "step10"
 		},
 		{
@@ -49,11 +49,11 @@
 			"step": "step11"
 		},
 		{
-			"text": "<span class='program'>функция main</span> <span class='keyword'>закончилась</span>",
+			"text": "<span class='program'>func main</span> <span class='keyword'>ended</span>",
 			"step": "step12"
 		},
 		{
-			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"text": "<span class='program'>program</span> <span class='keyword'>ended</span>",
 			"step": "step13"
 		}
 	]
