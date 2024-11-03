@@ -150,6 +150,9 @@
 	font-weight: bold;
 }
 
+.selected:not(.incorrect):not(.correct) {
+	background-color: gainsboro;
+}
 
 /*TASK 2*/
 .code li {

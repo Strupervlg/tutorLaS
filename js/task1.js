@@ -79,11 +79,19 @@ function updateBtnComplete() {
 			data: JSON.stringify(data),
 			success: function (response) {
 				console.log(response);
+				for (let index = 0; index < $('.selected').length; index++) {
+					$('.selected')[index].classList.value = $('.selected')[index].classList.value.replace('incorrect', '');
+					$('.selected')[index].classList.value = $('.selected')[index].classList.value.replace('correct', '');
+				}
+				let incorrectsComplete = $('.incorrect-complete');
+				for (let index = 0; index < incorrectsComplete.length; index++) {
+					incorrectsComplete[index].classList.value = incorrectsComplete[index].classList.value.replace('incorrect-complete', '');
+				}
 				if (!response.result) {
 					$('#error-text')[0].innerHTML = response.errorText;
 					$('#tip-text')[0].innerHTML = "";
 					response.lines.forEach(element => {
-						$('[data-id="' + element + '"]').addClass("incorrect-complete");
+						$('[data-id="' + element + '"]').addClass('incorrect-complete');
 					});
 				} else if (response.result) {
 					$('#error-text')[0].innerHTML = "";
@@ -114,7 +122,7 @@ $(document).ready(function () {
 function updateTask() {
 	$('#btn-tip').on('click', function () {
 		var steps = $.map($('li'), function (elementOrValue, indexOrKey) {
-			if (!elementOrValue.classList.value.includes('correct')) {
+			if (!elementOrValue.classList.value.includes('selected')) {
 				return elementOrValue.dataset.id;
 			}
 		});
@@ -139,12 +147,20 @@ function updateTask() {
 			data: JSON.stringify(data),
 			success: function (response) {
 				console.log(response);
+				for (let index = 0; index < $('.selected').length; index++) {
+					$('.selected')[index].classList.value = $('.selected')[index].classList.value.replace('incorrect', '');
+					$('.selected')[index].classList.value = $('.selected')[index].classList.value.replace('correct', '');
+				}
+				let incorrectsComplete = $('.incorrect-complete');
+				for (let index = 0; index < incorrectsComplete.length; index++) {
+					incorrectsComplete[index].classList.value = incorrectsComplete[index].classList.value.replace('incorrect-complete', '');
+				}
 				if (response.step == "") {
 					$('#tip-text')[0].innerHTML = "Вы выбрали все правильные варианты ответов, пожалуйста, завершите задание и перейдите к следующей задаче.";
 					$('#error-text')[0].innerHTML = "";
 
 				} else if (response.step != "") {
-					$('[data-id="' + response.step + '"]').addClass("correct");
+					$('[data-id="' + response.step + '"]').addClass('correct').addClass('selected');
 					$('#taskInTTL')[0].value = response.taskInTTL;
 					$('#tip-text')[0].innerHTML = response.hint;
 					$('#error-text')[0].innerHTML = "";
@@ -181,12 +197,20 @@ function updateTask() {
 			data: JSON.stringify(data),
 			success: function (response) {
 				console.log(response);
-				if (!response.result && !$('[data-id="' + answer + '"]').hasClass("incorrect")) {
-					$('[data-id="' + answer + '"]').addClass("incorrect");
+				for (let index = 0; index < $('.selected').length; index++) {
+					$('.selected')[index].classList.value = $('.selected')[index].classList.value.replace('incorrect', '');
+					$('.selected')[index].classList.value = $('.selected')[index].classList.value.replace('correct', '');
+				}
+				let incorrectsComplete = $('.incorrect-complete');
+				for (let index = 0; index < incorrectsComplete.length; index++) {
+					incorrectsComplete[index].classList.value = incorrectsComplete[index].classList.value.replace('incorrect-complete', '');
+				}
+				if (!response.result && !$('[data-id="' + answer + '"]').hasClass('selected')) {
+					$('[data-id="' + answer + '"]').addClass('incorrect').addClass('selected');
 					$('#error-text')[0].innerHTML = response.errorText;
 					$('#tip-text')[0].innerHTML = "";
-				} else if (response.result && !$('[data-id="' + answer + '"]').hasClass("correct")) {
-					$('[data-id="' + answer + '"]').addClass("correct");
+				} else if (response.result && !$('[data-id="' + answer + '"]').hasClass('selected')) {
+					$('[data-id="' + answer + '"]').addClass('correct').addClass('selected');
 					$('#error-text')[0].innerHTML = "";
 					$('#tip-text')[0].innerHTML = "";
 				}
