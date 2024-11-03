@@ -46,7 +46,7 @@
                                    :Context ;
                           :endsIn :step19 ;
                           rdfs:label "ForContext" ;
-                          :text "for" .
+                          :text "тела for" .
 
 
 ###  poas:poas/MainContext
@@ -54,7 +54,7 @@
                                     :Context ;
                            :endsIn :step21 ;
                            rdfs:label "MainContext" ;
-                           :text "main" .
+                           :text "функции main" .
 
 
 ###  poas:poas/GlobalContext

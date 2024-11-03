@@ -36,7 +36,7 @@
                     :Context ;
            :endsIn :step10 ;
            rdfs:label "IfContext" ;
-           :text "if" .
+           :text "тела if" .
 
 
 ###  poas:poas/MainContext
@@ -44,7 +44,7 @@
                       :Context ;
              :endsIn :step12 ;
              rdfs:label "MainContext" ;
-             :text "main" .
+             :text "функции main" .
 
 
 ###  poas:poas/GlobalContext
