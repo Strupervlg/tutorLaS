@@ -79,7 +79,9 @@ function updateBtnComplete() {
 				if (!response.result) {
 					$('#error-text')[0].innerHTML = response.errorText;
 					$('#tip-text')[0].innerHTML = "";
-
+					response.lines.forEach(element => {
+						$('[data-id="' + element + '"]').addClass("incorrect-complete");
+					});
 				} else if (response.result) {
 					$('#error-text')[0].innerHTML = "";
 					$('#tip-text')[0].innerHTML = "Задача выполнена!";

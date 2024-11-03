@@ -59,6 +59,12 @@
 	background-color: red;
 }
 
+.trace li.incorrect-complete {
+	border: solid;
+	border-width: 2px;
+	border-color: red;
+}
+
 .program {
 	font-size: 16px;
 }
@@ -172,6 +178,12 @@
 
 .code li.incorrect[data-id]:not([data-id=""]) {
 	background-color: red;
+}
+
+.code li.incorrect-complete[data-id]:not([data-id=""]) {
+	border: solid;
+	border-width: 2px;
+	border-color: red;
 }
 
 .mono {
