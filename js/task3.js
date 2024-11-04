@@ -1,16 +1,10 @@
 function getNextTask() {
-	let answers = `<div>
-					<input type="radio" id="answerInput-tempVar" name="tempVar" value="answerInput" checked />
-					<label for="answerInput-tempVar">Входная</label>
-				</div>
-				<div>
-					<input type="radio" id="answerOutput-tempVar" name="tempVar" value="answerOutput" />
-					<label for="answerOutput-tempVar">Выходная</label>
-				</div>
-				<div>
-					<input type="radio" id="answerMutable-tempVar" name="tempVar" value="answerMutable" />
-					<label for="answerMutable-tempVar">Изменяемая</label>
-				</div>`;
+	let answers = `<select name="tempVar">
+					<option value="">Не указано</option>
+					<option value="answerInput">Входная</option>
+					<option value="answerOutput">Выходная</option>
+					<option value="answerMutable">Изменяемая</option>
+				</select>`;
 
 	var data = {
 		uid: getCookie('auth')
@@ -129,14 +123,22 @@ function updateTask() {
 	// });
 
 	$('#btn-complete').on('click', function () {
-
-		var answers = $("#answer input[type='radio']:checked").map(function () {
+		let isEmptyAnswer = false
+		var answers = $("#answer select").map(function () {
+			if ($(this).val() == '') {
+				isEmptyAnswer = true;
+			}
 			return {
 				var: $(this).attr('name'),
 				answer: $(this).val()
 			};
 		}).get();
 
+		if (isEmptyAnswer) {
+			$('#error-text')[0].innerHTML = "Не все переменные выбраны";
+			$('#tip-text')[0].innerHTML = "";
+			return;
+		}
 		var data = {
 			uid: getCookie('auth'),
 			taskId: $('#taskId')[0].value,
@@ -173,5 +175,52 @@ function updateTask() {
 				console.error('Ошибка запроса:', error);
 			}
 		});
+	});
+
+	onSelectChange();
+}
+
+function onSelectChange() {
+	$('select').change(function () {
+		console.log($(this).val())
+		if ($(this).val() == "") {
+			$('#error-text')[0].innerHTML = "";
+			$('#tip-text')[0].innerHTML = "";
+			return;
+		}
+		var data = {
+			uid: getCookie('auth'),
+			taskId: $('#taskId')[0].value,
+			answers: [{ var: $(this).attr('name'), answer: $(this).val() }],
+			taskInTTL: $('#taskInTTL')[0].value,
+		};
+
+		console.log(data);
+
+		$.ajax({
+			type: 'POST',
+			headers: {
+				'Accept': '*/*',
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*'
+			},
+			dataType: "json",
+			url: serverUrl + '/task-3/check-answer',
+			data: JSON.stringify(data),
+			success: function (response) {
+				console.log(response);
+				if (!response.result) {
+					$('#error-text')[0].innerHTML = response.errorText;
+					$('#tip-text')[0].innerHTML = "";
+				} else if (response.result) {
+					$('#error-text')[0].innerHTML = "";
+					$('#tip-text')[0].innerHTML = "Правильно!";
+				}
+			},
+			error: function (xhr, status, error) {
+				console.error('Ошибка запроса:', error);
+			}
+		});
+
 	});
 }
