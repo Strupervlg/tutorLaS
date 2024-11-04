@@ -2,12 +2,13 @@ package com.api.serverLaS.services;
 
 import com.api.serverLaS.data.NextTaskData;
 import com.api.serverLaS.data.Task3Data;
-import com.api.serverLaS.repositories.SolutionRepository;
 import com.api.serverLaS.requests.GetNextTaskRequest;
 import com.api.serverLaS.requests.task3.AnswerDataRequest;
 import com.api.serverLaS.requests.task3.CheckAnswerRequest;
+import com.api.serverLaS.requests.task3.GetHintRequest;
 import com.api.serverLaS.response.CheckAnswerResponse;
 import com.api.serverLaS.response.GetNextTaskResponse;
+import com.api.serverLaS.response.task3.GetHintResponse;
 import its.model.DomainSolvingModel;
 import its.model.definition.Domain;
 import its.model.definition.ObjectRef;
@@ -27,10 +28,10 @@ import java.util.*;
 public class Task3Service {
 
     @Autowired
-    private SolutionRepository solutionRepository;
+    public CommonTaskService commonTaskService;
 
     @Autowired
-    public CommonTaskService commonTaskService;
+    public UtilService utilService;
 
     public DomainSolvingModel model = new DomainSolvingModel(
 				this.getClass().getClassLoader().getResource("Task3/"),
@@ -66,46 +67,67 @@ public class Task3Service {
         return new CheckAnswerResponse(errorText.isEmpty(), errorText, stringWriter.toString());
     }
 
-//    public GetHintResponse getHint(GetHintRequest request) {
-//        Domain situationDomain = this.model.getDomain().copy();
-//        DomainRDFFiller.fillDomain(situationDomain,
-//                ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
-//                Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
-//                null);
-//
-//        situationDomain.validateAndThrow();
-//        String correctStep = "";
-//        for(String step : request.getSteps()) {
-//            LearningSituation situation = new LearningSituation(situationDomain,
-//                    new HashMap<>(Map.of(
-//                            "stepVar", new ObjectRef(request.getStepVar()),
-//                            "step", new ObjectRef(step),
-//                            "var", new ObjectRef(request.getVar())
-//                    ))
-//            );
-//            boolean answer = DecisionTreeReasoner.getAnswer(model.getDecisionTree().getMainBranch(), situation);
-//            if(answer) {
-//                correctStep = step;
-//                break;
-//            }
-//        }
-//
-//        if(!solutionRepository.hasSolution(request.getUid(), request.getTaskId())) {
-//            solutionRepository.create(request.getUid(), request.getTaskId());
-//        }
-//
-//        if(!correctStep.isEmpty()) {
-//            solutionRepository.addCountOfHints(request.getUid(), request.getTaskId());
-//        }
-//
-//        StringWriter stringWriter = new StringWriter();
-//        DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
-//        return new GetHintResponse(correctStep, stringWriter.toString());
-//    }
+    public GetHintResponse getHint(GetHintRequest request) {
+        String[] possibleAnswers = new String[]{"answerInput", "answerOutput", "answerMutable"};
+        String correctAnswer = "";
+        String hintText = "";
+        Domain situationDomain = this.model.getDomain().copy();
+        for(AnswerDataRequest userAnswer : request.getAnswers()) {
+            for(String answer : possibleAnswers) {
+                Domain newSituationDomain = situationDomain.copy();
+                DomainRDFFiller.fillDomain(newSituationDomain,
+                        ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
+                        Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
+                        null);
+                if(userAnswer.getAnswer().equals(answer)) {
+                    continue;
+                }
+                LearningSituation situation = new LearningSituation(newSituationDomain,
+                        new HashMap<>(Map.of(
+                                "answer", new ObjectRef(answer),
+                                "var", new ObjectRef(userAnswer.getVar())
+                        ))
+                );
+                List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+                Collections.reverse(branchResultNodes);
+                hintText = this.generateHintText(branchResultNodes, newSituationDomain);
+                if(!hintText.isEmpty()) {
+                    correctAnswer = answer;
+                    break;
+                }
+            }
+            if(!correctAnswer.isEmpty()) {
+                break;
+            }
+        }
+
+        commonTaskService.addCountOfHintsToDB(correctAnswer, request.getUid(), request.getTaskId());
+
+        StringWriter stringWriter = new StringWriter();
+        DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of(DomainRDFWriter.Option.NARY_RELATIONSHIPS_OLD_COMPAT));
+        return new GetHintResponse(hintText, stringWriter.toString());
+    }
 
     public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {
         NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 3);
 
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task3Data.fromJson(data.getTask()) : data.getTask());
+    }
+
+    public String generateHintText(List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes, Domain situationDomain) {
+        String hintText = "";
+        boolean isError = false;
+        for(DecisionTreeReasoner.DecisionTreeEvaluationResult branchResultNode : branchResultNodes) {
+            if (!branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
+                isError = true;
+                break;
+            } else if (branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
+                hintText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";
+            }
+        }
+        if (isError) {
+            return "";
+        }
+        return hintText;
     }
 }

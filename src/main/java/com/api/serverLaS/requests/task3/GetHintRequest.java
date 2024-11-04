@@ -4,21 +4,18 @@ public class GetHintRequest {
 
     private String uid;
 
-    private String[] answers;
+    private AnswerDataRequest[] answers;
 
     private String taskInTTL;
-
-    private String var;
 
     private int taskId;
 
     public GetHintRequest() {}
 
-    public GetHintRequest(String uid, String[] answers, String taskInTTL, String var, int taskId) {
+    public GetHintRequest(String uid, AnswerDataRequest[] answers, String taskInTTL, int taskId) {
         this.uid = uid;
         this.answers = answers;
         this.taskInTTL = taskInTTL;
-        this.var = var;
         this.taskId = taskId;
     }
 
@@ -26,7 +23,7 @@ public class GetHintRequest {
         return uid;
     }
 
-    public String[] getAnswers() {
+    public AnswerDataRequest[] getAnswers() {
         return answers;
     }
 
@@ -37,9 +34,5 @@ public class GetHintRequest {
 
     public int getTaskId() {
         return taskId;
-    }
-
-    public String getVar() {
-        return var;
     }
 }

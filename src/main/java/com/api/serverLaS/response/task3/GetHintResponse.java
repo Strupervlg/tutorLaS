@@ -2,7 +2,7 @@ package com.api.serverLaS.response.task3;
 
 public class GetHintResponse {
 
-    String step;
+    String hint;
 
     String taskInTTL;
 
@@ -10,13 +10,13 @@ public class GetHintResponse {
 
     }
 
-    public GetHintResponse(String step, String taskInTTL) {
-        this.step = step;
+    public GetHintResponse(String hint, String taskInTTL) {
+        this.hint = hint;
         this.taskInTTL = taskInTTL;
     }
 
-    public String getStep() {
-        return step;
+    public String getHint() {
+        return hint;
     }
 
     public String getTaskInTTL() {
