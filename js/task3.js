@@ -76,51 +76,47 @@ $(document).ready(function () {
 
 
 function updateTask() {
-	//TODO: придумать как будет работать подсказка в этой задачи			
-	// $('#btn-tip').on('click', function () {
-	// 	var steps = $.map($('li'), function (elementOrValue, indexOrKey) {
-	// 		if (!elementOrValue.classList.value.includes('correct')) {
-	// 			return elementOrValue.dataset.id;
-	// 		}
-	// 	});
-	// 	var data = {
-	// 		uid: getCookie('auth'),
-	// 		taskId: $('#taskId')[0].value,
-	// 		stepVar: $('#stepVar')[0].value,
-	// 		var: $('#var')[0].value,
-	// 		steps: steps,
-	// 		taskInTTL: $('#taskInTTL')[0].value,
-	// 	};
+	$('#btn-tip').on('click', function () {
+		var answers = $("#answer select").map(function () {
+			return {
+				var: $(this).attr('name'),
+				answer: $(this).val()
+			};
+		}).get();
 
-	// 	$.ajax({
-	// 		type: 'POST',
-	// 		headers: {
-	// 			'Accept': '*/*',
-	// 			'Content-Type': 'application/json',
-	// 			'Access-Control-Allow-Origin': '*'
-	// 		},
-	// 		dataType: "json",
-	// 		url: serverUrl + '/task-3/get-hint',
-	// 		data: JSON.stringify(data),
-	// 		success: function (response) {
-	// 			console.log(response);
-	// 			if (response.step == "") {
-	// 				$('#tip-text')[0].innerHTML = "Вы выбрали все правильные варианты ответов, пожалуйста, завершите задание и перейдите к следующей задаче.";
-	// 				$('#error-text')[0].innerHTML = "";
+		var data = {
+			uid: getCookie('auth'),
+			taskId: $('#taskId')[0].value,
+			answers: answers,
+			taskInTTL: $('#taskInTTL')[0].value,
+		};
 
-	// 			} else if (response.step != "") {
-	// 				$('[data-id="' + response.step + '"]').addClass("correct");
-	// 				$('#taskInTTL')[0].value = response.taskInTTL;
-	// 				$('#tip-text')[0].innerHTML = "Следующая правильная строка - номер " + response.step.replace("step", "");
-	// 				$('#error-text')[0].innerHTML = "";
-	// 			}
+		$.ajax({
+			type: 'POST',
+			headers: {
+				'Accept': '*/*',
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*'
+			},
+			dataType: "json",
+			url: serverUrl + '/task-3/get-hint',
+			data: JSON.stringify(data),
+			success: function (response) {
+				console.log(response);
+				if (response.hint == "") {
+					$('#tip-text')[0].innerHTML = "Вы выбрали все правильные варианты ответов, пожалуйста, завершите задание и перейдите к следующей задаче.";
+					$('#error-text')[0].innerHTML = "";
+				} else if (response.hint != "") {
+					$('#tip-text')[0].innerHTML = response.hint;
+					$('#error-text')[0].innerHTML = "";
+				}
 
-	// 		},
-	// 		error: function (xhr, status, error) {
-	// 			console.error('Ошибка запроса:', error);
-	// 		}
-	// 	});
-	// });
+			},
+			error: function (xhr, status, error) {
+				console.error('Ошибка запроса:', error);
+			}
+		});
+	});
 
 	$('#btn-complete').on('click', function () {
 		let isEmptyAnswer = false
