@@ -17,9 +17,9 @@ public class UtilService {
             "positionExpression:right", "правым",
             "positionExpression:left", "левым",
             "positionExpression:center", "центральным",
-            "typeVariable:input", "входная",
-            "typeVariable:output", "выходная",
-            "typeVariable:mutable", "изменяемая"
+            "typeVariable:input", "входной",
+            "typeVariable:output", "выходной",
+            "typeVariable:mutable", "изменяемой"
     );
 
     public String generateMessage(String template, Map<String, ObjectRef> situation, Domain domain) {

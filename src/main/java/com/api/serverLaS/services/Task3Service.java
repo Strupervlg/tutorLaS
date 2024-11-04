@@ -57,6 +57,7 @@ public class Task3Service {
             );
 
             List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+            Collections.reverse(branchResultNodes);
             errorText += commonTaskService.generateErrorText(branchResultNodes, newSituationDomain, request.getUid(), request.getTaskId());
         }
 
