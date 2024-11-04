@@ -526,7 +526,8 @@
                  :LocalPrefix ;
         :end :dToken2 ;
         rdfs:label "prefix" ;
-        :hasNamedContext "true"^^xsd:boolean .
+        :hasNamedContext "true"^^xsd:boolean ;
+        :name "c::d::"^^xsd:string .
 
 :oBdgtzwe
 	:contextRelation :internal ;
