@@ -1,3 +1,4 @@
+nextTask = false;
 function getNextTask() {
 	let answers = `<select name="tempVar">
 					<option value="">Не указано</option>
@@ -59,6 +60,7 @@ function getNextTask() {
 
 function updateBtnComplete2() {
 	$('#btn-complete2').on('click', function () {
+		nextTask = false;
 		$('#tip-text')[0].innerHTML = "";
 		getNextTask();
 		$('#btn-complete2').remove();
@@ -77,6 +79,9 @@ $(document).ready(function () {
 
 function updateTask() {
 	$('#btn-tip').on('click', function () {
+		if (nextTask) {
+			return;
+		}
 		var answers = $("#answer select").map(function () {
 			return {
 				var: $(this).attr('name'),
@@ -164,6 +169,7 @@ function updateTask() {
 					$('#tip-text')[0].innerHTML = "Задача выполнена!";
 					$('#btn-complete').addClass('hidden');
 					$('.container-btn')[0].innerHTML += '<button id="btn-complete2">Следующая задача</button>';
+					nextTask = true;
 					updateBtnComplete2();
 				}
 			},
@@ -178,6 +184,9 @@ function updateTask() {
 
 function onSelectChange() {
 	$('select').change(function () {
+		if (nextTask) {
+			return;
+		}
 		console.log($(this).val())
 		if ($(this).val() == "") {
 			$('#error-text')[0].innerHTML = "";

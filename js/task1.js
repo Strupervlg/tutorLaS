@@ -1,3 +1,4 @@
+nextTask = false;
 function getNextTask() {
 	var data = {
 		uid: getCookie('auth')
@@ -47,6 +48,7 @@ function getNextTask() {
 
 function updateBtnComplete2() {
 	$('#btn-complete2').on('click', function () {
+		nextTask = false;
 		$('#tip-text')[0].innerHTML = "";
 		getNextTask();
 		$('#btn-complete2').remove();
@@ -98,6 +100,7 @@ function updateBtnComplete() {
 					$('#tip-text')[0].innerHTML = "Задача выполнена!";
 					$('#btn-complete').addClass('hidden');
 					$('.container-btn')[0].innerHTML += '<button id="btn-complete2">Следующая задача</button>';
+					nextTask = true;
 					updateBtnComplete2();
 				}
 
@@ -121,6 +124,9 @@ $(document).ready(function () {
 
 function updateTask() {
 	$('#btn-tip').on('click', function () {
+		if (nextTask) {
+			return;
+		}
 		var steps = $.map($('li'), function (elementOrValue, indexOrKey) {
 			if (!elementOrValue.classList.value.includes('selected')) {
 				return elementOrValue.dataset.id;
@@ -173,6 +179,9 @@ function updateTask() {
 		});
 	});
 	$('.trace li').on('click', function () {
+		if (nextTask) {
+			return;
+		}
 		var answer = $(this).attr('data-id');
 		var data = {
 			uid: getCookie('auth'),
