@@ -18,7 +18,7 @@ function getNextTask() {
 				$('#taskInTTL')[0].value = response.taskInTTL;
 				$('#stepVar')[0].value = response.task.stepVar;
 				$('#var')[0].value = response.task.var;
-				$('#editor')[0].innerHTML = Prism.highlight(response.task.code, Prism.languages.c, 'c');
+				$('#editor')[0].innerHTML = Prism.highlight(response.task.code, Prism.languages.cpp, 'cpp');
 				$('#question')[0].innerHTML = response.task.question;
 				$('#trace')[0].innerHTML = '';
 				response.task.trace.forEach(element => {
