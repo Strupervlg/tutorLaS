@@ -38,9 +38,17 @@ public class DatabaseService {
     }
 
     public void fillDatabase() {
+        jdbcTemplate.execute("DELETE FROM sections");
+        jdbcTemplate.execute("UPDATE SQLITE_SEQUENCE SET seq = 0 WHERE name = 'sections'");
+        jdbcTemplate.execute("DELETE FROM tasks");
+        jdbcTemplate.execute("UPDATE SQLITE_SEQUENCE SET seq = 0 WHERE name = 'tasks'");
+        jdbcTemplate.execute("DELETE FROM users");
+        jdbcTemplate.execute("UPDATE SQLITE_SEQUENCE SET seq = 0 WHERE name = 'users'");
+
         jdbcTemplate.execute("INSERT INTO sections (name) VALUES ('Lifetime')");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '11.ttl', '1.json', 1)");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task2', '21.ttl', '2.json', 1)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task3', '31.ttl', '3.json', 1)");
 
         jdbcTemplate.execute("INSERT INTO sections (name) VALUES ('Scope')");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task21', '11.ttl', '1.json', 2)");
