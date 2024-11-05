@@ -1,0 +1,44 @@
+{
+	"question": "В каких строках трассы существует переменная \"b\" из 6 строки программы?",
+	"stepVar": "step3",
+	"var": "VariableB",
+	"code": "1.bool test() {\n2.\tint c = 2;\n3.\tstd::cout << c;\n4.\treturn false;\n5.}\n6.int b = 0;\n7.int main() {\n8.\tint b = 3;\n9.\tstd::cout << b;\n10.\tint a = 4;\n11.}",
+	"trace": [
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>начинается</span>",
+			"step": "step1"
+		},
+		{
+			"text": "<span class='program'>функция test</span> <span class='keyword'>объявляется</span>",
+			"step": "step2"
+		},
+		{
+			"text": "<span class='variable'>int b</span> = <span class='number'>0</span>;",
+			"step": "step3"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>начинается</span>",
+			"step": "step4"
+		},
+		{
+			"text": "<span class='variable'>int b</span> = <span class='number'>3</span>;",
+			"step": "step5"
+		},
+		{
+			"text": "<span class='program'>std</span>::<span class='program'>cout</span> << <span class='variable'>b</span>;",
+			"step": "step6"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>4</span>;",
+			"step": "step7"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>закончилась</span>",
+			"step": "step8"
+		},
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"step": "step9"
+		}
+	]
+}

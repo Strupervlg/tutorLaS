@@ -34,13 +34,14 @@
 ###  poas:poas/GlobalContext
 :GlobalContext rdf:type owl:NamedIndividual ,
                         :Context ;
+               :endsIn :step9 ;
                rdfs:label "GlobalContext" .
 
 
 ###  poas:poas/MainContext
 :MainContext rdf:type owl:NamedIndividual ,
                       :Context ;
-             :endsIn :step7 ;
+             :endsIn :step8 ;
              rdfs:label "MainContext" .
 
 
@@ -52,7 +53,6 @@
            :isStatic "false"^^xsd:boolean ;
            :text "b"^^xsd:string .
 
-
 ###  poas:poas/step1
 :step1 rdf:type owl:NamedIndividual ,
                 :Step ;
@@ -60,8 +60,8 @@
        :directlyNext :step2 ;
        rdfs:label "step1" ;
        :isEvaluated "false"^^xsd:boolean ;
-       :text "1. определение функции test"^^xsd:string .
-
+       :number 1 ;
+       :text "1. program began"^^xsd:string .
 
 ###  poas:poas/step2
 :step2 rdf:type owl:NamedIndividual ,
@@ -70,17 +70,19 @@
        :directlyNext :step3 ;
        rdfs:label "step2" ;
        :isEvaluated "false"^^xsd:boolean ;
-       :text "2. объявление глобальной переменной b и присвоение ей числа 0"^^xsd:string .
+       :number 2 ;
+       :text "2. определение функции test"^^xsd:string .
 
 
 ###  poas:poas/step3
 :step3 rdf:type owl:NamedIndividual ,
                 :Step ;
-       :belongsTo :MainContext ;
+       :belongsTo :GlobalContext ;
        :directlyNext :step4 ;
        rdfs:label "step3" ;
        :isEvaluated "false"^^xsd:boolean ;
-       :text "3. начало функции main"^^xsd:string .
+       :number 3 ;
+       :text "3. объявление глобальной переменной b и присвоение ей числа 0"^^xsd:string .
 
 
 ###  poas:poas/step4
@@ -90,7 +92,8 @@
        :directlyNext :step5 ;
        rdfs:label "step4" ;
        :isEvaluated "false"^^xsd:boolean ;
-       :text "4. объявление переменной b и присвоение ей числа 3"^^xsd:string .
+       :number 4 ;
+       :text "4. начало функции main"^^xsd:string .
 
 
 ###  poas:poas/step5
@@ -100,7 +103,8 @@
        :directlyNext :step6 ;
        rdfs:label "step5" ;
        :isEvaluated "false"^^xsd:boolean ;
-       :text "5. вывод значения переменной b"^^xsd:string .
+       :number 5 ;
+       :text "5. объявление переменной b и присвоение ей числа 3"^^xsd:string .
 
 
 ###  poas:poas/step6
@@ -110,13 +114,36 @@
        :directlyNext :step7 ;
        rdfs:label "step6" ;
        :isEvaluated "false"^^xsd:boolean ;
-       :text "6. объявление переменной a и присвоение ей числа 4"^^xsd:string .
+       :number 6 ;
+       :text "6. вывод значения переменной b"^^xsd:string .
 
 
 ###  poas:poas/step7
 :step7 rdf:type owl:NamedIndividual ,
                 :Step ;
        :belongsTo :MainContext ;
+       :directlyNext :step8 ;
        rdfs:label "step7" ;
        :isEvaluated "false"^^xsd:boolean ;
-       :text "7. конец функции main"^^xsd:string .
+       :number 7 ;
+       :text "7. объявление переменной a и присвоение ей числа 4"^^xsd:string .
+
+
+###  poas:poas/step8
+:step8 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step9 ;
+       rdfs:label "step8" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 8 ;
+       :text "8. конец функции main"^^xsd:string .
+
+###  poas:poas/step9
+:step9 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :GlobalContext ;
+       rdfs:label "step9" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 9 ;
+       :text "9. program ended"^^xsd:string .
