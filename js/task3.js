@@ -199,7 +199,7 @@ function onSelectChange() {
 			answers: [{ var: $(this).attr('name'), answer: $(this).val() }],
 			taskInTTL: $('#taskInTTL')[0].value,
 		};
-
+		let thisSelect = $(this);
 		console.log(data);
 
 		$.ajax({
@@ -215,11 +215,15 @@ function onSelectChange() {
 			success: function (response) {
 				console.log(response);
 				if (!response.result) {
+					thisSelect.removeClass('correct');
+					thisSelect.addClass('incorrect');
 					$('#error-text')[0].innerHTML = response.errorText;
 					$('#tip-text')[0].innerHTML = "";
 				} else if (response.result) {
+					thisSelect.removeClass('incorrect');
+					thisSelect.addClass('correct');
 					$('#error-text')[0].innerHTML = "";
-					$('#tip-text')[0].innerHTML = "Правильно!";
+					$('#tip-text')[0].innerHTML = "";
 				}
 			},
 			error: function (xhr, status, error) {

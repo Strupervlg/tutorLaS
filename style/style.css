@@ -96,14 +96,14 @@
 
 .error-text {
 	color: red;
-	text-align: center;
+	/* text-align: center; */
 	font-size: 20px;
 	margin-top: 60px;
 }
 
 .tip-text {
 	color: green;
-	text-align: center;
+	/* text-align: center; */
 	font-size: 20px;
 	margin-top: 60px;
 }
@@ -196,4 +196,20 @@
 /*TASK 3*/
 .expression {
 	display: flex;
+}
+
+select:focus {
+	outline: none;
+}
+
+select.correct {
+	border: solid;
+	border-color: lime;
+	border-width: 2px;
+}
+
+select.incorrect {
+	border: solid;
+	border-color: red;
+	border-width: 2px;
 }
