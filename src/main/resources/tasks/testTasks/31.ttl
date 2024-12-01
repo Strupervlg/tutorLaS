@@ -1,0 +1,74 @@
+@prefix : <poas:poas/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# v = d - c * d
+
+:varV1 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 1 ;
+       :name "v"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varAssign2 ;
+       rdfs:label "varV1" .
+
+:varAssign2 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 2 ;
+       :operatorType :assign ;
+       rdfs:label "varAssign2" .
+
+:varD3 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 3 ;
+       :name "d"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varMinus4 ;
+       rdfs:label "varD3" .
+
+:varMinus4 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 4 ;
+       :parent :varAssign2 ;
+       :operatorType :minus ;
+       rdfs:label "varMinus4" .
+
+:varC5 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 5 ;
+       :name "c"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varMul6 ;
+       rdfs:label "varC5" .
+
+:varMul6 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 6 ;
+       :parent :varMinus4 ;
+       :operatorType :mul ;
+       rdfs:label "varMul6" .
+
+:varD7 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 7 ;
+       :name "d"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varMul6 ;
+       rdfs:label "varD7" .
+
+
+# Answers
+:answerInput rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :input .
+
+:answerOutput rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :output .
+
+:answerMutable rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :mutable .

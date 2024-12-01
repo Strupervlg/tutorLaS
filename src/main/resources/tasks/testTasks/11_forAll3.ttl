@@ -1,0 +1,314 @@
+@prefix : <poas:poas/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Код на C++
+# void main() {
+#     int a = 5;
+#     for (int c = 0; c < 2; c++) {
+#         int d = 3;
+#         int a = 2;
+#         d = d + c;
+#     }
+#     a += 3;
+# }
+#
+# Трасса
+# Условие задачи переменная a из 2 строки программы
+#
+# 1. начало функции main
+#     2. объявление переменной a и присвоение ему числа 5
+#     3. объявление переменной c и присвоение ему числа 0
+#     4. проверка что переменная c меньше двух (истина)
+#     5. начало первой итерации цикла
+#         6. объявление переменной d и присвоение ему числа 3
+#         7. объявление переменной a и присвоение ему числа 2
+#         8. присвоение переменной d результата суммы d и c
+#         9. инкрементирование переменной с
+#     10. конец первой итерации цикла
+#     11. проверка что переменная c меньше двух (истина)
+#     12. начало второй итерации цикла
+#         13. объявление переменной d и присвоение ему числа 3
+#         14. объявление переменной a и присвоение ему числа 2
+#         15. присвоение переменной d результата суммы d и c
+#         16. инкрементирование переменной с
+#     17. конец второй итерации цикла
+#     18. проверка что переменная c меньше двух (ложь)
+#     19. присвоение переменной суммы переменной a и 3
+# 20. конец функции main
+
+
+###  poas:poas/ForContext
+:ForContext rdf:type owl:NamedIndividual ,
+                                   :Context ;
+                          :endsIn :step19 ;
+                          rdfs:label "ForContext" ;
+                          :text "тела for" .
+
+
+###  poas:poas/MainContext
+:MainContext rdf:type owl:NamedIndividual ,
+                                    :Context ;
+                           :endsIn :step21 ;
+                           rdfs:label "MainContext" ;
+                           :text "функции main" .
+
+
+###  poas:poas/GlobalContext
+:GlobalContext rdf:type owl:NamedIndividual ,
+                                    :Context ;
+                           :endsIn :step22 ;
+                           rdfs:label "GlobalContext" .
+
+
+###  poas:poas/VariableA
+:VariableA rdf:type owl:NamedIndividual ,
+                                  :Variable ;
+                         rdfs:label "VariableA" ;
+                         :isGlobal "false"^^xsd:boolean ;
+                         :isStatic "false"^^xsd:boolean ;
+                         :text "a"^^xsd:string .
+
+
+###  poas:poas/step1
+:step1 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :GlobalContext ;
+                     :directlyNext :step2 ;
+                     rdfs:label "step1" ;
+                     :text "1. program began"^^xsd:string ;
+                     :number 1 ;
+                     :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step2
+:step2 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :MainContext ;
+                     :directlyNext :step3 ;
+                     rdfs:label "step2" ;
+                     :text "2. func main began"^^xsd:string ;
+                     :number 2 ;
+                     :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step3
+:step3 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :MainContext ;
+                     :directlyNext :step4 ;
+                     rdfs:label "step3"^^xsd:string ;
+                     :text "3. int a = 5;"^^xsd:string ;
+                     :number 3 ;
+                     :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step4
+:step4 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :ForContext ;
+                     :directlyNext :step5 ;
+                     rdfs:label "step4" ;
+                     :text "4. int c = 0;"^^xsd:string ;
+                     :number 4 ;
+                     :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step5
+:step5 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :ForContext ;
+                     :directlyNext :step6 ;
+                     rdfs:label "step5" ;
+                     :text "5. condition c < 2 evaluated 1st time - true"^^xsd:string ;
+                     :number 5 ;
+                     :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step6
+:step6 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :ForContext ;
+                     :directlyNext :step7 ;
+                     rdfs:label "step6" ;
+                     :text "6. iteration 1 of loop began"^^xsd:string ;
+                     :number 6 ;
+                     :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step7
+:step7 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :ForContext ;
+                     :directlyNext :step8 ;
+                     rdfs:label "step7" ;
+                     :text "7. int d = 3; executed 1st time"^^xsd:string ;
+                     :number 7 ;
+                     :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step8
+:step8 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :ForContext ;
+                     :directlyNext :step9 ;
+                     rdfs:label "step8" ;
+                     :text "8. int a = 2; executed 1st time"^^xsd:string ;
+                     :number 8 ;
+                     :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step9
+:step9 rdf:type owl:NamedIndividual ,
+                              :Step ;
+                     :belongsTo :ForContext ;
+                     :directlyNext :step10 ;
+                     rdfs:label "step9" ;
+                     :text "9. d = d + c; executed 1st time"^^xsd:string ;
+                     :number 9 ;
+                     :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step10
+:step10 rdf:type owl:NamedIndividual ,
+                               :Step ;
+                      :belongsTo :ForContext ;
+                      :directlyNext :step11 ;
+                      rdfs:label "step10" ;
+                      :text "10. c++; executed 1st time"^^xsd:string ;
+                      :number 10 ;
+                      :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step11
+:step11 rdf:type owl:NamedIndividual ,
+                               :Step ;
+                      :belongsTo :ForContext ;
+                      :directlyNext :step12 ;
+                      rdfs:label "step11" ;
+                      :text "11. iteration 1 of loop ended"^^xsd:string ;
+                      :number 11 ;
+                      :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step12
+:step12 rdf:type owl:NamedIndividual ,
+                               :Step ;
+                      :belongsTo :ForContext ;
+                      :directlyNext :step13 ;
+                      rdfs:label "step12" ;
+                      :text "12. condition c < 2 evaluated 2nd time - true"^^xsd:string ;
+                      :number 12 ;
+                      :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step13
+:step13 rdf:type owl:NamedIndividual ,
+                               :Step ;
+                      :belongsTo :ForContext ;
+                      :directlyNext :step14 ;
+                      rdfs:label "step13" ;
+                      :text "13. iteration 2 of loop began"^^xsd:string ;
+                      :number 13 ;
+                      :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step14
+:step14 rdf:type owl:NamedIndividual ,
+                               :Step ;
+                      :belongsTo :ForContext ;
+                      :directlyNext :step15 ;
+                      rdfs:label "step14" ;
+                      :text "14. int d = 3; executed 2nd time"^^xsd:string ;
+                      :number 14 ;
+                      :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step15
+:step15 rdf:type owl:NamedIndividual ,
+                               :Step ;
+                      :belongsTo :ForContext ;
+                      :directlyNext :step16 ;
+                      rdfs:label "step15" ;
+                      :text "15. int a = 2; executed 2nd time"^^xsd:string ;
+                      :number 15 ;
+                      :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step16
+:step16 rdf:type owl:NamedIndividual ,
+                               :Step ;
+                      :belongsTo :ForContext ;
+                      :directlyNext :step17 ;
+                      rdfs:label "step16" ;
+                      :text "16. d = d + c; executed 2nd time"^^xsd:string ;
+                      :number 16 ;
+                      :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step17
+:step17 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :ForContext ;
+        :directlyNext :step18 ;
+        rdfs:label "step17" ;
+        :text "17. c++; executed 2nd time"^^xsd:string ;
+        :number 17 ;
+        :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step18
+:step18 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :ForContext ;
+        :directlyNext :step19 ;
+        rdfs:label "step18" ;
+        :text "18. iteration 2 of loop ended"^^xsd:string ;
+        :number 18 ;
+        :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step19
+:step19 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :ForContext ;
+        :directlyNext :step20 ;
+        rdfs:label "step19" ;
+        :text "19. condition c < 2 evaluated 3rd time - false"^^xsd:string ;
+        :number 19 ;
+        :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step20
+:step20 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :MainContext ;
+        :directlyNext :step21 ;
+        rdfs:label "step20" ;
+        :text "20. a += 3;"^^xsd:string ;
+        :number 20 ;
+        :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step21
+:step21 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :MainContext ;
+        :directlyNext :step22 ;
+        rdfs:label "step20" ;
+        :text "20. func main ended"^^xsd:string ;
+        :number 21 ;
+        :isEvaluated "true"^^xsd:boolean .
+
+
+###  poas:poas/step22
+:step22 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :GlobalContext ;
+        rdfs:label "step20" ;
+        :text "20. program ended"^^xsd:string ;
+        :number 22 ;
+        :isEvaluated "true"^^xsd:boolean .

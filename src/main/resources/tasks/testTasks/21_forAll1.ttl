@@ -1,0 +1,1154 @@
+@prefix : <poas:poas/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ttl СО ВСЕМИ contextRelation
+#1. class c {
+#2. public:
+#3. 	static const int a = 0;
+#4. 	class d {
+#5. 	public:
+#6. 		static const int b = 1;
+#7. 		int g = 3;
+#8. 	private:
+#9. 		static const int f = 2;
+#10. 	};
+#11. };
+#12. void main() {
+#13. 	for (int c = 0; ; ) {
+#14. 		c++;
+#15. 	}
+#16. }
+
+
+###  poas:poas/Line1
+:Line1 rdf:type owl:NamedIndividual ,
+                :Line ;
+       :belongsTo :c1 ;
+       :directlyNextLine :Line2 ;
+       rdfs:label "Line1" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 1 .
+
+
+###  poas:poas/Line10
+:Line10 rdf:type owl:NamedIndividual ,
+                 :Line ;
+        :belongsTo :d3 ;
+        :directlyNextLine :Line11 ;
+        rdfs:label "Line10" ;
+        :isEvaluated "true"^^xsd:boolean ;
+        :number 10 .
+
+
+###  poas:poas/Line11
+:Line11 rdf:type owl:NamedIndividual ,
+                 :Line ;
+        :belongsTo :c1 ;
+        :directlyNextLine :Line12 ;
+        rdfs:label "Line11" ;
+        :isEvaluated "true"^^xsd:boolean ;
+        :number 11 .
+
+
+###  poas:poas/Line12
+:Line12 rdf:type owl:NamedIndividual ,
+                 :Line ;
+        :belongsTo :mainB7 ;
+        :directlyNextLine :Line13 ;
+        rdfs:label "Line12" ;
+        :isEvaluated "true"^^xsd:boolean ;
+        :number 12 .
+
+
+###  poas:poas/Line13
+:Line13 rdf:type owl:NamedIndividual ,
+                 :DeclarationLine ;
+        :belongsTo :c9 ;
+        :directlyNextLine :Line14 ;
+        rdfs:label "Line13" ;
+        :isEvaluated "true"^^xsd:boolean ;
+        :number 13 .
+
+
+###  poas:poas/Line14
+:Line14 rdf:type owl:NamedIndividual ,
+                 :Line ;
+        :belongsTo :c13 ;
+        :directlyNextLine :Line15 ;
+        rdfs:label "Line14" ;
+        :isEvaluated "true"^^xsd:boolean ;
+        :number 14 .
+
+
+###  poas:poas/Line15
+:Line15 rdf:type owl:NamedIndividual ,
+                 :Line ;
+        :belongsTo :forB10 ;
+        :directlyNextLine :Line16 ;
+        rdfs:label "Line15" ;
+        :isEvaluated "true"^^xsd:boolean ;
+        :number 15 .
+
+
+###  poas:poas/Line16
+:Line16 rdf:type owl:NamedIndividual ,
+                 :Line ;
+        :belongsTo :mainB7 ;
+        rdfs:label "Line16" ;
+        :isEvaluated "true"^^xsd:boolean ;
+        :number 16 .
+
+
+###  poas:poas/Line2
+:Line2 rdf:type owl:NamedIndividual ,
+                :Line ;
+       :belongsTo :c1 ;
+       :directlyNextLine :Line3 ;
+       rdfs:label "Line2" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 2 .
+
+
+###  poas:poas/Line3
+:Line3 rdf:type owl:NamedIndividual ,
+                :DeclarationLine ;
+       :belongsTo :a2 ;
+       :directlyNextLine :Line4 ;
+       rdfs:label "Line3" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 3 .
+
+
+###  poas:poas/Line4
+:Line4 rdf:type owl:NamedIndividual ,
+                :Line ;
+       :belongsTo :d3 ;
+       :directlyNextLine :Line5 ;
+       rdfs:label "Line4" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 4 .
+
+
+###  poas:poas/Line5
+:Line5 rdf:type owl:NamedIndividual ,
+                :Line ;
+       :belongsTo :d3 ;
+       :directlyNextLine :Line6 ;
+       rdfs:label "Line5" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 5 .
+
+
+###  poas:poas/Line6
+:Line6 rdf:type owl:NamedIndividual ,
+                :DeclarationLine ;
+       :belongsTo :b4 ;
+       :directlyNextLine :Line7 ;
+       rdfs:label "Line6" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 6 .
+
+
+###  poas:poas/Line7
+:Line7 rdf:type owl:NamedIndividual ,
+                :DeclarationLine ;
+       :belongsTo :g12 ;
+       :directlyNextLine :Line8 ;
+       rdfs:label "Line7" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 7 .
+
+
+###  poas:poas/Line8
+:Line8 rdf:type owl:NamedIndividual ,
+                :Line ;
+       :belongsTo :d3 ;
+       :directlyNextLine :Line9 ;
+       rdfs:label "Line8" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 8 .
+
+
+###  poas:poas/Line9
+:Line9 rdf:type owl:NamedIndividual ,
+                :DeclarationLine ;
+       :belongsTo :f5 ;
+       :directlyNextLine :Line10 ;
+       rdfs:label "Line9" ;
+       :isEvaluated "true"^^xsd:boolean ;
+       :number 9 .
+
+
+###  poas:poas/a2
+:a2 rdf:type owl:NamedIndividual ,
+             :Declaration ;
+    :has :Line3 ;
+    :parent :c1 ;
+    rdfs:label "a2" ;
+    :contextRelation :WQWCSHri ;
+	:contextRelation :GPPsOvjY ;
+	:contextRelation :xCIKtLxS ;
+	:contextRelation :pDyLQljt ;
+	:contextRelation :rBJpBrnx ;
+	:contextRelation :SakNXFFi ;
+	:contextRelation :WcuwZhmf ;
+	:contextRelation :WxKLGJec ;
+	:contextRelation :TeJOqVye ;
+	:contextRelation :IrIGZshh ;
+	:contextRelation :xwSLWciy ;
+	:contextRelation :rwfHOcVm ;
+    :contextType :declaration ;
+    :isStatic "true"^^xsd:boolean ;
+    :lifecycle :static ;
+    :name "a"^^xsd:string ;
+    :visiblyModifier :public .
+
+
+###  poas:poas/b4
+:b4 rdf:type owl:NamedIndividual ,
+             :Declaration ;
+    :has :Line6 ;
+    :parent :d3 ;
+    rdfs:label "b4" ;
+    :contextRelation :yKXXkKZK ;
+	:contextRelation :EQCrHcpv ;
+	:contextRelation :hpYeUKUu ;
+	:contextRelation :uppOgnZn ;
+	:contextRelation :xeKLxiTu ;
+	:contextRelation :xOCzjVcL ;
+	:contextRelation :FlXOeydU ;
+	:contextRelation :OcDyQmet ;
+	:contextRelation :oDvbedWt ;
+	:contextRelation :ldCmMdyI ;
+	:contextRelation :lGzQgaMJ ;
+	:contextRelation :qtfINMoU ;
+    :contextType :declaration ;
+    :isStatic "true"^^xsd:boolean ;
+    :lifecycle :static ;
+    :name "b"^^xsd:string ;
+    :visiblyModifier :public .
+
+
+###  poas:poas/c1
+:c1 rdf:type owl:NamedIndividual ,
+             :DataStructure ;
+    :has :Line1 ;
+        #  :Line11 ,
+        #  :Line2 ;
+    :parent :global0 ;
+    rdfs:label "c1" ;
+    :contextRelation :JMAvLigt ;
+	:contextRelation :StvUMlLt ;
+	:contextRelation :kyvaiglX ;
+	:contextRelation :WquEmbqt ;
+	:contextRelation :BavldOdc ;
+	:contextRelation :yAMZwTRD ;
+	:contextRelation :VSMJvYZA ;
+	:contextRelation :zSyCSkQC ;
+	:contextRelation :xcWGNQEL ;
+	:contextRelation :DPtEyfOo ;
+	:contextRelation :qNjakexD ;
+	:contextRelation :NSiknAxy ;
+    :contextType :class ;
+    :isStatic "true"^^xsd:boolean ;
+    :lifecycle :static ;
+    :name "c"^^xsd:string ;
+    :visiblyModifier :public .
+
+
+###  poas:poas/c9
+:c9 rdf:type owl:NamedIndividual ,
+             :Declaration ;
+    :has :Line13 ;
+    :parent :forC8 ;
+    rdfs:label "c9" ;
+    :contextRelation :oKbXHpoi ;
+	:contextRelation :pOhqIvnL ;
+	:contextRelation :JRbaiPdf ;
+	:contextRelation :wIjnMcRi ;
+	:contextRelation :WtmnvUQZ ;
+	:contextRelation :arxvQWod ;
+	:contextRelation :ZlmcDnpt ;
+	:contextRelation :znYGJYlR ;
+	:contextRelation :dtRWnjAB ;
+	:contextRelation :dmaHYzRD ;
+	:contextRelation :SuQNYkXu ;
+	:contextRelation :bMFGiXwF ;
+    :contextType :declaration ;
+    :isStatic "false"^^xsd:boolean ;
+    :lifecycle :dynamic ;
+    :name "c"^^xsd:string ;
+    :visiblyModifier :public .
+
+
+###  poas:poas/cToken1
+:cToken1 rdf:type owl:NamedIndividual ,
+                  :Token ;
+         rdfs:label "cToken1" ;
+         :previousToken :startMarker ;
+         :name "c"^^xsd:string .
+
+
+###  poas:poas/d3
+:d3 rdf:type owl:NamedIndividual ,
+             :DataStructure ;
+    :has :Line4 ;
+        #  :Line10,
+        #  :Line5 ,
+        #  :Line8 ;
+    :parent :c1 ;
+    rdfs:label "d3" ;
+    :contextRelation :ppUGfmbP ;
+	:contextRelation :HdafNevY ;
+	:contextRelation :dtWYcbaQ ;
+	:contextRelation :sOkLvmes ;
+	:contextRelation :tyqoWbos ;
+	:contextRelation :yMTjyrEl ;
+	:contextRelation :OxolAZBI ;
+	:contextRelation :KAkDbVme ;
+	:contextRelation :ZjLsjopV ;
+	:contextRelation :PgLkHKXI ;
+	:contextRelation :EvgESeQz ;
+	:contextRelation :aBAKxCmc ;
+    :contextType :class ;
+    :isStatic "true"^^xsd:boolean ;
+    :lifecycle :static ;
+    :name "d"^^xsd:string ;
+    :visiblyModifier :public .
+
+
+###  poas:poas/dToken2
+:dToken2 rdf:type owl:NamedIndividual ,
+                  :Token ;
+         :previousToken :cToken1 ;
+         rdfs:label "dToken2" ;
+         :name "d"^^xsd:string .
+
+
+###  poas:poas/f5
+:f5 rdf:type owl:NamedIndividual ,
+             :Declaration ;
+    :has :Line9 ;
+    :parent :d3 ;
+    rdfs:label "f5" ;
+    :contextRelation :xDhdjiyr ;
+	:contextRelation :JoYIwcSw ;
+	:contextRelation :LreXZeNN ;
+	:contextRelation :mwWvgmPa ;
+	:contextRelation :dVYUBoUq ;
+	:contextRelation :gIJIFFJB ;
+	:contextRelation :wUUOASok ;
+	:contextRelation :sNZaJcCq ;
+	:contextRelation :SbVVobyW ;
+	:contextRelation :FfGsqomV ;
+	:contextRelation :FueVcKTX ;
+	:contextRelation :qTQUXuqs ;
+    :contextType :declaration ;
+    :isStatic "true"^^xsd:boolean ;
+    :lifecycle :static ;
+    :name "f"^^xsd:string ;
+    :visiblyModifier :private .
+
+
+###  poas:poas/forB10
+:forB10 rdf:type owl:NamedIndividual ,
+                 :Context ;
+        :has :Line15 ;
+        :parent :forC8 ;
+        rdfs:label "forB10" ;
+        :visiblyModifier :public ;
+        :contextRelation :GazDWcqR ;
+        :contextRelation :UqakfJYW ;
+        :contextRelation :AzpbDMCI ;
+        :contextRelation :FBtkqctY ;
+        :contextRelation :ATjoQQhT ;
+        :contextRelation :BYeuBOeF ;
+        :contextRelation :uatqymWH ;
+        :contextRelation :ndrlpncT ;
+        :contextRelation :waPOiVRX ;
+        :contextRelation :sRMmUovT ;
+        :contextRelation :wAbqIisf ;
+        :contextRelation :QPUWksvl ;
+        :contextType :body ;
+        :isStatic "false"^^xsd:boolean ;
+        :lifecycle :dynamic ;
+        :name ""^^xsd:string .
+
+
+###  poas:poas/forC8
+:forC8 a :Context ;
+       :parent :mainB7 ;
+       rdfs:label "forC8" ;
+       :visiblyModifier :public ;
+       :contextRelation :UBMMPsRE ;
+       :contextRelation :vMhtNZNj ;
+       :contextRelation :gaeaTQPD ;
+       :contextRelation :YNiMesLS ;
+       :contextRelation :pHarjapq ;
+       :contextRelation :nioedzPc ;
+       :contextRelation :WEwtaBYu ;
+       :contextRelation :jkWirNoQ ;
+       :contextRelation :EgQqnAlF ;
+       :contextRelation :FnIiQPeC ;
+       :contextRelation :NSQYxyfC ;
+       :contextRelation :KUDlOmCp ;
+       :contextType :forCondition ;
+       :isStatic "false"^^xsd:boolean ;
+       :lifecycle :dynamic ;
+       :name ""^^xsd:string .
+
+
+###  poas:poas/g12
+:g12 a :Declaration ;
+     :has :Line7 ;
+     :parent :d3 ;
+     rdfs:label "g12" ;
+     :contextType :declaration ;
+     :contextRelation :SAETgYbj ;
+     :contextRelation :LxQaNAsT ;
+	 :contextRelation :jeDQxpWP ;
+	 :contextRelation :MCPhCiTQ ;
+	 :contextRelation :LfTznstu ;
+	 :contextRelation :yMpnzXbM ;
+	 :contextRelation :qwYITnQl ;
+	 :contextRelation :MkbTdvoC ;
+	 :contextRelation :sniAmtiM ;
+	 :contextRelation :pAmqVxlM ;
+	 :contextRelation :DNXyUybT ;
+	 :contextRelation :eJvDmPUO ;
+     :isStatic "false"^^xsd:boolean ;
+     :lifecycle :dynamic ;
+     :name "g"^^xsd:string ;
+     :visiblyModifier :public .
+
+
+###  poas:poas/global0
+:global0 rdf:type owl:NamedIndividual ,
+                  :Context ;
+         rdfs:label "global0" ;
+         :contextRelation :oBdgtzwe ;
+         :contextRelation :xSkkZRMH ;
+         :contextRelation :cMEMhpCA ;
+         :contextRelation :wObchoJU ;
+         :contextRelation :uzLMqZCc ;
+         :contextRelation :AwoLbMnt ;
+         :contextRelation :pbBLWVYl ;
+         :contextRelation :RDYwiTSx ;
+         :contextRelation :JMtIUIxm ;
+         :contextRelation :EcuXHjvM ;
+         :contextRelation :yIUVRcgy ;
+         :contextRelation :xyVmIeOA ;
+         :contextType :global ;
+         :isStatic "true"^^xsd:boolean ;
+         :lifecycle :static ;
+         :name ""^^xsd:string .
+
+
+###  poas:poas/mainB7
+:mainB7 rdf:type owl:NamedIndividual ,
+                 :Context ;
+        :has :Line12 ;
+            #  :Line16 ;
+        :parent :mainP6 ;
+        rdfs:label "mainB7" ;
+        :contextRelation :SNWFZpax ;
+        :contextRelation :zDXOWASs ;
+        :contextRelation :TQkOnwZG ;
+        :contextRelation :JZdyjPbK ;
+        :contextRelation :XChIthwR ;
+        :contextRelation :prAFQRrc ;
+        :contextRelation :UpAzQOgN ;
+        :contextRelation :tUWlJaBZ ;
+        :contextRelation :VywSeiyp ;
+        :contextRelation :pbUadDSg ;
+        :contextRelation :HppkidQf ;
+        :contextRelation :RXtorDOa ;
+        :contextType :body ;
+        :isStatic "false"^^xsd:boolean ;
+        :lifecycle :dynamic ;
+        :visiblyModifier :public ;
+        :name ""^^xsd:string .
+
+
+###  poas:poas/mainP6
+:mainP6 rdf:type owl:NamedIndividual ,
+                 :Context ;
+        :parent :global0 ;
+        rdfs:label "mainP6" ;
+        :contextRelation :nYPwxdcw ;
+        :contextRelation :SoTaQUAl ;
+        :contextRelation :grvjTkjh ;
+        :contextRelation :jZuilARM ;
+        :contextRelation :yfRIUIAR ;
+        :contextRelation :YuWwDniA ;
+        :contextRelation :USoKkiyY ;
+        :contextRelation :deBTzcIX ;
+        :contextRelation :QWxgxLjs ;
+        :contextRelation :twPbibFR ;
+        :contextRelation :fFRPghXR ;
+        :contextRelation :LOMAjoms ;
+        :contextType :functionParams ;
+        :isStatic "false"^^xsd:boolean ;
+        :lifecycle :dynamic ;
+        :name "main"^^xsd:string .
+
+
+###  poas:poas/c13
+:c13 a :Context ;
+     :has :Line14 ;
+     :parent :forB10 ;
+     rdfs:label "c13" ;
+     :visiblyModifier :public ;
+     :contextRelation :rnekZxXr ;
+	 :contextRelation :zMgaZwry ;
+	 :contextRelation :XpILBTOR ;
+	 :contextRelation :DyqMdafc ;
+	 :contextRelation :WYZWtYam ;
+	 :contextRelation :sYeVhDOy ;
+	 :contextRelation :dOuBfXfH ;
+	 :contextRelation :uyraeQMF ;
+	 :contextRelation :hOlITxLa ;
+	 :contextRelation :qIyHrVyd ;
+	 :contextRelation :TvugovAX ;
+	 :contextRelation :RnAvqbFv ;
+     :contextType :body ;
+     :isStatic "false"^^xsd:boolean ;
+     :lifecycle :dynamic ;
+     :name "c++"^^xsd:string .
+
+
+###  poas:poas/prefix
+:prefix rdf:type owl:NamedIndividual ,
+                 :LocalPrefix ;
+        :end :dToken2 ;
+        rdfs:label "prefix" ;
+        :hasNamedContext "true"^^xsd:boolean ;
+        :name "c::d::"^^xsd:string .
+
+:oBdgtzwe
+	:contextRelation :internal ;
+	:contextRelation :c1 .
+
+:xSkkZRMH
+	:contextRelation :internal ;
+	:contextRelation :a2 .
+
+:cMEMhpCA
+	:contextRelation :internal ;
+	:contextRelation :d3 .
+
+:wObchoJU
+	:contextRelation :internal ;
+	:contextRelation :b4 .
+
+:uzLMqZCc
+	:contextRelation :internal ;
+	:contextRelation :g12 .
+
+:AwoLbMnt
+	:contextRelation :internal ;
+	:contextRelation :f5 .
+
+:pbBLWVYl
+	:contextRelation :internal ;
+	:contextRelation :mainP6 .
+
+:RDYwiTSx
+	:contextRelation :internal ;
+	:contextRelation :mainB7 .
+
+:JMtIUIxm
+	:contextRelation :internal ;
+	:contextRelation :forC8 .
+
+:EcuXHjvM
+	:contextRelation :internal ;
+	:contextRelation :c9 .
+
+:yIUVRcgy
+	:contextRelation :internal ;
+	:contextRelation :forB10 .
+
+:xyVmIeOA
+	:contextRelation :internal ;
+	:contextRelation :c13 .
+
+:JMAvLigt
+	:contextRelation :internal ;
+	:contextRelation :a2 .
+
+:StvUMlLt
+	:contextRelation :internal ;
+	:contextRelation :d3 .
+
+:kyvaiglX
+	:contextRelation :internal ;
+	:contextRelation :b4 .
+
+:WquEmbqt
+	:contextRelation :internal ;
+	:contextRelation :g12 .
+
+:BavldOdc
+	:contextRelation :internal ;
+	:contextRelation :f5 .
+
+:yAMZwTRD
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:VSMJvYZA
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:zSyCSkQC
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:xcWGNQEL
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:DPtEyfOo
+	:contextRelation :external ;
+	:contextRelation :c9 .
+
+:qNjakexD
+	:contextRelation :external ;
+	:contextRelation :forB10 .
+
+:NSiknAxy
+	:contextRelation :external ;
+	:contextRelation :c13 .
+
+:WQWCSHri
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:GPPsOvjY
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:xCIKtLxS
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:pDyLQljt
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:rBJpBrnx
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:SakNXFFi
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:WcuwZhmf
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:WxKLGJec
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:TeJOqVye
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:IrIGZshh
+	:contextRelation :external ;
+	:contextRelation :c9 .
+
+:xwSLWciy
+	:contextRelation :external ;
+	:contextRelation :forB10 .
+
+:rwfHOcVm
+	:contextRelation :external ;
+	:contextRelation :c13 .
+
+:ppUGfmbP
+	:contextRelation :internal ;
+	:contextRelation :b4 .
+
+:HdafNevY
+	:contextRelation :internal ;
+	:contextRelation :g12 .
+
+:dtWYcbaQ
+	:contextRelation :internal ;
+	:contextRelation :f5 .
+
+:sOkLvmes
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:tyqoWbos
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:yMTjyrEl
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:OxolAZBI
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:KAkDbVme
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:ZjLsjopV
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:PgLkHKXI
+	:contextRelation :external ;
+	:contextRelation :c9 .
+
+:EvgESeQz
+	:contextRelation :external ;
+	:contextRelation :forB10 .
+
+:aBAKxCmc
+	:contextRelation :external ;
+	:contextRelation :c13 .
+
+:yKXXkKZK
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:EQCrHcpv
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:hpYeUKUu
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:uppOgnZn
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:xeKLxiTu
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:xOCzjVcL
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:FlXOeydU
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:OcDyQmet
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:oDvbedWt
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:ldCmMdyI
+	:contextRelation :external ;
+	:contextRelation :c9 .
+
+:lGzQgaMJ
+	:contextRelation :external ;
+	:contextRelation :forB10 .
+
+:qtfINMoU
+	:contextRelation :external ;
+	:contextRelation :c13 .
+
+:SAETgYbj
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:LxQaNAsT
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:jeDQxpWP
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:MCPhCiTQ
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:LfTznstu
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:yMpnzXbM
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:qwYITnQl
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:MkbTdvoC
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:sniAmtiM
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:pAmqVxlM
+	:contextRelation :external ;
+	:contextRelation :c9 .
+
+:DNXyUybT
+	:contextRelation :external ;
+	:contextRelation :forB10 .
+
+:eJvDmPUO
+	:contextRelation :external ;
+	:contextRelation :c13 .
+
+:xDhdjiyr
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:JoYIwcSw
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:LreXZeNN
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:mwWvgmPa
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:dVYUBoUq
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:gIJIFFJB
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:wUUOASok
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:sNZaJcCq
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:SbVVobyW
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:FfGsqomV
+	:contextRelation :external ;
+	:contextRelation :c9 .
+
+:FueVcKTX
+	:contextRelation :external ;
+	:contextRelation :forB10 .
+
+:qTQUXuqs
+	:contextRelation :external ;
+	:contextRelation :c13 .
+
+:nYPwxdcw
+	:contextRelation :internal ;
+	:contextRelation :mainB7 .
+
+:SoTaQUAl
+	:contextRelation :internal ;
+	:contextRelation :forC8 .
+
+:grvjTkjh
+	:contextRelation :internal ;
+	:contextRelation :c9 .
+
+:jZuilARM
+	:contextRelation :internal ;
+	:contextRelation :forB10 .
+
+:yfRIUIAR
+	:contextRelation :internal ;
+	:contextRelation :c13 .
+
+:YuWwDniA
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:USoKkiyY
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:deBTzcIX
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:QWxgxLjs
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:twPbibFR
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:fFRPghXR
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:LOMAjoms
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:SNWFZpax
+	:contextRelation :internal ;
+	:contextRelation :forC8 .
+
+:zDXOWASs
+	:contextRelation :internal ;
+	:contextRelation :c9 .
+
+:TQkOnwZG
+	:contextRelation :internal ;
+	:contextRelation :forB10 .
+
+:JZdyjPbK
+	:contextRelation :internal ;
+	:contextRelation :c13 .
+
+:XChIthwR
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:prAFQRrc
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:UpAzQOgN
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:tUWlJaBZ
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:VywSeiyp
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:pbUadDSg
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:HppkidQf
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:RXtorDOa
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:UBMMPsRE
+	:contextRelation :internal ;
+	:contextRelation :c9 .
+
+:vMhtNZNj
+	:contextRelation :internal ;
+	:contextRelation :forB10 .
+
+:gaeaTQPD
+	:contextRelation :internal ;
+	:contextRelation :c13 .
+
+:YNiMesLS
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:pHarjapq
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:nioedzPc
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:WEwtaBYu
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:jkWirNoQ
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:EgQqnAlF
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:FnIiQPeC
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:NSQYxyfC
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:KUDlOmCp
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:oKbXHpoi
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:pOhqIvnL
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:JRbaiPdf
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:wIjnMcRi
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:WtmnvUQZ
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:arxvQWod
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:ZlmcDnpt
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:znYGJYlR
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:dtRWnjAB
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:dmaHYzRD
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:SuQNYkXu
+	:contextRelation :external ;
+	:contextRelation :forB10 .
+
+:bMFGiXwF
+	:contextRelation :external ;
+	:contextRelation :c13 .
+
+:GazDWcqR
+	:contextRelation :internal ;
+	:contextRelation :c13 .
+
+:UqakfJYW
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:AzpbDMCI
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:FBtkqctY
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:ATjoQQhT
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:BYeuBOeF
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:uatqymWH
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:ndrlpncT
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:waPOiVRX
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:sRMmUovT
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:wAbqIisf
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:QPUWksvl
+	:contextRelation :external ;
+	:contextRelation :c9 .
+
+:rnekZxXr
+	:contextRelation :external ;
+	:contextRelation :global0 .
+
+:zMgaZwry
+	:contextRelation :external ;
+	:contextRelation :c1 .
+
+:XpILBTOR
+	:contextRelation :external ;
+	:contextRelation :a2 .
+
+:DyqMdafc
+	:contextRelation :external ;
+	:contextRelation :d3 .
+
+:WYZWtYam
+	:contextRelation :external ;
+	:contextRelation :b4 .
+
+:sYeVhDOy
+	:contextRelation :external ;
+	:contextRelation :g12 .
+
+:dOuBfXfH
+	:contextRelation :external ;
+	:contextRelation :f5 .
+
+:uyraeQMF
+	:contextRelation :external ;
+	:contextRelation :mainP6 .
+
+:hOlITxLa
+	:contextRelation :external ;
+	:contextRelation :mainB7 .
+
+:qIyHrVyd
+	:contextRelation :external ;
+	:contextRelation :forC8 .
+
+:TvugovAX
+	:contextRelation :external ;
+	:contextRelation :c9 .
+
+:RnAvqbFv
+	:contextRelation :external ;
+	:contextRelation :forB10 .
