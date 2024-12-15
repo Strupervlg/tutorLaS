@@ -12,17 +12,21 @@ import com.api.serverLaS.response.CompleteTaskResponse;
 import com.api.serverLaS.response.task1.GetHintResponse;
 import com.api.serverLaS.response.GetNextTaskResponse;
 import its.model.DomainSolvingModel;
-import its.model.definition.Domain;
+import its.model.definition.DomainModel;
 import its.model.definition.ObjectRef;
 import its.model.definition.rdf.DomainRDFFiller;
 import its.model.definition.rdf.DomainRDFWriter;
+import its.model.nodes.BranchResultNode;
+import its.reasoner.BranchResultProcessor;
 import its.reasoner.LearningSituation;
+import its.reasoner.nodes.DecisionTreeEvaluationResult;
 import its.reasoner.nodes.DecisionTreeReasoner;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.io.StringWriter;
 import java.util.*;
 
@@ -41,11 +45,15 @@ public class Task1Service {
 		);
 
     public CheckAnswerResponse checkAnswer(CheckAnswerRequest request) {
-        Domain situationDomain = this.model.getDomain().copy();
-        DomainRDFFiller.fillDomain(situationDomain,
-                ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
-                Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
-                null);
+        DomainModel situationDomain = this.model.getDomainModel().copy();
+        try {
+            DomainRDFFiller.fillDomain(situationDomain,
+                    ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
+                    Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
+                    null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         situationDomain.validateAndThrow();
 
@@ -57,8 +65,9 @@ public class Task1Service {
                 ))
         );
 
-        List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
-        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId());
+        BranchResultProcessor resultProcessor = new BranchResultProcessor();
+        DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
+        String errorText = commonTaskService.generateErrorText(resultProcessor.getList(), situationDomain, request.getUid(), request.getTaskId());
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
@@ -66,11 +75,15 @@ public class Task1Service {
     }
 
     public CompleteTaskResponse completeTask(CompleteTaskRequest request) {
-        Domain situationDomain = this.model.getDomain().copy();
-        DomainRDFFiller.fillDomain(situationDomain,
-                ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
-                Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
-                null);
+        DomainModel situationDomain = this.model.getDomainModel().copy();
+        try {
+            DomainRDFFiller.fillDomain(situationDomain,
+                    ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
+                    Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
+                    null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         situationDomain.validateAndThrow();
 
@@ -80,11 +93,12 @@ public class Task1Service {
                         "var", new ObjectRef(request.getVar())
                 ))
         );
-
-        List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTrees().get("all"), situation);
+        BranchResultProcessor resultProcessor = new BranchResultProcessor();
+        DecisionTreeReasoner.solve(model.getDecisionTrees().get("all"), situation, resultProcessor);
+        List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes = resultProcessor.getList();
         branchResultNodes.sort(
                 Comparator.comparingInt(
-                        (DecisionTreeReasoner.DecisionTreeEvaluationResult node) -> {
+                        (DecisionTreeEvaluationResult<BranchResultNode> node) -> {
                             if(node.getVariablesSnapshot().get("step") != null) {
                                 return (int) node.getVariablesSnapshot().get("step").findIn(situationDomain).getPropertyValue("number");
                             } else {
@@ -98,11 +112,15 @@ public class Task1Service {
     }
 
     public GetHintResponse getHint(GetHintRequest request) {
-        Domain situationDomain = this.model.getDomain().copy();
-        DomainRDFFiller.fillDomain(situationDomain,
-                ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
-                Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
-                null);
+        DomainModel situationDomain = this.model.getDomainModel().copy();
+        try {
+            DomainRDFFiller.fillDomain(situationDomain,
+                    ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
+                    Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
+                    null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         situationDomain.validateAndThrow();
         String correctStep = "";
@@ -115,8 +133,9 @@ public class Task1Service {
                             "var", new ObjectRef(request.getVar())
                     ))
             );
-            List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
-            hintText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
+            BranchResultProcessor resultProcessor = new BranchResultProcessor();
+            DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
+            hintText = commonTaskService.generateHintText(resultProcessor.getList(), situationDomain);
             if(!hintText.isEmpty()) {
                 correctStep = step;
                 break;

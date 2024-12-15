@@ -51,6 +51,9 @@
            rdfs:label "VariableB" ;
            :isGlobal "true"^^xsd:boolean ;
            :isStatic "false"^^xsd:boolean ;
+           :typeName "переменная"^^xsd:string ;
+           :typeNameR "переменной"^^xsd:string ;
+           :lifeTimeTypeName "глобальной"^^xsd:string ;
            :text "b"^^xsd:string .
 
 ###  poas:poas/step1

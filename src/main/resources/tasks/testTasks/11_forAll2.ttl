@@ -70,6 +70,8 @@
                          rdfs:label "VariableA" ;
                          :isGlobal "false"^^xsd:boolean ;
                          :isStatic "false"^^xsd:boolean ;
+                         :typeName "переменная"^^xsd:string ;
+                         :typeNameR "переменной"^^xsd:string ;
                          :text "a"^^xsd:string .
 
 

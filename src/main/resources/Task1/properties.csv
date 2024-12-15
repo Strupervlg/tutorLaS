@@ -3,3 +3,6 @@ isGlobal|BOOLEAN||FALSE|Variable|
 isEvaluated|BOOLEAN||FALSE|Step|
 number|INTEGER||FALSE|Step|1-999
 text|STRING||FALSE|Context;Variable|
+typeName|STRING||FALSE|Variable|
+lifeTimeTypeName|STRING||FALSE|Variable|
+typeNameR|STRING||FALSE|Variable|

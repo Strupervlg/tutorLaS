@@ -1,6 +1,6 @@
 package com.api.serverLaS.services;
 
-import its.model.definition.Domain;
+import its.model.definition.DomainModel;
 import its.model.definition.ObjectDef;
 import its.model.definition.ObjectRef;
 import org.springframework.stereotype.Service;
@@ -22,12 +22,18 @@ public class UtilService {
             "typeVariable:mutable", "изменяемой"
     );
 
-    public String generateMessage(String template, Map<String, ObjectRef> situation, Domain domain) {
+    private Map<String, String> enumToStringI = Map.of(
+            "typeVariable:input", "входная",
+            "typeVariable:output", "выходная",
+            "typeVariable:mutable", "изменяемая"
+    );
+
+    public String generateMessage(String template, Map<String, ObjectRef> situation, DomainModel domain) {
         Pattern pattern = Pattern.compile("\\{(.*?)\\}");
         Matcher matcher = pattern.matcher(template);
         StringBuffer result = new StringBuffer();
         while (matcher.find()) {
-            Pattern pattern1 = Pattern.compile("->|\\.|\\w+|\\$\\w+");
+            Pattern pattern1 = Pattern.compile("->|\\.|[\\w)(]+|\\$\\w+");
             Matcher matcher1 = pattern1.matcher(matcher.group(1));
 
             ArrayList<String> tokens = new ArrayList<>();
@@ -45,6 +51,7 @@ public class UtilService {
             }
 
             String value = "";
+            boolean isI = false;
             for (int i = 1; i < array.length; i += 2) {
                 if(array[i].equals("->")) {
                     int nextIndex = i+1;
@@ -54,10 +61,18 @@ public class UtilService {
                             ).findFirst().orElse(null).getObjectNames().get(0)
                     );
                 } else if (array[i].equals(".")) {
-                    value = obj.getPropertyValue(array[i+1]).toString();
+                    if(array[i+1].contains("(I)")) {
+                        String property = array[i+1].replace("(I)", "");
+                        isI = true;
+                        value = obj.getPropertyValue(property).toString();
+                    } else {
+                        value = obj.getPropertyValue(array[i+1]).toString();
+                    }
                 }
             }
-            if(enumToString.get(value) != null) {
+            if(isI && enumToStringI.get(value) != null) {
+                value = enumToStringI.get(value);
+            } else if(!isI && enumToString.get(value) != null) {
                 value = enumToString.get(value);
             }
             matcher.appendReplacement(result, value);

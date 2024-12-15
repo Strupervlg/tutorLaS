@@ -10,17 +10,22 @@ import com.api.serverLaS.response.CheckAnswerResponse;
 import com.api.serverLaS.response.GetNextTaskResponse;
 import com.api.serverLaS.response.task3.GetHintResponse;
 import its.model.DomainSolvingModel;
-import its.model.definition.Domain;
+import its.model.definition.DomainModel;
 import its.model.definition.ObjectRef;
 import its.model.definition.rdf.DomainRDFFiller;
 import its.model.definition.rdf.DomainRDFWriter;
+import its.model.nodes.BranchResult;
+import its.model.nodes.BranchResultNode;
+import its.reasoner.BranchResultProcessor;
 import its.reasoner.LearningSituation;
+import its.reasoner.nodes.DecisionTreeEvaluationResult;
 import its.reasoner.nodes.DecisionTreeReasoner;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.io.StringWriter;
 import java.util.*;
 
@@ -40,13 +45,17 @@ public class Task3Service {
 
     public CheckAnswerResponse checkAnswer(CheckAnswerRequest request) {
         String errorText = "";
-        Domain situationDomain = this.model.getDomain().copy();
+        DomainModel situationDomain = this.model.getDomainModel().copy();
         for(AnswerDataRequest answer : request.getAnswers()) {
-            Domain newSituationDomain = situationDomain.copy();
-            DomainRDFFiller.fillDomain(newSituationDomain,
-                    ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
-                    Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
-                    null);
+            DomainModel newSituationDomain = situationDomain.copy();
+            try {
+                DomainRDFFiller.fillDomain(newSituationDomain,
+                        ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
+                        Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
+                        null);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
             newSituationDomain.validateAndThrow();
 
@@ -56,10 +65,11 @@ public class Task3Service {
                             "var", new ObjectRef(answer.getVar())
                     ))
             );
-
-            List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+            BranchResultProcessor resultProcessor = new BranchResultProcessor();
+            DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
+            List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes= resultProcessor.getList();
             Collections.reverse(branchResultNodes);
-            errorText += commonTaskService.generateErrorText(branchResultNodes, newSituationDomain, request.getUid(), request.getTaskId());
+            errorText += commonTaskService.generateErrorText(resultProcessor.getList(), newSituationDomain, request.getUid(), request.getTaskId());
         }
 
         StringWriter stringWriter = new StringWriter();
@@ -71,14 +81,18 @@ public class Task3Service {
         String[] possibleAnswers = new String[]{"answerInput", "answerOutput", "answerMutable"};
         String correctAnswer = "";
         String hintText = "";
-        Domain situationDomain = this.model.getDomain().copy();
+        DomainModel situationDomain = this.model.getDomainModel().copy();
         for(AnswerDataRequest userAnswer : request.getAnswers()) {
             for(String answer : possibleAnswers) {
-                Domain newSituationDomain = situationDomain.copy();
-                DomainRDFFiller.fillDomain(newSituationDomain,
-                        ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
-                        Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
-                        null);
+                DomainModel newSituationDomain = situationDomain.copy();
+                try {
+                    DomainRDFFiller.fillDomain(newSituationDomain,
+                            ModelFactory.createDefaultModel().read(IOUtils.toInputStream(request.getTaskInTTL(), "UTF-8"), null, "TTL"),
+                            Set.of(DomainRDFFiller.Option.NARY_RELATIONSHIPS_OLD_COMPAT),
+                            null);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 if(userAnswer.getAnswer().equals(answer)) {
                     continue;
                 }
@@ -88,7 +102,9 @@ public class Task3Service {
                                 "var", new ObjectRef(userAnswer.getVar())
                         ))
                 );
-                List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+                BranchResultProcessor resultProcessor = new BranchResultProcessor();
+                DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
+                List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes= resultProcessor.getList();
                 Collections.reverse(branchResultNodes);
                 hintText = this.generateHintText(branchResultNodes, newSituationDomain);
                 if(!hintText.isEmpty()) {
@@ -114,14 +130,14 @@ public class Task3Service {
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task3Data.fromJson(data.getTask()) : data.getTask());
     }
 
-    public String generateHintText(List<DecisionTreeReasoner.DecisionTreeEvaluationResult> branchResultNodes, Domain situationDomain) {
+    public String generateHintText(List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes, DomainModel situationDomain) {
         String hintText = "";
         boolean isError = false;
-        for(DecisionTreeReasoner.DecisionTreeEvaluationResult branchResultNode : branchResultNodes) {
-            if (!branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
+        for(DecisionTreeEvaluationResult<BranchResultNode> branchResultNode : branchResultNodes) {
+            if (branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
                 isError = true;
                 break;
-            } else if (branchResultNode.getNode().getValue() && branchResultNode.getNode().getMetadata().get("alias") != null) {
+            } else if (branchResultNode.getNode().getValue() == BranchResult.CORRECT && branchResultNode.getNode().getMetadata().get("alias") != null) {
                 hintText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";
             }
         }
