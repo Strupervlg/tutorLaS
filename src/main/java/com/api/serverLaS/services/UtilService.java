@@ -78,6 +78,11 @@ public class UtilService {
             matcher.appendReplacement(result, value);
         }
         matcher.appendTail(result);
+        if (!result.isEmpty()) {
+            // Увеличиваем первую букву
+            char firstChar = Character.toUpperCase(result.charAt(0));
+            result.setCharAt(0, firstChar);
+        }
         return result.toString();
     }
 }

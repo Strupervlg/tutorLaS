@@ -227,6 +227,12 @@
 	:contextRelation :lGzQgaMJ ;
 	:contextRelation :qtfINMoU ;
     :contextType :declaration ;
+    :typeNameI "свойство"^^xsd:string ;
+    :typeNameR "свойства"^^xsd:string ;
+    :typeNameForStaticError "Свойство не является статическим и не может быть видно"^^xsd:string ;
+    :typeNameV "свойство"^^xsd:string ;
+    :visibleText "видно"^^xsd:string ;
+    :typeNameD "свойству"^^xsd:string ;
     :isStatic "true"^^xsd:boolean ;
     :lifecycle :static ;
     :name "b"^^xsd:string ;

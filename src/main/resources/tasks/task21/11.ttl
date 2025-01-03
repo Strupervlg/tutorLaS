@@ -202,6 +202,12 @@
 	:contextRelation :xwSLWciy ;
 	:contextRelation :rwfHOcVm ;
     :contextType :declaration ;
+    :typeNameI "свойство"^^xsd:string ;
+    :typeNameR "свойства"^^xsd:string ;
+    :typeNameForStaticError "Свойство не является статическим и не может быть видно"^^xsd:string ;
+    :typeNameV "свойство"^^xsd:string ;
+    :visibleText "видно"^^xsd:string ;
+    :typeNameD "свойству"^^xsd:string ;
     :isStatic "true"^^xsd:boolean ;
     :lifecycle :static ;
     :name "a"^^xsd:string ;
@@ -227,6 +233,12 @@
 	:contextRelation :lGzQgaMJ ;
 	:contextRelation :qtfINMoU ;
     :contextType :declaration ;
+    :typeNameI "свойство"^^xsd:string ;
+    :typeNameR "свойства"^^xsd:string ;
+    :typeNameForStaticError "Свойство не является статическим и не может быть видно"^^xsd:string ;
+    :typeNameV "свойство"^^xsd:string ;
+    :visibleText "видно"^^xsd:string ;
+    :typeNameD "свойству"^^xsd:string ;
     :isStatic "true"^^xsd:boolean ;
     :lifecycle :static ;
     :name "b"^^xsd:string ;
@@ -257,6 +269,12 @@
     :isStatic "true"^^xsd:boolean ;
     :lifecycle :static ;
     :name "c"^^xsd:string ;
+    :typeNameI ""^^xsd:string ;
+    :typeNameR ""^^xsd:string ;
+    :typeNameForStaticError ""^^xsd:string ;
+    :typeNameV ""^^xsd:string ;
+    :visibleText ""^^xsd:string ;
+    :typeNameD ""^^xsd:string ;
     :visiblyModifier :public .
 
 
@@ -279,6 +297,12 @@
 	:contextRelation :SuQNYkXu ;
 	:contextRelation :bMFGiXwF ;
     :contextType :declaration ;
+    :typeNameI "свойство"^^xsd:string ;
+    :typeNameR "свойства"^^xsd:string ;
+    :typeNameForStaticError "Свойство не является статическим и не может быть видно"^^xsd:string ;
+    :typeNameV "свойство"^^xsd:string ;
+    :visibleText "видно"^^xsd:string ;
+    :typeNameD "свойству"^^xsd:string ;
     :isStatic "false"^^xsd:boolean ;
     :lifecycle :dynamic ;
     :name "c"^^xsd:string ;
@@ -318,6 +342,12 @@
     :isStatic "true"^^xsd:boolean ;
     :lifecycle :static ;
     :name "d"^^xsd:string ;
+    :typeNameI "класс"^^xsd:string ;
+    :typeNameR "класс"^^xsd:string ;
+    :typeNameForStaticError "класс"^^xsd:string ;
+    :typeNameV ""^^xsd:string ;
+    :visibleText ""^^xsd:string ;
+    :typeNameD ""^^xsd:string ;
     :visiblyModifier :public .
 
 
@@ -351,6 +381,12 @@
     :isStatic "true"^^xsd:boolean ;
     :lifecycle :static ;
     :name "f"^^xsd:string ;
+    :typeNameI "свойство"^^xsd:string ;
+    :typeNameR "свойства"^^xsd:string ;
+    :typeNameForStaticError "Свойство не является статическим и не может быть видно"^^xsd:string ;
+    :typeNameV "свойство"^^xsd:string ;
+    :visibleText "видно"^^xsd:string ;
+    :typeNameD "свойству"^^xsd:string ;
     :visiblyModifier :private .
 
 
@@ -376,6 +412,12 @@
         :contextType :body ;
         :isStatic "false"^^xsd:boolean ;
         :lifecycle :dynamic ;
+        :typeNameI ""^^xsd:string ;
+        :typeNameR ""^^xsd:string ;
+        :typeNameForStaticError ""^^xsd:string ;
+        :typeNameV ""^^xsd:string ;
+        :visibleText ""^^xsd:string ;
+        :typeNameD ""^^xsd:string ;
         :name ""^^xsd:string .
 
 
@@ -399,6 +441,12 @@
        :contextType :forCondition ;
        :isStatic "false"^^xsd:boolean ;
        :lifecycle :dynamic ;
+       :typeNameI ""^^xsd:string ;
+       :typeNameR ""^^xsd:string ;
+       :typeNameForStaticError ""^^xsd:string ;
+       :typeNameV ""^^xsd:string ;
+       :visibleText ""^^xsd:string ;
+       :typeNameD ""^^xsd:string ;
        :name ""^^xsd:string .
 
 
@@ -420,6 +468,12 @@
 	 :contextRelation :pAmqVxlM ;
 	 :contextRelation :DNXyUybT ;
 	 :contextRelation :eJvDmPUO ;
+	 :typeNameI "свойство"^^xsd:string ;
+     :typeNameR "свойства"^^xsd:string ;
+     :typeNameForStaticError "Свойство не является статическим и не может быть видно"^^xsd:string ;
+     :typeNameV "свойство"^^xsd:string ;
+     :visibleText "видно"^^xsd:string ;
+     :typeNameD "свойству"^^xsd:string ;
      :isStatic "false"^^xsd:boolean ;
      :lifecycle :dynamic ;
      :name "g"^^xsd:string ;
@@ -445,6 +499,12 @@
          :contextType :global ;
          :isStatic "true"^^xsd:boolean ;
          :lifecycle :static ;
+         :typeNameI ""^^xsd:string ;
+         :typeNameR ""^^xsd:string ;
+         :typeNameForStaticError ""^^xsd:string ;
+         :typeNameV ""^^xsd:string ;
+         :visibleText ""^^xsd:string ;
+         :typeNameD ""^^xsd:string ;
          :name ""^^xsd:string .
 
 
@@ -471,6 +531,12 @@
         :isStatic "false"^^xsd:boolean ;
         :lifecycle :dynamic ;
         :visiblyModifier :public ;
+        :typeNameI ""^^xsd:string ;
+        :typeNameR ""^^xsd:string ;
+        :typeNameForStaticError ""^^xsd:string ;
+        :typeNameV ""^^xsd:string ;
+        :visibleText ""^^xsd:string ;
+        :typeNameD ""^^xsd:string ;
         :name ""^^xsd:string .
 
 
@@ -494,6 +560,12 @@
         :contextType :functionParams ;
         :isStatic "false"^^xsd:boolean ;
         :lifecycle :dynamic ;
+        :typeNameI ""^^xsd:string ;
+        :typeNameR ""^^xsd:string ;
+        :typeNameForStaticError ""^^xsd:string ;
+        :typeNameV ""^^xsd:string ;
+        :visibleText ""^^xsd:string ;
+        :typeNameD ""^^xsd:string ;
         :name "main"^^xsd:string .
 
 
@@ -518,6 +590,12 @@
      :contextType :body ;
      :isStatic "false"^^xsd:boolean ;
      :lifecycle :dynamic ;
+     :typeNameI ""^^xsd:string ;
+     :typeNameR ""^^xsd:string ;
+     :typeNameForStaticError ""^^xsd:string ;
+     :typeNameV ""^^xsd:string ;
+     :visibleText ""^^xsd:string ;
+     :typeNameD ""^^xsd:string ;
      :name "c++"^^xsd:string .
 
 
