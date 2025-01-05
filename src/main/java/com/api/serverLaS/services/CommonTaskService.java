@@ -63,6 +63,9 @@ public class CommonTaskService {
     }
 
     public NextTaskData getNext(GetNextTaskRequest getNextTaskRequest, int sectionId) {
+        if(taskRepository.hasCorrectTask(sectionId, getNextTaskRequest.getUid())) {
+            return new NextTaskData(-1, "", null);
+        }
         List<Task> tasks = taskRepository.getFreeList(sectionId, getNextTaskRequest.getUid());
         if(tasks.isEmpty()) {
             return new NextTaskData(-1, "", null);

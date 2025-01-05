@@ -17,6 +17,12 @@ public class TaskRepository {
                 (resultSet, rowNum) -> new Task(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("name_ttl"), resultSet.getString("name_json")));
     }
 
+    public boolean hasCorrectTask(int sectionId, String uid) {
+        String sql = "SELECT COUNT(1) FROM solutions LEFT JOIN tasks ON tasks.id = solutions.task_id where user_uid = ? and tasks.section_id = ? and count_of_correct > 0 and count_of_mistakes = 0";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, new Object[]{uid, sectionId});
+        return count != null && count == 1;
+    }
+
     public List<Task> getFreeList(int sectionId, String uid) {
         return jdbcTemplate.query("SELECT id, name, name_ttl, name_json, section_id FROM tasks " +
                         "WHERE section_id = ? EXCEPT SELECT tasks.id, tasks.name, tasks.name_ttl, tasks.name_json, tasks.section_id FROM tasks " +

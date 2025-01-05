@@ -153,6 +153,9 @@ public class Task1Service {
 
     public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {
         NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 1);
+        if(data.getTaskId() == -1) {
+            data = commonTaskService.getNext(getNextTaskRequest, 11);
+        }
 
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task1Data.fromJson(data.getTask()) : data.getTask());
     }
