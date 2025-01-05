@@ -11,7 +11,10 @@ public class Solution {
 
     private int countOfHints;
 
-    public Solution(User user, Task task, int countOfCorrect, int countOfMistakes, int countOfHints) {
+    private int id;
+
+    public Solution(int id, User user, Task task, int countOfCorrect, int countOfMistakes, int countOfHints) {
+        this.id = id;
         this.user = user;
         this.task = task;
         this.countOfCorrect = countOfCorrect;
@@ -57,5 +60,13 @@ public class Solution {
 
     public void setCountOfHints(int countOfHints) {
         this.countOfHints = countOfHints;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

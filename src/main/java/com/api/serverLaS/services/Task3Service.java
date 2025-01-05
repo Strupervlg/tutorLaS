@@ -69,7 +69,9 @@ public class Task3Service {
             DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
             List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes= resultProcessor.getList();
             Collections.reverse(branchResultNodes);
-            errorText += commonTaskService.generateErrorText(resultProcessor.getList(), newSituationDomain, request.getUid(), request.getTaskId());
+            errorText += commonTaskService.generateErrorText(resultProcessor.getList(), newSituationDomain, request.getUid(), request.getTaskId(), answer.getVar()+"_"+answer.getAnswer());
+            String correctText = commonTaskService.generateHintText(resultProcessor.getList(), newSituationDomain);
+            commonTaskService.addCountOfCorrectToDB(errorText, request.getUid(), request.getTaskId(), answer.getVar()+"_"+answer.getAnswer(), correctText);
         }
 
         StringWriter stringWriter = new StringWriter();
@@ -117,7 +119,7 @@ public class Task3Service {
             }
         }
 
-        commonTaskService.addCountOfHintsToDB(correctAnswer, request.getUid(), request.getTaskId());
+        commonTaskService.addCountOfHintsToDB(correctAnswer, request.getUid(), request.getTaskId(), hintText);
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of(DomainRDFWriter.Option.NARY_RELATIONSHIPS_OLD_COMPAT));

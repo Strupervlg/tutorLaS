@@ -33,8 +33,18 @@ public class DatabaseService {
                 "count_of_correct INTEGER, " +
                 "count_of_mistakes INTEGER, " +
                 "count_of_hints INTEGER," +
+                "created_at DATETIME," +
+                "updated_at DATETIME," +
                 "CONSTRAINT solutions_users_fk FOREIGN KEY (user_uid) REFERENCES users (uid)" +
                 "CONSTRAINT solutions_tasks_fk FOREIGN KEY (task_id) REFERENCES tasks (id))");
+
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS answers" +
+                "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "solution_id INTEGER, " +
+                "result_text CHAR(512)," +
+                "value CHAR(256)," +
+                "answer CHAR(256)," +
+                "CONSTRAINT answers_solutions_fk FOREIGN KEY (solution_id) REFERENCES solutions (id))");
     }
 
     public void fillDatabase() {

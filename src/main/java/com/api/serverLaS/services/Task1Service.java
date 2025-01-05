@@ -67,7 +67,9 @@ public class Task1Service {
 
         BranchResultProcessor resultProcessor = new BranchResultProcessor();
         DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
-        String errorText = commonTaskService.generateErrorText(resultProcessor.getList(), situationDomain, request.getUid(), request.getTaskId());
+        String errorText = commonTaskService.generateErrorText(resultProcessor.getList(), situationDomain, request.getUid(), request.getTaskId(), request.getStep());
+        String correctText = commonTaskService.generateHintText(resultProcessor.getList(), situationDomain);
+        commonTaskService.addCountOfCorrectToDB(errorText, request.getUid(), request.getTaskId(), request.getStep(), correctText);
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
@@ -105,7 +107,7 @@ public class Task1Service {
                                 return 0;
                             }}));
 
-        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId());
+        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId(), "all");
         String[] steps = commonTaskService.getErrorLines(branchResultNodes, situationDomain, "step");
 
         return new CompleteTaskResponse(errorText.isEmpty(), errorText, steps);
@@ -142,7 +144,7 @@ public class Task1Service {
             }
         }
 
-        commonTaskService.addCountOfHintsToDB(correctStep, request.getUid(), request.getTaskId());
+        commonTaskService.addCountOfHintsToDB(correctStep, request.getUid(), request.getTaskId(), hintText);
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());

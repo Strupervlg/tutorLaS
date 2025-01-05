@@ -68,7 +68,9 @@ public class Task2Service {
 
         BranchResultProcessor resultProcessor = new BranchResultProcessor();
         DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
-        String errorText = commonTaskService.generateErrorText(resultProcessor.getList(), situationDomain, request.getUid(), request.getTaskId());
+        String errorText = commonTaskService.generateErrorText(resultProcessor.getList(), situationDomain, request.getUid(), request.getTaskId(), request.getUsageLine());
+        String correctText = commonTaskService.generateHintText(resultProcessor.getList(), situationDomain);
+        commonTaskService.addCountOfCorrectToDB(errorText, request.getUid(), request.getTaskId(), request.getUsageLine(), correctText);
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of(DomainRDFWriter.Option.NARY_RELATIONSHIPS_OLD_COMPAT));
@@ -106,7 +108,7 @@ public class Task2Service {
                             } else {
                                 return 0;
                             }}));
-        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId());
+        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId(), "all");
         String[] lines = commonTaskService.getErrorLines(branchResultNodes, situationDomain, "line");
 
         return new CompleteTaskResponse(errorText.isEmpty(), errorText, lines);
@@ -143,7 +145,7 @@ public class Task2Service {
             }
         }
 
-        commonTaskService.addCountOfHintsToDB(correctLine, request.getUid(), request.getTaskId());
+        commonTaskService.addCountOfHintsToDB(correctLine, request.getUid(), request.getTaskId(), hintText);
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of(DomainRDFWriter.Option.NARY_RELATIONSHIPS_OLD_COMPAT));
