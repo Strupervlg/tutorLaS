@@ -4,7 +4,7 @@ has||OperatorType;Position;Type|||
 parent||Expression;Expression|partial|child;ancestor;descendant;between;closer;far|
 hasArg||Sequence;Expression|||onetomany
 param||SequenceParams;Param|||onetomany
-paramType||Param;Type|||onetoone
+paramType||Param;Type|||manytoone
 definition||FunctionCall;FunctionDef|||manytoone
 params||FunctionDef;SequenceParams|||onetoone
 args||FunctionCall;Sequence|||onetoone

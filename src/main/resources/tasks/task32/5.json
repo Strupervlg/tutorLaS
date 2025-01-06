@@ -1,0 +1,15 @@
+{
+	"question": "Чем являются переменные?",
+	"function_def": "/**\n * @brief func1\n * \n * @param[in] m\n */\nint func1(int m);\n/**\n * @brief func2\n * \n * @param[out] i\n */\nint func2(int i);",
+	"vars": [
+		{
+			"name": "e",
+			"object": "varE1"
+		},
+		{
+			"name": "a",
+			"object": "varA6"
+		}
+	],
+	"expression": "e[0]  += func1(a) - func2(a);\n1|2|3  4   5   6  7   8   9"
+}

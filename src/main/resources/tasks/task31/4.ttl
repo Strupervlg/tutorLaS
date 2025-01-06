@@ -1,0 +1,148 @@
+@prefix : <poas:poas/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# d = a >= c && t || !e ? f[0] : r->s;
+
+:varD1 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 1 ;
+       :name "d"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varAssign2 ;
+       rdfs:label "varD1" .
+
+:varAssign2 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 2 ;
+       :operatorType :assign ;
+       rdfs:label "varAssign2" .
+
+:varA3 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 3 ;
+       :name "a"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varGreaterEqual4 ;
+       rdfs:label "varA3" .
+
+:varGreaterEqual4 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 4 ;
+       :parent :varAnd6 ;
+       :operatorType :greaterEqual ;
+       rdfs:label "varGreaterEqual4" .
+
+:varC5 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 5 ;
+       :name "c"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varGreaterEqual4 ;
+       rdfs:label "varC5" .
+
+:varAnd6 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 6 ;
+       :parent :varOr8 ;
+       :operatorType :and ;
+       rdfs:label "varAnd6" .
+
+:varT7 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 7 ;
+       :name "t"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varAnd6 ;
+       rdfs:label "varT7" .
+
+:varOr8 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 8 ;
+       :parent :varTernaryOperator11 ;
+       :operatorType :or ;
+       rdfs:label "varOr8" .
+
+:varNot9 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 9 ;
+       :parent :varOr8 ;
+       :operatorType :not ;
+       rdfs:label "varNot9" .
+
+:varE10 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 10 ;
+       :name "e"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varNot9 ;
+       rdfs:label "varE10" .
+
+:varTernaryOperator11 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 11 ;
+       :parent :varAssign2 ;
+       :operatorType :ternaryOperator ;
+       rdfs:label "varTernaryOperator11" .
+
+:varF12 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 12 ;
+       :name "f"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varIndexOperator13 ;
+       rdfs:label "varF12" .
+
+:varIndexOperator13 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 13 ;
+       :parent :varTernaryOperator11 ;
+       :operatorType :indexOperator ;
+       rdfs:label "varIndexOperator13" .
+
+:var014 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 14 ;
+       :name "0"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varIndexOperator13 ;
+       rdfs:label "var014" .
+
+:varR15 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 15 ;
+       :name "r"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varPointerAccess16 ;
+       rdfs:label "varR15" .
+
+:varPointerAccess16 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 16 ;
+       :parent :varTernaryOperator11 ;
+       :operatorType :pointerAccess ;
+       rdfs:label "varPointerAccess16" .
+
+:varS17 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 17 ;
+       :name "s"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varPointerAccess16 ;
+       rdfs:label "varS17" .
+
+# Answers
+:answerInput rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :input .
+
+:answerOutput rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :output .
+
+:answerMutable rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :mutable .

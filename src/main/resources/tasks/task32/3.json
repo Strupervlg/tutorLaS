@@ -1,0 +1,19 @@
+{
+	"question": "Чем являются переменные?",
+	"function_def": "/**\n * @brief func\n * \n * @param[out] b\n */\nint func(int b);",
+	"vars": [
+		{
+			"name": "e",
+			"object": "varE1"
+		},
+		{
+			"name": "a",
+			"object": "varA3"
+		},
+		{
+			"name": "c",
+			"object": "varC8"
+		}
+	],
+	"expression": "e = a / func(e) % c;\n1 2 3 4   5  6  7 8"
+}

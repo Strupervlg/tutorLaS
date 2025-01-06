@@ -4,16 +4,16 @@
 	"vars": [
 		{
 			"name": "v",
-			"object": "varV4"
+			"object": "varV1"
 		},
 		{
 			"name": "d",
-			"object": "varD1"
+			"object": "varD3"
 		},
 		{
-			"name": "c",
-			"object": "varC6"
+			"name": "a",
+			"object": "varA6"
 		}
 	],
-	"expression": "d = -v  - c * d;\n1 2 3|4 5 6 7 8"
+	"expression": "v += d % --a;\n1 2  3 4 5 6"
 }

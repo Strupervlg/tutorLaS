@@ -5,16 +5,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-# a = !e ? func(a) : e;
+# e = a / func(e) % c;
 
 
-:varA1 rdf:type owl:NamedIndividual ,
+:varE1 rdf:type owl:NamedIndividual ,
                 :Variable ;
        :number 1 ;
-       :name "a"^^xsd:string ;
+       :name "e"^^xsd:string ;
        :position :leftPosition ;
        :parent :varAssign2 ;
-       rdfs:label "varA1" .
+       rdfs:label "varE1" .
 
 :varAssign2 rdf:type owl:NamedIndividual ,
                 :Operator ;
@@ -22,56 +22,56 @@
        :operatorType :assign ;
        rdfs:label "varAssign2" .
 
-:varNot3 rdf:type owl:NamedIndividual ,
-                :Operator ;
+:varA3 rdf:type owl:NamedIndividual ,
+                :Variable ;
        :number 3 ;
-       :parent :varTernaryOperator5 ;
-       :operatorType :not ;
-       rdfs:label "varNot3" .
-
-:varE4 rdf:type owl:NamedIndividual ,
-                :Variable ;
-       :number 4 ;
-       :name "e"^^xsd:string ;
-       :position :rightPosition ;
-       :parent :varNot3 ;
-       rdfs:label "varE4" .
-
-:varTernaryOperator5 rdf:type owl:NamedIndividual ,
-                :Operator ;
-       :number 5 ;
-       :parent :varAssign2 ;
-       :operatorType :ternaryOperator ;
-       rdfs:label "varTernaryOperator5" .
-
-:functionCallFunc6 rdf:type owl:NamedIndividual ,
-                :FunctionCall ;
-       :number 6 ;
-       :position :centerPosition ;
-       :parent :varTernaryOperator5 ;
-       :args :argsfunctionCallFunc6 ;
-       :definition :funcFunc ;
-       rdfs:label "functionCallFunc6" .
-
-:argsfunctionCallFunc6 rdf:type owl:NamedIndividual ,
-                :Sequence ;
-       :hasArg :varA7 .
-
-:varA7 rdf:type owl:NamedIndividual ,
-                :Variable ;
-       :number 7 ;
        :name "a"^^xsd:string ;
-       :argNumber 1 ;
-       :parent :functionCallFunc6 ;
-       rdfs:label "varA7" .
+       :position :leftPosition ;
+       :parent :varDiv4 ;
+       rdfs:label "varA3" .
 
-:varE9 rdf:type owl:NamedIndividual ,
-                :Variable ;
-       :number 9 ;
-       :name "e"^^xsd:string ;
+:varDiv4 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 4 ;
+       :parent :varMod7 ;
+       :operatorType :div ;
+       rdfs:label "varDiv4" .
+
+:functionCallFunc5 rdf:type owl:NamedIndividual ,
+                :FunctionCall ;
+       :number 5 ;
        :position :rightPosition ;
-       :parent :varTernaryOperator5 ;
-       rdfs:label "varE9" .
+       :parent :varDiv4 ;
+       :args :argsfunctionCallFunc5 ;
+       :definition :funcFunc ;
+       rdfs:label "functionCallFunc5" .
+
+:argsfunctionCallFunc5 rdf:type owl:NamedIndividual ,
+                :Sequence ;
+       :hasArg :varE6 .
+
+:varE6 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 6 ;
+       :name "e"^^xsd:string ;
+       :argNumber 1 ;
+       :parent :functionCallFunc5 ;
+       rdfs:label "varE6" .
+
+:varMod7 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 7 ;
+       :parent :varAssign2 ;
+       :operatorType :mod ;
+       rdfs:label "varMod7" .
+
+:varC8 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 8 ;
+       :name "c"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varMod7 ;
+       rdfs:label "varC8" .
 
 
 # Answers
@@ -101,4 +101,4 @@
 :param1FuncFunc rdf:type owl:NamedIndividual ,
                 :Param ;
        :paramNumber 1 ;
-       :paramType :inputType .
+       :paramType :outputType .

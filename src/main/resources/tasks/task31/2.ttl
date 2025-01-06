@@ -5,15 +5,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-# d = -v - c * d;
+# e = d - a++ * d;
 
-:varD1 rdf:type owl:NamedIndividual ,
+:varE1 rdf:type owl:NamedIndividual ,
                 :Variable ;
        :number 1 ;
-       :name "d"^^xsd:string ;
+       :name "e"^^xsd:string ;
        :position :leftPosition ;
        :parent :varAssign2 ;
-       rdfs:label "varD1" .
+       rdfs:label "varE1" .
 
 :varAssign2 rdf:type owl:NamedIndividual ,
                 :Operator ;
@@ -21,40 +21,40 @@
        :operatorType :assign ;
        rdfs:label "varAssign2" .
 
-:varUnMinus3 rdf:type owl:NamedIndividual ,
-                :Operator ;
-       :number 3 ;
-       :parent :varAssign2 ;
-       :operatorType :unaryMinus ;
-       rdfs:label "varUnMinus3" .
-
-:varV4 rdf:type owl:NamedIndividual ,
+:varD3 rdf:type owl:NamedIndividual ,
                 :Variable ;
-       :number 4 ;
-       :name "v"^^xsd:string ;
-       :position :rightPosition ;
-       :parent :varUnMinus3 ;
-       rdfs:label "varV4" .
+       :number 3 ;
+       :name "d"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varMinus4 ;
+       rdfs:label "varD3" .
 
-:varMinus5 rdf:type owl:NamedIndividual ,
+:varMinus4 rdf:type owl:NamedIndividual ,
                 :Operator ;
-       :number 5 ;
+       :number 4 ;
        :parent :varAssign2 ;
        :operatorType :minus ;
-       rdfs:label "varMinus5" .
+       rdfs:label "varMinus4" .
 
-:varC6 rdf:type owl:NamedIndividual ,
+:varA5 rdf:type owl:NamedIndividual ,
                 :Variable ;
-       :number 6 ;
-       :name "c"^^xsd:string ;
+       :number 5 ;
+       :name "a"^^xsd:string ;
        :position :leftPosition ;
+       :parent :varPostfixIncrement6 ;
+       rdfs:label "varA5" .
+
+:varPostfixIncrement6 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 6 ;
        :parent :varMul7 ;
-       rdfs:label "varC6" .
+       :operatorType :postfixIncrement ;
+       rdfs:label "varPostfixIncrement6" .
 
 :varMul7 rdf:type owl:NamedIndividual ,
                 :Operator ;
        :number 7 ;
-       :parent :varMinus5 ;
+       :parent :varMinus4 ;
        :operatorType :mul ;
        rdfs:label "varMul7" .
 

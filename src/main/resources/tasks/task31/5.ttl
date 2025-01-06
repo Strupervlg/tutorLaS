@@ -1,0 +1,88 @@
+@prefix : <poas:poas/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# b &= c > e ^ c < e;
+
+:varB1 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 1 ;
+       :name "b"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varBitAndAssign2 ;
+       rdfs:label "varB1" .
+
+:varBitAndAssign2 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 2 ;
+       :operatorType :bitAndAssign ;
+       rdfs:label "varBitAndAssign2" .
+
+:varC3 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 3 ;
+       :name "c"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varGreater4 ;
+       rdfs:label "varC3" .
+
+:varGreater4 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 4 ;
+       :parent :varBitXor6 ;
+       :operatorType :greater ;
+       rdfs:label "varGreater4" .
+
+:varE5 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 5 ;
+       :name "e"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varGreater4 ;
+       rdfs:label "varE5" .
+
+:varBitXor6 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 6 ;
+       :parent :varBitAndAssign2 ;
+       :operatorType :bitXor ;
+       rdfs:label "varBitXor6" .
+
+:varC7 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 7 ;
+       :name "c"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varLess8 ;
+       rdfs:label "varC7" .
+
+:varLess8 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 8 ;
+       :parent :varBitXor6 ;
+       :operatorType :less ;
+       rdfs:label "varLess8" .
+
+:varE9 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 9 ;
+       :name "e"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varLess8 ;
+       rdfs:label "varE9" .
+
+# Answers
+:answerInput rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :input .
+
+:answerOutput rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :output .
+
+:answerMutable rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :mutable .

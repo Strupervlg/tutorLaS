@@ -1,23 +1,15 @@
 {
 	"question": "Чем являются переменные?",
-	"function_def": "/**\n * @brief test\n * \n * @param[in] a\n * @param[in,out] b\n * @param[out] result\n */\nvoid test(int a, int b, int &result);",
+	"function_def": "/**\n * @brief func\n * \n * @param[in] a\n */\nbool func(int a);",
 	"vars": [
 		{
-			"name": "v",
-			"object": "varV1"
-		},
-		{
-			"name": "d",
-			"object": "varD3"
-		},
-		{
 			"name": "a",
-			"object": "varA6"
+			"object": "varA1"
 		},
 		{
-			"name": "b",
-			"object": "varB7"
+			"name": "e",
+			"object": "varE4"
 		}
 	],
-	"expression": "v = d - test(a, b, d) * d;\n1 2 3 4   5  6  7  8  9 10"
+	"expression": "a = !e  ? func(a) : e;\n1 2 3|4 5   5  6  7 8"
 }

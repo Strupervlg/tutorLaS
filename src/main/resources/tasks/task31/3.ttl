@@ -1,0 +1,66 @@
+@prefix : <poas:poas/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# v += d % --a;
+
+:varV1 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 1 ;
+       :name "v"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varPlusAssign2 ;
+       rdfs:label "varV1" .
+
+:varPlusAssign2 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 2 ;
+       :operatorType :plusAssign ;
+       rdfs:label "varPlusAssign2" .
+
+:varD3 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 3 ;
+       :name "d"^^xsd:string ;
+       :position :leftPosition ;
+       :parent :varMod4 ;
+       rdfs:label "varD3" .
+
+:varMod4 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 4 ;
+       :parent :varPlusAssign2 ;
+       :operatorType :mod ;
+       rdfs:label "varMod4" .
+
+:varPrefixDecrement5 rdf:type owl:NamedIndividual ,
+                :Operator ;
+       :number 5 ;
+       :parent :varMod4 ;
+       :operatorType :prefixDecrement ;
+       rdfs:label "varPrefixDecrement5" .
+
+:varA6 rdf:type owl:NamedIndividual ,
+                :Variable ;
+       :number 6 ;
+       :name "a"^^xsd:string ;
+       :position :rightPosition ;
+       :parent :varPrefixDecrement5 ;
+       rdfs:label "varA6" .
+
+
+# Answers
+:answerInput rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :input .
+
+:answerOutput rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :output .
+
+:answerMutable rdf:type owl:NamedIndividual ,
+                :Type ;
+    :type :mutable .
