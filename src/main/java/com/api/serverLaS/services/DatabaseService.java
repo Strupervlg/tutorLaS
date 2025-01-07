@@ -56,11 +56,20 @@ public class DatabaseService {
         jdbcTemplate.execute("UPDATE SQLITE_SEQUENCE SET seq = 0 WHERE name = 'users'");
 
         jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (1, 'Lifetime')");
-        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '11.ttl', '1.json', 1)");
-        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task2', '21.ttl', '2.json', 1)");
-        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task3', '31.ttl', '3.json', 1)");
-        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task4', '41.ttl', '4.json', 1)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '1.ttl', '1.json', 1)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '2.ttl', '2.json', 1)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '3.ttl', '3.json', 1)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '4.ttl', '4.json', 1)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '5.ttl', '5.json', 1)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '6.ttl', '6.json', 1)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '7.ttl', '7.json', 1)");
         jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (11, 'Lifetime static')");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task11', '1.ttl', '1.json', 11)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task11', '2.ttl', '2.json', 11)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task11', '3.ttl', '3.json', 11)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task11', '4.ttl', '4.json', 11)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task11', '5.ttl', '5.json', 11)");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task11', '6.ttl', '6.json', 11)");
 
         jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (2, 'Scope')");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task21', '11.ttl', '1.json', 2)");

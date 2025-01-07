@@ -5,31 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-# Код на C++
-#1. int main() {
-#2.     int d = 2;
-#3.     int b = 5;
-#4.     int c = b + 3;
-#5.     if(c > 5) {
-#6.         int b = 2;
-#7.         c = d + 2;
-#8.     }
-#9.     int a = 1;
-#10. }
-#
-# Трасса
-# Условие задачи переменная b из 3 строки программы
-#
-# 1. начало функции main
-#     2. объявление переменной d и присвоение ей числа 2
-#     3. объявление переменной b и присвоение ей числа 5
-#     4. объявление переменной c и присвоение ей суммы переменной b и числа 3
-#     5. проверка условия if (c > 5) (истина)
-#         6. объявление переменной b и присвоение ей числа 2
-#         7. присвоение переменной c суммы переменной d и числа 2
-#     8. объявление переменной a и присвоение ей числа 1
-# 9. конец функции main
-
 
 ###  poas:poas/IfContext
 :IfContext rdf:type owl:NamedIndividual ,
@@ -50,7 +25,7 @@
 ###  poas:poas/GlobalContext
 :GlobalContext rdf:type owl:NamedIndividual ,
                                     :Context ;
-                           :endsIn :step13 ;
+                           :endsIn :step15 ;
                            rdfs:label "GlobalContext" .
 
 
@@ -58,10 +33,11 @@
 :VariableB rdf:type owl:NamedIndividual ,
                     :Variable ;
            rdfs:label "VariableB" ;
-           :isGlobal "false"^^xsd:boolean ;
+           :isGlobal "true"^^xsd:boolean ;
            :isStatic "false"^^xsd:boolean ;
            :typeName "переменная"^^xsd:string ;
            :typeNameR "переменной"^^xsd:string ;
+           :lifeTimeTypeName "глобальной"^^xsd:string ;
            :text "b"^^xsd:string .
 
 
@@ -73,7 +49,7 @@
        rdfs:label "step1" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 1 ;
-       :text "1. program began"^^xsd:string .
+       :text "1. Программа начинается"^^xsd:string .
 
 
 ###  poas:poas/step2
@@ -84,7 +60,7 @@
        rdfs:label "step2" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 2 ;
-       :text "2. func main began"^^xsd:string .
+       :text "2. функция main начинается"^^xsd:string .
 
 
 ###  poas:poas/step3
@@ -97,7 +73,6 @@
        :number 3 ;
        :text "3. int d = 2;"^^xsd:string .
 
-
 ###  poas:poas/step4
 :step4 rdf:type owl:NamedIndividual ,
                 :Step ;
@@ -107,7 +82,6 @@
        :isEvaluated "false"^^xsd:boolean ;
        :number 4 ;
        :text "4. int b = 5;"^^xsd:string .
-
 
 ###  poas:poas/step5
 :step5 rdf:type owl:NamedIndividual ,
@@ -119,7 +93,6 @@
        :number 5 ;
        :text "5. int c = b + 3;"^^xsd:string .
 
-
 ###  poas:poas/step6
 :step6 rdf:type owl:NamedIndividual ,
                 :Step ;
@@ -128,8 +101,7 @@
        rdfs:label "step6" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 6 ;
-       :text "6. condition c > 5 evaluated - true"^^xsd:string .
-
+       :text "6. условие c > 5 вычисляется - true"^^xsd:string .
 
 ###  poas:poas/step7
 :step7 rdf:type owl:NamedIndividual ,
@@ -139,8 +111,7 @@
        rdfs:label "step7" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 7 ;
-       :text "7. body of if began"^^xsd:string .
-
+       :text "7. тело if начинается"^^xsd:string .
 
 ###  poas:poas/step8
 :step8 rdf:type owl:NamedIndividual ,
@@ -172,7 +143,7 @@
        rdfs:label "step10" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 10 ;
-       :text "10. body of if ended"^^xsd:string .
+       :text "10. тело if закончилось"^^xsd:string .
 
 
 ###  poas:poas/step11
@@ -194,14 +165,36 @@
        rdfs:label "step12" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 12 ;
-       :text "12. func main ended"^^xsd:string .
+       :text "12. функция main закончилась"^^xsd:string .
 
 
 ###  poas:poas/step13
 :step13 rdf:type owl:NamedIndividual ,
                 :Step ;
        :belongsTo :GlobalContext ;
+       :directlyNext :step14 ;
        rdfs:label "step13" ;
        :isEvaluated "false"^^xsd:boolean ;
        :number 13 ;
-       :text "13. program ended"^^xsd:string .
+       :text "13. int b = 0;"^^xsd:string .
+
+
+###  poas:poas/step14
+:step14 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :GlobalContext ;
+       :directlyNext :step15 ;
+       rdfs:label "step14" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 14 ;
+       :text "14. int c = 2;"^^xsd:string .
+
+
+###  poas:poas/step15
+:step15 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :GlobalContext ;
+       rdfs:label "step15" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 15 ;
+       :text "15. Программа закончилась"^^xsd:string .

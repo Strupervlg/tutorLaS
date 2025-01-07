@@ -1,0 +1,60 @@
+{
+	"question": "В каких строках трассы существует переменная \"d\" из 5 строки программы?",
+	"stepVar": "step7",
+	"var": "VariableD",
+	"code": "1.int main() {\n2.\tint b = 5;\n3.\tint c = b + 3;\n4.\tif (c > 5) {\n5.\t\tstatic int d = 2;\n6.\t\tint b = 2;\n7.\t\tc = d + 2;\n8.\t}\n9.\tint a = 1;\n10.}",
+	"trace": [
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>начинается</span>",
+			"step": "step1"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>начинается</span>",
+			"step": "step2"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>5</span>;",
+			"step": "step3"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>c</span> = <span class='variable'>b</span> + <span class='number'>3</span>;",
+			"step": "step4"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>c</span> > <span class='number'>5</span> <span class='keyword'>вычисляется</span> - <span class='atom'>true</span>",
+			"step": "step5"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>начинается</span>",
+			"step": "step6"
+		},
+		{
+			"text": "<span class='variable'>static</span> <span class='variable'>int</span> <span class='variable'>d</span> = <span class='number'>2</span>;",
+			"step": "step7"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>2</span>;",
+			"step": "step8"
+		},
+		{
+			"text": "<span class='variable'>c</span> = <span class='variable'>d</span> + <span class='number'>2</span>;",
+			"step": "step9"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"step": "step10"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>1</span>;",
+			"step": "step11"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>закончилась</span>",
+			"step": "step12"
+		},
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"step": "step13"
+		}
+	]
+}

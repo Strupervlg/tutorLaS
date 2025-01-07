@@ -1,8 +1,8 @@
 {
-	"question": "В каких строках трассы существует переменная \"b\" из 3 строки программы?",
-	"stepVar": "step4",
+	"question": "В каких строках трассы существует переменная \"b\" из 11 строки программы?",
+	"stepVar": "step13",
 	"var": "VariableB",
-	"code": "1.int main() {\n2. \tint d = 2;\n3. \tint b = 5;\n4. \tint c = b + 3;\n5. \tif(c > 5) {\n6. \t\tint b = 2;\n7. \t\tc = d + 2;\n8. \t}\n9. \tint a = 1;\n10.}",
+	"code": "1.int main() {\n2.\tint d = 2;\n3.\tint b = 5;\n4.\tint c = b + 3;\n5.\tif (c > 5) {\n6.\t\tint b = 2;\n7.\t\tc = d + 2;\n8.\t}\n9.\tint a = 1;\n10.}\n11.int b = 0;\n12.int c = 2;",
 	"trace": [
 		{
 			"text": "<span class='program'>Программа</span> <span class='keyword'>начинается</span>",
@@ -41,7 +41,7 @@
 			"step": "step9"
 		},
 		{
-			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>закончилось</span>",
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
 			"step": "step10"
 		},
 		{
@@ -53,8 +53,16 @@
 			"step": "step12"
 		},
 		{
-			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>0</span>;",
 			"step": "step13"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>c</span> = <span class='number'>2</span>;",
+			"step": "step14"
+		},
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"step": "step15"
 		}
 	]
 }

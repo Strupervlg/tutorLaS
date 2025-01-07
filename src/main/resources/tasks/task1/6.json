@@ -1,0 +1,128 @@
+{
+	"question": "В каких строках трассы существует переменная \"a\" из 6 строки программы, из 2 итерации цикла?",
+	"stepVar": "step21",
+	"var": "VariableA",
+	"code": "1.void main() {\n2.\tint a = 5;\n3.\tfor (int c = 0; c < 2; c++) {\n4.\t\tint d = 3;\n5.\t\tif(a > 2) {\n6.\t\t\tint a = 2;\n7.\t\t\tstd::cout << a;\n8.\t\t}\n9.\t\td = d + c;\n10.\t}\n11.\ta += 3;\n12.}",
+	"trace": [
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>начинается</span>",
+			"step": "step1"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>начинается</span>",
+			"step": "step2"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>5</span>;",
+			"step": "step3"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>c</span> = <span class='number'>0</span>;",
+			"step": "step4"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>c</span> < <span class='number'>2</span> <span class='keyword'>вычисляется</span> <span class='number'>первый</span> раз - <span class='atom'>true</span>",
+			"step": "step5"
+		},
+		{
+			"text": "<span class='struct'>итерация</span> <span class='number'>1</span> <span class='struct'>цикла</span> <span class='keyword'>начинается</span>",
+			"step": "step6"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>d</span> = <span class='number'>3</span>; <span class='keyword'>выполняется</span> <span class='number'>первый</span> раз",
+			"step": "step7"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>a</span> > <span class='number'>2</span> <span class='keyword'>вычисляется</span> - <span class='atom'>true</span> <span class='keyword'>выполняется</span> <span class='number'>первый</span> раз",
+			"step": "step8"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>начинается</span>",
+			"step": "step9"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>2</span>; <span class='keyword'>выполняется</span> <span class='number'>первый</span> раз",
+			"step": "step10"
+		},
+		{
+			"text": "<span class='program'>std</span>::<span class='program'>cout</span> << <span class='variable'>a</span>; <span class='keyword'>выполняется</span> <span class='number'>первый</span> раз",
+			"step": "step11"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"step": "step12"
+		},
+		{
+			"text": "<span class='variable'>d</span> = <span class='variable'>d</span> + <span class='variable'>c</span>; <span class='keyword'>выполняется</span> <span class='number'>первый</span> раз",
+			"step": "step13"
+		},
+		{
+			"text": "<span class='variable'>c</span>++; <span class='keyword'>выполняется</span> <span class='number'>первый</span> раз",
+			"step": "step14"
+		},
+		{
+			"text": "<span class='struct'>итерация</span> <span class='number'>1</span> <span class='struct'>цикла</span> <span class='keyword'>закончилась</span>",
+			"step": "step15"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>c</span> < <span class='number'>2</span> <span class='keyword'>вычисляется</span> <span class='number'>второй</span> раз - <span class='atom'>true</span>,",
+			"step": "step16"
+		},
+		{
+			"text": "<span class='struct'>итерация</span> <span class='number'>2</span> <span class='struct'>цикла</span> <span class='keyword'>начинается</span>",
+			"step": "step17"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>d</span> = <span class='number'>3</span>; <span class='keyword'>выполняется</span> <span class='number'>второй</span> раз",
+			"step": "step18"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>a</span> > <span class='number'>2</span> <span class='keyword'>вычисляется</span> - <span class='atom'>true</span> <span class='keyword'>выполняется</span> <span class='number'>второй</span> раз",
+			"step": "step19"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>начинается</span>",
+			"step": "step20"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>2</span>; <span class='keyword'>выполняется</span> <span class='number'>второй</span> раз",
+			"step": "step21"
+		},
+		{
+			"text": "<span class='program'>std</span>::<span class='program'>cout</span> << <span class='variable'>a</span>; <span class='keyword'>выполняется</span> <span class='number'>второй</span> раз",
+			"step": "step22"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"step": "step23"
+		},
+		{
+			"text": "<span class='variable'>d</span> = <span class='variable'>d</span> + <span class='variable'>c</span>; <span class='keyword'>выполняется</span> <span class='number'>второй</span> раз",
+			"step": "step24"
+		},
+		{
+			"text": "<span class='variable'>c</span>++; <span class='keyword'>выполняется</span> <span class='number'>второй</span> раз",
+			"step": "step25"
+		},
+		{
+			"text": "<span class='struct'>итерация</span> <span class='number'>2</span> <span class='struct'>цикла</span> <span class='keyword'>закончилась</span>",
+			"step": "step26"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>c</span> < <span class='number'>2</span> <span class='keyword'>вычисляется</span> <span class='number'>третий</span> раз - <span class='atom'>false</span>",
+			"step": "step27"
+		},
+		{
+			"text": "<span class='variable'>a</span> += <span class='number'>3</span>",
+			"step": "step28"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>закончилась</span>",
+			"step": "step29"
+		},
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"step": "step30"
+		}
+	]
+}

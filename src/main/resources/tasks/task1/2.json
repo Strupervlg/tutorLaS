@@ -1,0 +1,76 @@
+{
+	"question": "В каких строках трассы существует переменная \"b\" из 6 строки программы?",
+	"stepVar": "step8",
+	"var": "VariableB",
+	"code": "1.int main() {\n2.\tint d = 2;\n3.\tif (d > 0) {\n4.\t\tint b = 2;\n5.\t}\n6.\tint b = 5;\n7.\tint c = b + 3;\n8.\tif (c > 5) {\n9.\t\tint b = 2;\n10.\t\tc = d + 2;\n11.\t}\n12.\tint a = 1;\n13.}",
+	"trace": [
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>начинается</span>",
+			"step": "step1"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>начинается</span>",
+			"step": "step2"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>d</span> = <span class='number'>2</span>;",
+			"step": "step3"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>d</span> > <span class='number'>0</span> <span class='keyword'>вычисляется</span> - <span class='atom'>true</span>",
+			"step": "step4"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>начинается</span>",
+			"step": "step5"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>2</span>;",
+			"step": "step6"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"step": "step7"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>5</span>;",
+			"step": "step8"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>c</span> = <span class='variable'>b</span> + <span class='number'>3</span>;",
+			"step": "step9"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>c</span> > <span class='number'>5</span> <span class='keyword'>вычисляется</span> - <span class='atom'>true</span>",
+			"step": "step10"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>начинается</span>",
+			"step": "step11"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>2</span>;",
+			"step": "step12"
+		},
+		{
+			"text": "<span class='variable'>c</span> = <span class='variable'>d</span> + <span class='number'>2</span>;",
+			"step": "step13"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"step": "step14"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>1</span>;",
+			"step": "step15"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>закончилась</span>",
+			"step": "step16"
+		},
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"step": "step17"
+		}
+	]
+}

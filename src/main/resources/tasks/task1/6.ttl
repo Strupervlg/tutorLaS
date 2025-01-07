@@ -5,54 +5,35 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-# Код на C++
-# void main() {
-#     int a = 5;
-#     for (int c = 0; c < 2; c++) {
-#         int d = 3;
-#         int a = 2;
-#         d = d + c;
-#     }
-#     a += 3;
-# }
-#
-# Трасса
-# Условие задачи переменная a из 2 строки программы
-#
-# 1. начало функции main
-#     2. объявление переменной a и присвоение ему числа 5
-#     3. объявление переменной c и присвоение ему числа 0
-#     4. проверка что переменная c меньше двух (истина)
-#     5. начало первой итерации цикла
-#         6. объявление переменной d и присвоение ему числа 3
-#         7. объявление переменной a и присвоение ему числа 2
-#         8. присвоение переменной d результата суммы d и c
-#         9. инкрементирование переменной с
-#     10. конец первой итерации цикла
-#     11. проверка что переменная c меньше двух (истина)
-#     12. начало второй итерации цикла
-#         13. объявление переменной d и присвоение ему числа 3
-#         14. объявление переменной a и присвоение ему числа 2
-#         15. присвоение переменной d результата суммы d и c
-#         16. инкрементирование переменной с
-#     17. конец второй итерации цикла
-#     18. проверка что переменная c меньше двух (ложь)
-#     19. присвоение переменной суммы переменной a и 3
-# 20. конец функции main
-
 
 ###  poas:poas/ForContext
 :ForContext rdf:type owl:NamedIndividual ,
                                    :Context ;
-                          :endsIn :step19 ;
+                          :endsIn :step27 ;
                           rdfs:label "ForContext" ;
                           :text "тела for" .
+
+
+###  poas:poas/IfContext1
+:IfContext1 rdf:type owl:NamedIndividual ,
+                                   :Context ;
+                          :endsIn :step12 ;
+                          rdfs:label "IfContext1" ;
+                          :text "тела if" .
+
+
+###  poas:poas/IfContext2
+:IfContext2 rdf:type owl:NamedIndividual ,
+                                   :Context ;
+                          :endsIn :step23 ;
+                          rdfs:label "IfContext2" ;
+                          :text "тела if" .
 
 
 ###  poas:poas/MainContext
 :MainContext rdf:type owl:NamedIndividual ,
                                     :Context ;
-                           :endsIn :step21 ;
+                           :endsIn :step29 ;
                            rdfs:label "MainContext" ;
                            :text "функции main" .
 
@@ -60,7 +41,7 @@
 ###  poas:poas/GlobalContext
 :GlobalContext rdf:type owl:NamedIndividual ,
                                     :Context ;
-                           :endsIn :step22 ;
+                           :endsIn :step30 ;
                            rdfs:label "GlobalContext" .
 
 
@@ -81,7 +62,7 @@
                      :belongsTo :GlobalContext ;
                      :directlyNext :step2 ;
                      rdfs:label "step1" ;
-                     :text "1. program began"^^xsd:string ;
+                     :text "1. Программа начинается"^^xsd:string ;
                      :number 1 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -92,7 +73,7 @@
                      :belongsTo :MainContext ;
                      :directlyNext :step3 ;
                      rdfs:label "step2" ;
-                     :text "2. func main began"^^xsd:string ;
+                     :text "2. функция main начинается"^^xsd:string ;
                      :number 2 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -125,7 +106,7 @@
                      :belongsTo :ForContext ;
                      :directlyNext :step6 ;
                      rdfs:label "step5" ;
-                     :text "5. condition c < 2 evaluated 1st time - true"^^xsd:string ;
+                     :text "5. условие c < 2 вычисляется первый раз - true"^^xsd:string ;
                      :number 5 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -136,7 +117,7 @@
                      :belongsTo :ForContext ;
                      :directlyNext :step7 ;
                      rdfs:label "step6" ;
-                     :text "6. iteration 1 of loop began"^^xsd:string ;
+                     :text "6. итерация 1 цикла начинается"^^xsd:string ;
                      :number 6 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -147,7 +128,7 @@
                      :belongsTo :ForContext ;
                      :directlyNext :step8 ;
                      rdfs:label "step7" ;
-                     :text "7. int d = 3; executed 1st time"^^xsd:string ;
+                     :text "7. int d = 3; выполняется первый раз"^^xsd:string ;
                      :number 7 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -155,10 +136,10 @@
 ###  poas:poas/step8
 :step8 rdf:type owl:NamedIndividual ,
                               :Step ;
-                     :belongsTo :ForContext ;
+                     :belongsTo :IfContext1 ;
                      :directlyNext :step9 ;
                      rdfs:label "step8" ;
-                     :text "8. int a = 2; executed 1st time"^^xsd:string ;
+                     :text "8. условие a > 2 вычисляется - true выполняется первый раз"^^xsd:string ;
                      :number 8 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -166,10 +147,10 @@
 ###  poas:poas/step9
 :step9 rdf:type owl:NamedIndividual ,
                               :Step ;
-                     :belongsTo :ForContext ;
+                     :belongsTo :IfContext1 ;
                      :directlyNext :step10 ;
                      rdfs:label "step9" ;
-                     :text "9. d = d + c; executed 1st time"^^xsd:string ;
+                     :text "9. тело if начинается"^^xsd:string ;
                      :number 9 ;
                      :isEvaluated "false"^^xsd:boolean .
 
@@ -177,10 +158,10 @@
 ###  poas:poas/step10
 :step10 rdf:type owl:NamedIndividual ,
                                :Step ;
-                      :belongsTo :ForContext ;
+                      :belongsTo :IfContext1 ;
                       :directlyNext :step11 ;
                       rdfs:label "step10" ;
-                      :text "10. c++; executed 1st time"^^xsd:string ;
+                      :text "10. int a = 2; выполняется первый раз"^^xsd:string ;
                       :number 10 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -188,10 +169,10 @@
 ###  poas:poas/step11
 :step11 rdf:type owl:NamedIndividual ,
                                :Step ;
-                      :belongsTo :ForContext ;
+                      :belongsTo :IfContext1 ;
                       :directlyNext :step12 ;
                       rdfs:label "step11" ;
-                      :text "11. iteration 1 of loop ended"^^xsd:string ;
+                      :text "11. std::cout << a; выполняется первый раз"^^xsd:string ;
                       :number 11 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -199,10 +180,10 @@
 ###  poas:poas/step12
 :step12 rdf:type owl:NamedIndividual ,
                                :Step ;
-                      :belongsTo :ForContext ;
+                      :belongsTo :IfContext1 ;
                       :directlyNext :step13 ;
                       rdfs:label "step12" ;
-                      :text "12. condition c < 2 evaluated 2nd time - true"^^xsd:string ;
+                      :text "12. тело if закончилось"^^xsd:string ;
                       :number 12 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -213,7 +194,7 @@
                       :belongsTo :ForContext ;
                       :directlyNext :step14 ;
                       rdfs:label "step13" ;
-                      :text "13. iteration 2 of loop began"^^xsd:string ;
+                      :text "13. d = d + c; выполняется первый раз"^^xsd:string ;
                       :number 13 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -224,7 +205,7 @@
                       :belongsTo :ForContext ;
                       :directlyNext :step15 ;
                       rdfs:label "step14" ;
-                      :text "14. int d = 3; executed 2nd time"^^xsd:string ;
+                      :text "14. c++; выполняется первый раз"^^xsd:string ;
                       :number 14 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -235,7 +216,7 @@
                       :belongsTo :ForContext ;
                       :directlyNext :step16 ;
                       rdfs:label "step15" ;
-                      :text "15. int a = 2; executed 2nd time"^^xsd:string ;
+                      :text "15. итерация 1 цикла закончилась"^^xsd:string ;
                       :number 15 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -246,7 +227,7 @@
                       :belongsTo :ForContext ;
                       :directlyNext :step17 ;
                       rdfs:label "step16" ;
-                      :text "16. d = d + c; executed 2nd time"^^xsd:string ;
+                      :text "16. условие c < 2 вычисляется второй раз - true,"^^xsd:string ;
                       :number 16 ;
                       :isEvaluated "false"^^xsd:boolean .
 
@@ -257,7 +238,7 @@
         :belongsTo :ForContext ;
         :directlyNext :step18 ;
         rdfs:label "step17" ;
-        :text "17. c++; executed 2nd time"^^xsd:string ;
+        :text "17. итерация 2 цикла начинается"^^xsd:string ;
         :number 17 ;
         :isEvaluated "false"^^xsd:boolean .
 
@@ -268,7 +249,7 @@
         :belongsTo :ForContext ;
         :directlyNext :step19 ;
         rdfs:label "step18" ;
-        :text "18. iteration 2 of loop ended"^^xsd:string ;
+        :text "18. int d = 3; выполняется второй раз"^^xsd:string ;
         :number 18 ;
         :isEvaluated "false"^^xsd:boolean .
 
@@ -276,10 +257,10 @@
 ###  poas:poas/step19
 :step19 rdf:type owl:NamedIndividual ,
                  :Step ;
-        :belongsTo :ForContext ;
+        :belongsTo :IfContext2 ;
         :directlyNext :step20 ;
         rdfs:label "step19" ;
-        :text "19. condition c < 2 evaluated 3rd time - false"^^xsd:string ;
+        :text "19. условие a > 2 вычисляется - true выполняется второй раз"^^xsd:string ;
         :number 19 ;
         :isEvaluated "false"^^xsd:boolean .
 
@@ -287,10 +268,10 @@
 ###  poas:poas/step20
 :step20 rdf:type owl:NamedIndividual ,
                  :Step ;
-        :belongsTo :MainContext ;
+        :belongsTo :IfContext2 ;
         :directlyNext :step21 ;
         rdfs:label "step20" ;
-        :text "20. a += 3;"^^xsd:string ;
+        :text "20. тело if начинается"^^xsd:string ;
         :number 20 ;
         :isEvaluated "false"^^xsd:boolean .
 
@@ -298,10 +279,10 @@
 ###  poas:poas/step21
 :step21 rdf:type owl:NamedIndividual ,
                  :Step ;
-        :belongsTo :MainContext ;
+        :belongsTo :IfContext2 ;
         :directlyNext :step22 ;
-        rdfs:label "step20" ;
-        :text "20. func main ended"^^xsd:string ;
+        rdfs:label "step21" ;
+        :text "21. int a = 2; выполняется второй раз"^^xsd:string ;
         :number 21 ;
         :isEvaluated "false"^^xsd:boolean .
 
@@ -309,8 +290,96 @@
 ###  poas:poas/step22
 :step22 rdf:type owl:NamedIndividual ,
                  :Step ;
-        :belongsTo :GlobalContext ;
-        rdfs:label "step20" ;
-        :text "20. program ended"^^xsd:string ;
+        :belongsTo :IfContext2 ;
+        :directlyNext :step23 ;
+        rdfs:label "step22" ;
+        :text "22. std::cout << a; выполняется второй раз"^^xsd:string ;
         :number 22 ;
+        :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step23
+:step23 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :IfContext2 ;
+        :directlyNext :step24 ;
+        rdfs:label "step23" ;
+        :text "23. тело if закончилось"^^xsd:string ;
+        :number 23 ;
+        :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step24
+:step24 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :ForContext ;
+        :directlyNext :step25 ;
+        rdfs:label "step24" ;
+        :text "24. d = d + c; выполняется второй раз"^^xsd:string ;
+        :number 24 ;
+        :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step25
+:step25 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :ForContext ;
+        :directlyNext :step26 ;
+        rdfs:label "step25" ;
+        :text "25. c++; выполняется второй раз"^^xsd:string ;
+        :number 25 ;
+        :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step26
+:step26 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :ForContext ;
+        :directlyNext :step27 ;
+        rdfs:label "step26" ;
+        :text "26. итерация 2 цикла закончилась"^^xsd:string ;
+        :number 26 ;
+        :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step27
+:step27 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :ForContext ;
+        :directlyNext :step28 ;
+        rdfs:label "step27" ;
+        :text "27. условие c < 2 вычисляется третий раз - false"^^xsd:string ;
+        :number 27 ;
+        :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step28
+:step28 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :MainContext ;
+        :directlyNext :step29 ;
+        rdfs:label "step28" ;
+        :text "28. a += 3"^^xsd:string ;
+        :number 28 ;
+        :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step29
+:step29 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :MainContext ;
+        :directlyNext :step30 ;
+        rdfs:label "step29" ;
+        :text "29. функция main закончилась"^^xsd:string ;
+        :number 29 ;
+        :isEvaluated "false"^^xsd:boolean .
+
+
+###  poas:poas/step30
+:step30 rdf:type owl:NamedIndividual ,
+                 :Step ;
+        :belongsTo :GlobalContext ;
+        rdfs:label "step30" ;
+        :text "30. Программа закончилась"^^xsd:string ;
+        :number 30 ;
         :isEvaluated "false"^^xsd:boolean .

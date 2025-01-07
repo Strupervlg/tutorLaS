@@ -1,0 +1,48 @@
+{
+	"question": "В каких строках трассы существует свойство \"b\" из 11 строки программы?",
+	"stepVar": "step9",
+	"var": "VariableB",
+	"code": "1.int main() {\n2.\tint b = 3;\n3.\tb++;\n4.\tstd::cout << b;\n5.\tint a = 4;\n6.}\n7.class c {\n8.private:\n9.\tint a;\n10.public:\n11.\tstatic int b;\n12.};\n13.int c::b = 5;",
+	"trace": [
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>начинается</span>",
+			"step": "step1"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>начинается</span>",
+			"step": "step2"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>b</span> = <span class='number'>3</span>;",
+			"step": "step3"
+		},
+		{
+			"text": "<span class='variable'>b</span>++;",
+			"step": "step4"
+		},
+		{
+			"text": "<span class='program'>std</span>::<span class='program'>cout</span> << <span class='variable'>b</span>;",
+			"step": "step5"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>4</span>;",
+			"step": "step6"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>закончилась</span>",
+			"step": "step7"
+		},
+		{
+			"text": "<span class='variable'>Класс</span> <span class='variable'>c</span> <span class='keyword'>объявляется</span>",
+			"step": "step8"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>c</span>::<span class='variable'>b</span> = <span class='number'>5</span>;",
+			"step": "step9"
+		},
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"step": "step10"
+		}
+	]
+}

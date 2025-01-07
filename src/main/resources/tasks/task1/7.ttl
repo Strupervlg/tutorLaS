@@ -1,0 +1,332 @@
+@prefix : <poas:poas/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+###  poas:poas/FuncFactContext1
+:FuncFactContext1 rdf:type owl:NamedIndividual ,
+                    :Context ;
+           :endsIn :step20 ;
+           rdfs:label "FuncFactContext1" ;
+           :text "функции fact" .
+
+
+###  poas:poas/FuncFactContext2
+:FuncFactContext2 rdf:type owl:NamedIndividual ,
+                    :Context ;
+           :endsIn :step18 ;
+           rdfs:label "FuncFactContext2" ;
+           :text "функции fact" .
+
+
+###  poas:poas/FuncFactContext3
+:FuncFactContext3 rdf:type owl:NamedIndividual ,
+                    :Context ;
+           :endsIn :step16 ;
+           rdfs:label "FuncFactContext3" ;
+           :text "функции fact" .
+
+
+###  poas:poas/IfContext1
+:IfContext1 rdf:type owl:NamedIndividual ,
+                    :Context ;
+           :endsIn :step6 ;
+           rdfs:label "IfContext1" ;
+           :text "тела if" .
+
+
+###  poas:poas/IfContext2
+:IfContext2 rdf:type owl:NamedIndividual ,
+                    :Context ;
+           :endsIn :step9 ;
+           rdfs:label "IfContext2" ;
+           :text "тела if" .
+
+
+###  poas:poas/IfContext3
+:IfContext3 rdf:type owl:NamedIndividual ,
+                    :Context ;
+           :endsIn :step15 ;
+           rdfs:label "IfContext3" ;
+           :text "тела if" .
+
+
+###  poas:poas/MainContext
+:MainContext rdf:type owl:NamedIndividual ,
+                      :Context ;
+             :endsIn :step22 ;
+             rdfs:label "MainContext" ;
+             :text "функции main" .
+
+
+###  poas:poas/GlobalContext
+:GlobalContext rdf:type owl:NamedIndividual ,
+                                    :Context ;
+                           :endsIn :step23 ;
+                           rdfs:label "GlobalContext" .
+
+
+###  poas:poas/VariableA
+:VariableA rdf:type owl:NamedIndividual ,
+                    :Variable ;
+           rdfs:label "VariableA" ;
+           :isGlobal "false"^^xsd:boolean ;
+           :isStatic "false"^^xsd:boolean ;
+           :typeName "переменная"^^xsd:string ;
+           :typeNameR "переменной"^^xsd:string ;
+           :text "a"^^xsd:string .
+
+
+###  poas:poas/step1
+:step1 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :GlobalContext ;
+       :directlyNext :step2 ;
+       rdfs:label "step1" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 1 ;
+       :text "1. Программа начинается"^^xsd:string .
+
+
+###  poas:poas/step2
+:step2 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step3 ;
+       rdfs:label "step2" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 2 ;
+       :text "2. функция fact объявляется"^^xsd:string .
+
+
+###  poas:poas/step3
+:step3 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step4 ;
+       rdfs:label "step3" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 3 ;
+       :text "3. функция main начинается"^^xsd:string .
+
+
+###  poas:poas/step4
+:step4 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step5 ;
+       rdfs:label "step4" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 4 ;
+       :text "4. int number = 3;"^^xsd:string .
+
+
+###  poas:poas/step5
+:step5 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext1 ;
+       :directlyNext :step6 ;
+       rdfs:label "step5" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 5 ;
+       :text "5. функция fact начинается"^^xsd:string .
+
+
+###  poas:poas/step6
+:step6 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :IfContext1 ;
+       :directlyNext :step7 ;
+       rdfs:label "step6" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 6 ;
+       :text "6. условие n <= 1 вычисляется - false"^^xsd:string .
+
+
+###  poas:poas/step7
+:step7 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext1 ;
+       :directlyNext :step8 ;
+       rdfs:label "step7" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 7 ;
+       :text "7. int a = 2;"^^xsd:string .
+
+
+###  poas:poas/step8
+:step8 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext2 ;
+       :directlyNext :step9 ;
+       rdfs:label "step8" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 8 ;
+       :text "8. функция fact начинается"^^xsd:string .
+
+
+###  poas:poas/step9
+:step9 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :IfContext2 ;
+       :directlyNext :step10 ;
+       rdfs:label "step9" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 9 ;
+       :text "9. условие n <= 1 вычисляется - false"^^xsd:string .
+
+
+###  poas:poas/step10
+:step10 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext2 ;
+       :directlyNext :step11 ;
+       rdfs:label "step10" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 10 ;
+       :text "10. int a = 2;"^^xsd:string .
+
+
+###  poas:poas/step11
+:step11 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext3 ;
+       :directlyNext :step12 ;
+       rdfs:label "step11" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 11 ;
+       :text "11. функция fact начинается"^^xsd:string .
+
+
+###  poas:poas/step12
+:step12 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :IfContext3 ;
+       :directlyNext :step13 ;
+       rdfs:label "step12" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 12 ;
+       :text "12. условие n <= 1 вычисляется - true"^^xsd:string .
+
+
+###  poas:poas/step13
+:step13 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :IfContext3 ;
+       :directlyNext :step14 ;
+       rdfs:label "step13" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 13 ;
+       :text "13. тело if начинается"^^xsd:string .
+
+
+###  poas:poas/step14
+:step14 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :IfContext3 ;
+       :directlyNext :step15 ;
+       rdfs:label "step14" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 14 ;
+       :text "14. return 1;"^^xsd:string .
+
+
+###  poas:poas/step15
+:step15 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :IfContext3 ;
+       :directlyNext :step16 ;
+       rdfs:label "step15" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 15 ;
+       :text "15. тело if закончилось"^^xsd:string .
+
+
+###  poas:poas/step16
+:step16 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext3 ;
+       :directlyNext :step17 ;
+       rdfs:label "step16" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 16 ;
+       :text "16. функция test закончилась"^^xsd:string .
+
+
+###  poas:poas/step17
+:step17 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext2 ;
+       :directlyNext :step18 ;
+       rdfs:label "step17" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 17 ;
+       :text "17. return n * fact(n - 1);"^^xsd:string .
+
+
+###  poas:poas/step18
+:step18 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext2 ;
+       :directlyNext :step19 ;
+       rdfs:label "step18" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 18 ;
+       :text "18. функция test закончилась"^^xsd:string .
+
+
+###  poas:poas/step19
+:step19 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext1 ;
+       :directlyNext :step20 ;
+       rdfs:label "step19" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 19 ;
+       :text "19. return n * fact(n - 1);"^^xsd:string .
+
+
+###  poas:poas/step20
+:step20 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :FuncFactContext1 ;
+       :directlyNext :step21 ;
+       rdfs:label "step20" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 20 ;
+       :text "20. функция test закончилась"^^xsd:string .
+
+
+###  poas:poas/step21
+:step21 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step22 ;
+       rdfs:label "step21" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 21 ;
+       :text "21. std::cout << result;"^^xsd:string .
+
+
+###  poas:poas/step22
+:step22 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :MainContext ;
+       :directlyNext :step23 ;
+       rdfs:label "step22" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 22 ;
+       :text "22. функция main закончиласьь"^^xsd:string .
+
+
+###  poas:poas/step23
+:step23 rdf:type owl:NamedIndividual ,
+                :Step ;
+       :belongsTo :GlobalContext ;
+       rdfs:label "step23" ;
+       :isEvaluated "false"^^xsd:boolean ;
+       :number 23 ;
+       :text "23. Программа закончилась"^^xsd:string .

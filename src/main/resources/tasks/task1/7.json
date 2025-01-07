@@ -1,0 +1,100 @@
+{
+	"question": "В каких строках трассы существует переменная \"a\" из 5 строки программы, из 2 вызова функции fact?",
+	"stepVar": "step10",
+	"var": "VariableA",
+	"code": "1.int fact(int n) {\n2.\tif (n <= 1) {\n3.\t\treturn 1;\n4.\t}\n5.\tint a = 2;\n6.\treturn n * fact(n - 1);\n7.}\n8.void main() {\n9.\tint number = 3;\n10.\tint result = fact(number);\n11.\tstd::cout << result;\n12.}",
+	"trace": [
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>начинается</span>",
+			"step": "step1"
+		},
+		{
+			"text": "<span class='program'>функция fact</span> <span class='keyword'>объявляется</span>",
+			"step": "step2"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>начинается</span>",
+			"step": "step3"
+		},
+		{
+			"text": "<span class='variable'>int</span> number = <span class='number'>3</span>;",
+			"step": "step4"
+		},
+		{
+			"text": "<span class='program'>функция fact</span> <span class='keyword'>начинается</span>",
+			"step": "step5"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>n</span> <= <span class='number'>1</span> <span class='keyword'>вычисляется</span> - <span class='atom'>false</span>",
+			"step": "step6"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>2</span>;",
+			"step": "step7"
+		},
+		{
+			"text": "<span class='program'>функция fact</span> <span class='keyword'>начинается</span>",
+			"step": "step8"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>n</span> <= <span class='number'>1</span> <span class='keyword'>вычисляется</span> - <span class='atom'>false</span>",
+			"step": "step9"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>2</span>;",
+			"step": "step10"
+		},
+		{
+			"text": "<span class='program'>функция fact</span> <span class='keyword'>начинается</span>",
+			"step": "step11"
+		},
+		{
+			"text": "<span class='struct'>условие</span> <span class='variable'>n</span> <= <span class='number'>1</span> <span class='keyword'>вычисляется</span> - <span class='atom'>true</span>",
+			"step": "step12"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>начинается</span>",
+			"step": "step13"
+		},
+		{
+			"text": "<span class='program'>return</span> <span class='number'>1</span>;",
+			"step": "step14"
+		},
+		{
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"step": "step15"
+		},
+		{
+			"text": "<span class='program'>функция test</span> <span class='keyword'>закончилась</span>",
+			"step": "step16"
+		},
+		{
+			"text": "<span class='program'>return</span> <span class='variable'>n</span> * fact(<span class='variable'>n</span> - <span class='number'>1</span>);",
+			"step": "step17"
+		},
+		{
+			"text": "<span class='program'>функция test</span> <span class='keyword'>закончилась</span>",
+			"step": "step18"
+		},
+		{
+			"text": "<span class='program'>return</span> <span class='variable'>n</span> * fact(<span class='variable'>n</span> - <span class='number'>1</span>);",
+			"step": "step19"
+		},
+		{
+			"text": "<span class='program'>функция test</span> <span class='keyword'>закончилась</span>",
+			"step": "step20"
+		},
+		{
+			"text": "<span class='program'>std</span>::<span class='program'>cout</span> << result;",
+			"step": "step21"
+		},
+		{
+			"text": "<span class='program'>функция main</span> <span class='keyword'>закончилась</span>",
+			"step": "step22"
+		},
+		{
+			"text": "<span class='program'>Программа</span> <span class='keyword'>закончилась</span>",
+			"step": "step23"
+		}
+	]
+}
