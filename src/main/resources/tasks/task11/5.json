@@ -41,7 +41,7 @@
 			"step": "step9"
 		},
 		{
-			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>закончилось</span>",
 			"step": "step10"
 		},
 		{

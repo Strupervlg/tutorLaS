@@ -49,7 +49,7 @@
 			"step": "step11"
 		},
 		{
-			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>закончилось</span>",
 			"step": "step12"
 		},
 		{
@@ -93,7 +93,7 @@
 			"step": "step22"
 		},
 		{
-			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> закончилось",
+			"text": "<span class='struct'>тело</span> <span class='struct'>if</span> <span class='keyword'>закончилось</span>",
 			"step": "step23"
 		},
 		{

@@ -21,7 +21,7 @@
 			"step": "step4"
 		},
 		{
-			"text": "<span class='variable'>c</span> *c<span class='number'>1</span> = <span class='program'>new</span> <span class='variable'>c</span>();",
+			"text": "<span class='variable'>c</span> *<span class='variable'>c1</span> = <span class='program'>new</span> <span class='variable'>c</span>();",
 			"step": "step5"
 		},
 		{

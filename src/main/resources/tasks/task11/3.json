@@ -17,11 +17,11 @@
 			"step": "step3"
 		},
 		{
-			"text": "<span class='variable'>c</span> *c<span class='number'>1</span> = <span class='program'>new</span> <span class='variable'>c</span>();",
+			"text": "<span class='variable'>c</span> *<span class='variable'>c1</span> = <span class='program'>new</span> <span class='variable'>c</span>();",
 			"step": "step4"
 		},
 		{
-			"text": "c<span class='number'>1</span>-><span class='variable'>b</span> = <span class='number'>5</span>;",
+			"text": "<span class='variable'>c1</span>-><span class='variable'>b</span> = <span class='number'>5</span>;",
 			"step": "step5"
 		},
 		{
@@ -29,7 +29,7 @@
 			"step": "step6"
 		},
 		{
-			"text": "<span class='program'>метод с<span class='number'>1</span>->getD</span> <span class='keyword'>начинается</span>",
+			"text": "<span class='program'>метод с1</span>-><span class='program'>getD</span> <span class='keyword'>начинается</span>",
 			"step": "step7"
 		},
 		{
@@ -45,7 +45,7 @@
 			"step": "step10"
 		},
 		{
-			"text": "<span class='program'>метод с<span class='number'>1</span>->getD</span> закончился",
+			"text": "<span class='program'>метод с1</span>-><span class='program'>getD</span> <span class='keyword'>закончился</span>",
 			"step": "step11"
 		},
 		{
