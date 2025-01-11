@@ -39,8 +39,8 @@ public class Task3Service {
     public UtilService utilService;
 
     public DomainSolvingModel model = new DomainSolvingModel(
-				this.getClass().getClassLoader().getResource("Task3/"),
-    DomainSolvingModel.BuildMethod.DICT_RDF
+            "./Task3",
+            DomainSolvingModel.BuildMethod.DICT_RDF
 		);
 
     public CheckAnswerResponse checkAnswer(CheckAnswerRequest request) {

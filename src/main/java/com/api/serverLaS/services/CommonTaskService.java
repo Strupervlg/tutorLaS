@@ -13,13 +13,10 @@ import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -76,14 +73,19 @@ public class CommonTaskService {
 
         JsonReader reader;
         try {
-            reader = Json.createReader(new FileReader(this.getClass().getClassLoader().getResource("tasks/"+task.getName()+"/").getPath() + task.getNameJson()));
+            ClassPathResource resource = new ClassPathResource("tasks/"+task.getName()+"/"+task.getNameJson());
+            InputStream inputStream = resource.getInputStream();
+            reader = Json.createReader(new InputStreamReader(inputStream));
         } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
         String taskInTtl = "";
         try {
-            String fileTtl = this.getClass().getClassLoader().getResource("tasks/"+task.getName()+"/").getPath() + task.getNameTtl();
-            taskInTtl = new String(Files.readAllBytes(Paths.get(fileTtl)));
+            ClassPathResource resource = new ClassPathResource("tasks/"+task.getName()+"/"+task.getNameTtl());
+            InputStream inputStream = resource.getInputStream();
+            taskInTtl = new String(inputStream.readAllBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

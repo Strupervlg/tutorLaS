@@ -41,7 +41,7 @@ public class Task2Service {
     public CommonTaskService commonTaskService;
 
     public DomainSolvingModel model = new DomainSolvingModel(
-            this.getClass().getClassLoader().getResource("Task2/"),
+            "./Task2",
             DomainSolvingModel.BuildMethod.DICT_RDF
     );
 

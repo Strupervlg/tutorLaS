@@ -167,7 +167,6 @@ class Task1Tests {
 							}}));
 		String errorText = "";
 		for(DecisionTreeEvaluationResult<BranchResultNode> branchResultNode : branchResultNodes) {
-			System.out.println(branchResultNode.getNode().getMetadata().get("alias"));
 			if(branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
 
 				errorText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";

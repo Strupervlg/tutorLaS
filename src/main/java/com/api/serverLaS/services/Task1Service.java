@@ -40,9 +40,9 @@ public class Task1Service {
     public CommonTaskService commonTaskService;
 
     public DomainSolvingModel model = new DomainSolvingModel(
-				this.getClass().getClassLoader().getResource("Task1/"),
-    DomainSolvingModel.BuildMethod.DICT_RDF
-		);
+            "./Task1",
+            DomainSolvingModel.BuildMethod.DICT_RDF
+    );
 
     public CheckAnswerResponse checkAnswer(CheckAnswerRequest request) {
         DomainModel situationDomain = this.model.getDomainModel().copy();
