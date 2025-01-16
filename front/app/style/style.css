@@ -1,0 +1,215 @@
+.main {
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+}
+
+.task {
+	font-family: Lato,
+		'Helvetica Neue',
+		Arial,
+		Helvetica,
+		sans-serif;
+	border: solid;
+	border-color: cadetblue;
+	border-width: 1px;
+	border-radius: 8px;
+	padding: 16px;
+	width: 1200px;
+	/* background-color: #f5f2f0; */
+}
+
+.problem-situation {
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.answers {
+	display: flex;
+	gap: 36px;
+	font-size: 18px;
+}
+
+.trace {
+	width: 500px;
+	flex-shrink: 0;
+}
+
+.trace ol {
+	margin-top: 20px;
+	margin-bottom: 20px !important;
+}
+
+.trace li {
+	cursor: pointer;
+	border-radius: 6px;
+	padding: 4px;
+	margin-bottom: 2px;
+}
+
+.trace li:hover {
+	background-color: #e8e8e8;
+}
+
+.trace li.correct {
+	background-color: lime;
+}
+
+.trace li.incorrect {
+	background-color: red;
+}
+
+.trace li.incorrect-complete {
+	border: solid;
+	border-width: 2px;
+	border-color: red;
+}
+
+.program {
+	font-size: 16px;
+}
+
+.language-c {
+	margin-top: 20px !important;
+	margin-bottom: 20px !important;
+	border-radius: 4px;
+	width: 400px;
+}
+
+.container-btn {
+	display: flex;
+	justify-content: space-between;
+}
+
+.container-btn button {
+	border-radius: 10px;
+	border-width: 1.5px;
+	cursor: pointer;
+	font-size: medium;
+	margin-top: 10px;
+	padding: 6px;
+}
+
+.text-container {
+	flex-grow: 1;
+}
+
+.error-text {
+	color: red;
+	/* text-align: center; */
+	font-size: 20px;
+	margin-top: 60px;
+}
+
+.tip-text {
+	color: green;
+	/* text-align: center; */
+	font-size: 20px;
+	margin-top: 60px;
+}
+
+.hidden {
+	display: none;
+}
+
+
+/* Trace syntax */
+.program {
+	color: #f70;
+	font-weight: bold;
+}
+
+.keyword {
+	color: #00a;
+	font-weight: bold;
+}
+
+.action {
+	color: #077;
+	font-weight: bold;
+}
+
+.variable {
+	color: #700;
+	font-weight: bold;
+}
+
+.number {
+	color: #f00;
+	font-weight: bold;
+}
+
+.struct {
+	color: #07c;
+	font-weight: bold;
+}
+
+.atom {
+	color: #f08;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.selected:not(.incorrect):not(.correct) {
+	background-color: gainsboro;
+}
+
+/*TASK 2*/
+.code li {
+	white-space: pre;
+}
+
+.code ol {
+	margin-top: 20px;
+	margin-bottom: 20px !important;
+}
+
+.code li {
+	cursor: pointer;
+	border-radius: 6px;
+	padding: 4px;
+	margin-bottom: 2px;
+}
+
+.code li[data-id]:not([data-id=""]):hover {
+	background-color: #e8e8e8;
+}
+
+.code li.correct[data-id]:not([data-id=""]) {
+	background-color: lime;
+}
+
+.code li.incorrect[data-id]:not([data-id=""]) {
+	background-color: red;
+}
+
+.code li.incorrect-complete[data-id]:not([data-id=""]) {
+	border: solid;
+	border-width: 2px;
+	border-color: red;
+}
+
+.mono {
+	font-family: monospace;
+}
+
+/*TASK 3*/
+.expression {
+	display: flex;
+}
+
+select:focus {
+	outline: none;
+}
+
+select.correct {
+	border: solid;
+	border-color: lime;
+	border-width: 2px;
+}
+
+select.incorrect {
+	border: solid;
+	border-color: red;
+	border-width: 2px;
+}
