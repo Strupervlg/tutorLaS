@@ -63,31 +63,15 @@
 
 :argsfunctionCallFunc7 rdf:type owl:NamedIndividual ,
                 :Sequence ;
-       :hasArg :varPointerAccess9 .
+       :hasArg :varM8 .
 
-:varC8 rdf:type owl:NamedIndividual ,
+:varM8 rdf:type owl:NamedIndividual ,
                 :Variable ;
        :number 8 ;
-       :name "c"^^xsd:string ;
-       :position :leftPosition ;
-       :parent :varPointerAccess9 ;
-       rdfs:label "varC8" .
-
-:varPointerAccess9 rdf:type owl:NamedIndividual ,
-                :Operator ;
-       :number 9 ;
-       :parent :functionCallFunc7 ;
-       :argNumber 1 ;
-       :operatorType :pointerAccess ;
-       rdfs:label "varPointerAccess9" .
-
-:varM10 rdf:type owl:NamedIndividual ,
-                :Variable ;
-       :number 10 ;
        :name "m"^^xsd:string ;
-       :position :rightPosition ;
-       :parent :varPointerAccess9 ;
-       rdfs:label "varM10" .
+       :argNumber 1 ;
+       :parent :functionCallFunc7 ;
+       rdfs:label "varM8" .
 
 
 # Answers
