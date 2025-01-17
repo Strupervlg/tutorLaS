@@ -1,6 +1,6 @@
 {
 	"question": "Чем являются переменные?",
-	"function_def": "/**\n * @brief func\n * \n * @param[in] a\n * @param[in,out] b\n * @param[out] result\n */\nvoid func(int a, int b, int &result);",
+	"function_def": "/**\n * @brief func\n * \n * @param[in] a\n * @param[in,out] b\n * @param[out] result\n */\nvoid func(int a, int &b, int &result);",
 	"vars": [
 		{
 			"name": "v",
