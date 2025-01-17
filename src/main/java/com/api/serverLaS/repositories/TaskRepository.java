@@ -25,10 +25,10 @@ public class TaskRepository {
 
     public List<Task> getFreeList(int sectionId, String uid) {
         return jdbcTemplate.query("SELECT id, name, name_ttl, name_json, section_id FROM tasks " +
-                        "WHERE section_id = ? EXCEPT SELECT tasks.id, tasks.name, tasks.name_ttl, tasks.name_json, tasks.section_id FROM tasks " +
-                        "LEFT JOIN solutions ON tasks.id = solutions.task_id " +
-                        "LEFT JOIN users ON solutions.user_uid = ?" +
-                        "WHERE solutions.id is not null",
+                        " WHERE section_id = ? EXCEPT SELECT tasks.id, tasks.name, tasks.name_ttl, tasks.name_json, tasks.section_id FROM tasks " +
+                        " LEFT JOIN solutions ON tasks.id = solutions.task_id " +
+                        " LEFT JOIN users ON solutions.user_uid = users.uid " +
+                        " WHERE solutions.id is not null and solutions.user_uid = ?",
                 new Object[]{sectionId, uid},
                 (resultSet, rowNum) -> new Task(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("name_ttl"), resultSet.getString("name_json")));
     }
