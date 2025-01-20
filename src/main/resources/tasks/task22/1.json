@@ -1,0 +1,143 @@
+{
+    "question": "В каких строках программы видно свойство \"midSpeed\" из 4 строки?",
+    "var": "Line4",
+    "prefix": "prefix",
+    "code": [
+        {
+            "text": "class Animal ",
+            "line": ""
+        },
+        {
+            "text": "{",
+            "line": "Line2"
+        },
+        {
+            "text": "\tint currentSpeed = 0;",
+            "line": "Line3"
+        },
+        {
+            "text": "\tstatic int midSpeed;",
+            "line": "Line4"
+        },
+        {
+            "text": "protected:",
+            "line": ""
+        },
+        {
+            "text": "\tchar* voice = \"meow\";",
+            "line": "Line6"
+        },
+        {
+            "text": "\tstatic char* sh;",
+            "line": "Line7"
+        },
+        {
+            "text": "public:",
+            "line": ""
+        },
+        {
+            "text": "\tstatic char* name;",
+            "line": "Line9"
+        },
+        {
+            "text": "\tint age;",
+            "line": "Line10"
+        },
+        {
+            "text": "};",
+            "line": ""
+        },
+        {
+            "text": "",
+            "line": "Line12"
+        },
+        {
+            "text": "class Cat : Animal ",
+            "line": ""
+        },
+        {
+            "text": "{",
+            "line": "Line14"
+        },
+        {
+            "text": "public:",
+            "line": ""
+        },
+        {
+            "text": "\tint age;",
+            "line": "Line16"
+        },
+        {
+            "text": "\tint walk() ",
+            "line": ""
+        },
+        {
+            "text": "\t{",
+            "line": "Line18"
+        },
+        {
+            "text": "\t\tint number = 30;",
+            "line": "Line19"
+        },
+        {
+            "text": "\t\treturn number * 20;",
+            "line": "Line20"
+        },
+        {
+            "text": "\t}",
+            "line": ""
+        },
+        {
+            "text": "\tstatic void run() ",
+            "line": ""
+        },
+        {
+            "text": "\t{",
+            "line": "Line23"
+        },
+        {
+            "text": "\t\t",
+            "line": "Line24"
+        },
+        {
+            "text": "\t}",
+            "line": ""
+        },
+        {
+            "text": "\tchar* g = \"gr\";",
+            "line": "Line26"
+        },
+        {
+            "text": "\tstatic char* gg;",
+            "line": "Line27"
+        },
+        {
+            "text": "};",
+            "line": ""
+        },
+        {
+            "text": "",
+            "line": "Line29"
+        },
+        {
+            "text": "int test() ",
+            "line": ""
+        },
+        {
+            "text": "{",
+            "line": "Line31"
+        },
+        {
+            "text": "\t",
+            "line": "Line32"
+        },
+        {
+            "text": "\treturn 0;",
+            "line": "Line33"
+        },
+        {
+            "text": "}",
+            "line": ""
+        }
+    ]
+}

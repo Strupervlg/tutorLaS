@@ -143,7 +143,7 @@ public class Task3Service {
                 isError = true;
                 break;
             } else if (branchResultNode.getNode().getValue() == BranchResult.CORRECT && branchResultNode.getNode().getMetadata().get("alias") != null) {
-                hintText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";
+                hintText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br><br>";
             }
         }
         if (isError) {

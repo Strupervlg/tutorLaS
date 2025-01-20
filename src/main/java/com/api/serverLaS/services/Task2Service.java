@@ -157,6 +157,9 @@ public class Task2Service {
         if(data.getTaskId() == -1) {
             data = commonTaskService.getNext(getNextTaskRequest, 21);
         }
+        if(data.getTaskId() == -1) {
+            data = commonTaskService.getNext(getNextTaskRequest, 22);
+        }
 
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task2Data.fromJson(data.getTask()) : data.getTask());
     }

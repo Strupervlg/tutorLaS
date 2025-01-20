@@ -1,0 +1,147 @@
+{
+    "question": "В каких строках программы видно свойство \"currentSpeed\" из 3 строки?",
+    "var": "Line3",
+    "prefix": "prefix",
+    "code": [
+        {
+            "text": "class Animal ",
+            "line": ""
+        },
+        {
+            "text": "{",
+            "line": "Line2"
+        },
+        {
+            "text": "\tint currentSpeed = 0;",
+            "line": "Line3"
+        },
+        {
+            "text": "\tstatic int maxSpeed;",
+            "line": "Line4"
+        },
+        {
+            "text": "protected:",
+            "line": ""
+        },
+        {
+            "text": "\tchar* voice = \"meow\";",
+            "line": "Line6"
+        },
+        {
+            "text": "\tstatic char* shell;",
+            "line": "Line7"
+        },
+        {
+            "text": "public:",
+            "line": ""
+        },
+        {
+            "text": "\tstatic char* name;",
+            "line": "Line9"
+        },
+        {
+            "text": "\tint age;",
+            "line": "Line10"
+        },
+        {
+            "text": "};",
+            "line": ""
+        },
+        {
+            "text": "",
+            "line": "Line12"
+        },
+        {
+            "text": "class Dog : Animal ",
+            "line": ""
+        },
+        {
+            "text": "{",
+            "line": "Line14"
+        },
+        {
+            "text": "protected:",
+            "line": ""
+        },
+        {
+            "text": "\tchar* voice = \"bark\";",
+            "line": "Line16"
+        },
+        {
+            "text": "public:",
+            "line": ""
+        },
+        {
+            "text": "\tint age;",
+            "line": "Line18"
+        },
+        {
+            "text": "\tstatic int walk() ",
+            "line": ""
+        },
+        {
+            "text": "\t{",
+            "line": "Line20"
+        },
+        {
+            "text": "\t\tint number = 30;",
+            "line": "Line21"
+        },
+        {
+            "text": "\t\treturn number * 20;",
+            "line": "Line22"
+        },
+        {
+            "text": "\t}",
+            "line": ""
+        },
+        {
+            "text": "\tvoid run() ",
+            "line": ""
+        },
+        {
+            "text": "\t{",
+            "line": "Line25"
+        },
+        {
+            "text": "\t\t",
+            "line": "Line26"
+        },
+        {
+            "text": "\t}",
+            "line": ""
+        },
+        {
+            "text": "\tstatic char* gg;",
+            "line": "Line28"
+        },
+        {
+            "text": "};",
+            "line": ""
+        },
+        {
+            "text": "",
+            "line": "Line30"
+        },
+        {
+            "text": "int test() ",
+            "line": ""
+        },
+        {
+            "text": "{",
+            "line": "Line32"
+        },
+        {
+            "text": "\tint a = 10;",
+            "line": "Line33"
+        },
+        {
+            "text": "\treturn 0;",
+            "line": "Line34"
+        },
+        {
+            "text": "}",
+            "line": ""
+        }
+    ]
+}

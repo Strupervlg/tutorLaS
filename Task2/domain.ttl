@@ -200,12 +200,12 @@
 :private
     a :VisibilityModifierType ;
     :text "private"^^xsd:string ;
-    :threeErrorText "закрытым (private) и доступно только внутри {parentCt-contextType-nameR}"^^xsd:string .
+    :errorText "закрытым (private) и доступно только внутри класса"^^xsd:string .
 
 :protected
     a :VisibilityModifierType ;
     :text "protected"^^xsd:string ;
-    :threeErrorText "защищенным (protected) и доступно только внтури {parentCt-contextType-nameR} и для его потомков"^^xsd:string .
+    :errorText "защищенным (protected) и доступно только внтури класса и для его потомков"^^xsd:string .
 
 # ContextRelationType
 

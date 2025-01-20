@@ -1,0 +1,1788 @@
+@base <http://www.vstu.ru/poas/code> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<#prefix>
+	a <#LocalPrefix> ;
+	<#end> <#startMarker> ;
+	<#hasNamedContext> "false"^^xsd:boolean ;
+	<#name> ""^^xsd:string ;
+	<#var...> "prefix"^^xsd:string .
+
+<#Line1>
+	a <#DeclarationLine> ;
+	<#label> "Line1"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#PrZarwLD> ;
+	<#directlyNextLine> <#Line2> ;
+	<#number> "1"^^xsd:integer .
+
+<#Line2>
+	a <#DeclarationLine> ;
+	<#label> "Line2"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#pwGMoslx> ;
+	<#directlyNextLine> <#Line3> ;
+	<#number> "2"^^xsd:integer .
+
+<#Line3>
+	a <#DeclarationLine> ;
+	<#label> "Line3"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#LItSnYbb> ;
+	<#directlyNextLine> <#Line4> ;
+	<#number> "3"^^xsd:integer .
+
+<#Line4>
+	a <#Line> ;
+	<#label> "Line4"^^xsd:string ;
+	<#isEvaluated> "true"^^xsd:boolean ;
+	<#directlyNextLine> <#Line5> ;
+	<#number> "4"^^xsd:integer .
+
+<#Line5>
+	a <#Line> ;
+	<#label> "Line5"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#IprDwJPM> ;
+	<#directlyNextLine> <#Line6> ;
+	<#number> "5"^^xsd:integer .
+
+<#Line6>
+	a <#DeclarationLine> ;
+	<#label> "Line6"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#bdDqMOkT> ;
+	<#directlyNextLine> <#Line7> ;
+	<#number> "6"^^xsd:integer .
+
+<#Line7>
+	a <#DeclarationLine> ;
+	<#label> "Line7"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#sIqfIKgH> ;
+	<#directlyNextLine> <#Line8> ;
+	<#number> "7"^^xsd:integer .
+
+<#Line8>
+	a <#Line> ;
+	<#label> "Line8"^^xsd:string ;
+	<#isEvaluated> "true"^^xsd:boolean ;
+	<#belongsTo> <#taaclant> ;
+	<#directlyNextLine> <#Line9> ;
+	<#number> "8"^^xsd:integer .
+
+<#Line9>
+	a <#Line> ;
+	<#label> "Line9"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#WpJbvcrv> ;
+	<#directlyNextLine> <#Line10> ;
+	<#number> "9"^^xsd:integer .
+
+<#Line10>
+	a <#DeclarationLine> ;
+	<#label> "Line10"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#SbWlDalN> ;
+	<#directlyNextLine> <#Line11> ;
+	<#number> "10"^^xsd:integer .
+
+<#Line11>
+	a <#DeclarationLine> ;
+	<#label> "Line11"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#UUzNdwVu> ;
+	<#directlyNextLine> <#Line12> ;
+	<#number> "11"^^xsd:integer .
+
+<#Line12>
+	a <#Line> ;
+	<#label> "Line12"^^xsd:string ;
+	<#isEvaluated> "true"^^xsd:boolean ;
+	<#directlyNextLine> <#Line13> ;
+	<#number> "12"^^xsd:integer .
+
+<#Line13>
+	a <#DeclarationLine> ;
+	<#label> "Line13"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#LgHCJfCO> ;
+	<#directlyNextLine> <#Line14> ;
+	<#number> "13"^^xsd:integer .
+
+<#Line14>
+	a <#DeclarationLine> ;
+	<#label> "Line14"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#LWzhLFQO> ;
+	<#directlyNextLine> <#Line15> ;
+	<#number> "14"^^xsd:integer .
+
+<#Line15>
+	a <#Line> ;
+	<#label> "Line15"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#ccnUEfTw> ;
+	<#directlyNextLine> <#Line16> ;
+	<#number> "15"^^xsd:integer .
+
+<#Line16>
+	a <#Line> ;
+	<#label> "Line16"^^xsd:string ;
+	<#isEvaluated> "true"^^xsd:boolean ;
+	<#directlyNextLine> <#Line17> ;
+	<#number> "16"^^xsd:integer .
+
+<#Line17>
+	a <#DeclarationLine> ;
+	<#label> "Line17"^^xsd:string ;
+	<#isEvaluated> "false"^^xsd:boolean ;
+	<#belongsTo> <#rWyWAPPM> ;
+	<#number> "17"^^xsd:integer .
+
+<#JojDHCwA>
+	a <#Context> ;
+	<#contextType> <#global> ;
+	<#name> ""^^xsd:string ;
+	<#typeNameI> ""^^xsd:string ;
+	<#typeNameR> ""^^xsd:string ;
+	<#typeNameV> ""^^xsd:string ;
+	<#typeNameD> ""^^xsd:string ;
+	<#typeNameForStaticErrorv> ""^^xsd:string ;
+	<#visibleText> ""^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#IEzGFQNc> ;
+	<#contextRelation> <#cRKCoVif> ;
+	<#contextRelation> <#LhnSycFe> ;
+	<#contextRelation> <#CRVSJtAL> ;
+	<#contextRelation> <#eaPkqjpU> ;
+	<#contextRelation> <#LqPciqGn> ;
+	<#contextRelation> <#EGGxBtZg> ;
+	<#contextRelation> <#MNuLunNL> ;
+	<#contextRelation> <#EDpBJIOH> ;
+	<#contextRelation> <#VfVjtEuX> ;
+	<#contextRelation> <#nIOMCyAo> ;
+	<#contextRelation> <#nsFLSzfH> ;
+	<#contextRelation> <#goMaEIZR> ;
+	<#contextRelation> <#IgpfGtDk> ;
+	<#contextRelation> <#xarqarYH> ;
+	<#contextRelation> <#nvcngsfo> ;
+	<#numOfStrInCode> "1"^^xsd:integer .
+
+<#PrZarwLD>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#JojDHCwA> ;
+	<#has> <#Line1> ;
+	<#name> "k"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#VdQWwxBO> ;
+	<#contextRelation> <#mypZtPxZ> ;
+	<#contextRelation> <#vJurfUbD> ;
+	<#contextRelation> <#wQMtRdzo> ;
+	<#contextRelation> <#BAtzdvWY> ;
+	<#contextRelation> <#jhmloemU> ;
+	<#contextRelation> <#ufEGGgml> ;
+	<#contextRelation> <#pHCTLSWB> ;
+	<#contextRelation> <#jXiaLByy> ;
+	<#contextRelation> <#gEWExTsy> ;
+	<#contextRelation> <#DJlieelO> ;
+	<#contextRelation> <#hpHSzuaA> ;
+	<#contextRelation> <#Ipvwpstp> ;
+	<#contextRelation> <#zVJZLjwW> ;
+	<#contextRelation> <#KXTvXVby> ;
+	<#contextRelation> <#MTiKGAVr> ;
+	<#numOfStrInCode> "1"^^xsd:integer .
+
+<#pwGMoslx>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#JojDHCwA> ;
+	<#has> <#Line2> ;
+	<#name> "b"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#oChDsgwD> ;
+	<#contextRelation> <#IwHQaiIr> ;
+	<#contextRelation> <#HVYuwEiN> ;
+	<#contextRelation> <#KDOVYsqe> ;
+	<#contextRelation> <#WvNxVhTB> ;
+	<#contextRelation> <#uInxJHpo> ;
+	<#contextRelation> <#jPrliFww> ;
+	<#contextRelation> <#xXRojUrT> ;
+	<#contextRelation> <#rXtHiUYR> ;
+	<#contextRelation> <#MeHazjQS> ;
+	<#contextRelation> <#VIrsHnOJ> ;
+	<#contextRelation> <#NrgQGxKZ> ;
+	<#contextRelation> <#tVFDTfsv> ;
+	<#contextRelation> <#HJHEuSnX> ;
+	<#contextRelation> <#AucQphyw> ;
+	<#contextRelation> <#GMuRYNPa> ;
+	<#numOfStrInCode> "2"^^xsd:integer .
+
+<#LItSnYbb>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#JojDHCwA> ;
+	<#has> <#Line3> ;
+	<#name> "a"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#xCmdqhyr> ;
+	<#contextRelation> <#WTFwLoRh> ;
+	<#contextRelation> <#wRYnLebm> ;
+	<#contextRelation> <#DVROlRHt> ;
+	<#contextRelation> <#qtGyuKmg> ;
+	<#contextRelation> <#qhOUQkhq> ;
+	<#contextRelation> <#uUFFWjrS> ;
+	<#contextRelation> <#YDpeboCU> ;
+	<#contextRelation> <#GvYnzEQP> ;
+	<#contextRelation> <#gjPbxsjM> ;
+	<#contextRelation> <#iSEoKWqY> ;
+	<#contextRelation> <#MyWeZfDc> ;
+	<#contextRelation> <#fVDJGbcI> ;
+	<#contextRelation> <#OeWkhYDR> ;
+	<#contextRelation> <#pRYpZWFt> ;
+	<#contextRelation> <#UuSrHAqj> ;
+	<#numOfStrInCode> "3"^^xsd:integer .
+
+<#KNGjVpnh>
+	a <#Context> ;
+	<#contextType> <#functionParams> ;
+	<#parent> <#JojDHCwA> ;
+	<#name> "test"^^xsd:string ;
+	<#typeNameI> ""^^xsd:string ;
+	<#typeNameR> ""^^xsd:string ;
+	<#typeNameV> ""^^xsd:string ;
+	<#typeNameD> ""^^xsd:string ;
+	<#typeNameForStaticErrorv> ""^^xsd:string ;
+	<#visibleText> ""^^xsd:string ;
+	<#isStatic> "false"^^xsd:boolean ;
+	<#lifecycle> <#dynamic> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#cWnuUTIO> ;
+	<#contextRelation> <#jNwXZHEN> ;
+	<#contextRelation> <#MFXCKsix> ;
+	<#contextRelation> <#webjPWxf> ;
+	<#contextRelation> <#XjIXwDwI> ;
+	<#contextRelation> <#uewxWXAF> ;
+	<#contextRelation> <#iPbBMttm> ;
+	<#contextRelation> <#WGgRQzvp> ;
+	<#contextRelation> <#GDZXdLKC> ;
+	<#contextRelation> <#GhWTaBwF> ;
+	<#contextRelation> <#XQdWYRdp> ;
+	<#contextRelation> <#szukqhvK> ;
+	<#contextRelation> <#wKUPvNHx> ;
+	<#contextRelation> <#UmzTHxAo> ;
+	<#contextRelation> <#iLDsxJXv> ;
+	<#contextRelation> <#PToJRzoF> ;
+	<#numOfStrInCode> "4"^^xsd:integer .
+
+<#UlGEMsSI>
+	a <#Context> ;
+	<#contextType> <#body> ;
+	<#parent> <#KNGjVpnh> ;
+	<#name> ""^^xsd:string ;
+	<#typeNameI> ""^^xsd:string ;
+	<#typeNameR> ""^^xsd:string ;
+	<#typeNameV> ""^^xsd:string ;
+	<#typeNameD> ""^^xsd:string ;
+	<#typeNameForStaticErrorv> ""^^xsd:string ;
+	<#visibleText> ""^^xsd:string ;
+	<#isStatic> "false"^^xsd:boolean ;
+	<#lifecycle> <#dynamic> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#gowaiLIt> ;
+	<#contextRelation> <#iuSQolyG> ;
+	<#contextRelation> <#WXnmrdpC> ;
+	<#contextRelation> <#nXvRogRu> ;
+	<#contextRelation> <#iTsZZqTD> ;
+	<#contextRelation> <#aPRcDZtl> ;
+	<#contextRelation> <#mPKbVAXZ> ;
+	<#contextRelation> <#UnYQhbUj> ;
+	<#contextRelation> <#SITZImCm> ;
+	<#contextRelation> <#QmRMNnKk> ;
+	<#contextRelation> <#CeIgjAta> ;
+	<#contextRelation> <#bFtUkRbZ> ;
+	<#contextRelation> <#yjdYpPpH> ;
+	<#contextRelation> <#gBSTzvKq> ;
+	<#contextRelation> <#PFpKPvJu> ;
+	<#contextRelation> <#gLmMeZCx> ;
+	<#numOfStrInCode> "5"^^xsd:integer .
+
+<#bdDqMOkT>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#UlGEMsSI> ;
+	<#has> <#Line6> ;
+	<#name> "d"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "false"^^xsd:boolean ;
+	<#lifecycle> <#dynamic> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#UcnalkXi> ;
+	<#contextRelation> <#ObOdJuzs> ;
+	<#contextRelation> <#TNhAfpya> ;
+	<#contextRelation> <#YcaOVbUX> ;
+	<#contextRelation> <#JWYnXvnN> ;
+	<#contextRelation> <#kSbitsNl> ;
+	<#contextRelation> <#nXSYVZEd> ;
+	<#contextRelation> <#TseZMHnp> ;
+	<#contextRelation> <#KXopZFdW> ;
+	<#contextRelation> <#bxsLfKBa> ;
+	<#contextRelation> <#ebsKJdEZ> ;
+	<#contextRelation> <#RPKavSyf> ;
+	<#contextRelation> <#nsIdrmBU> ;
+	<#contextRelation> <#QErnpupJ> ;
+	<#contextRelation> <#bMttsKuf> ;
+	<#contextRelation> <#rRxraiaK> ;
+	<#numOfStrInCode> "6"^^xsd:integer .
+
+<#sIqfIKgH>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#UlGEMsSI> ;
+	<#has> <#Line7> ;
+	<#name> "number"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "false"^^xsd:boolean ;
+	<#lifecycle> <#dynamic> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#qvctRFte> ;
+	<#contextRelation> <#rlgMLDgm> ;
+	<#contextRelation> <#JTkjTyqq> ;
+	<#contextRelation> <#BIJEBUEG> ;
+	<#contextRelation> <#hXLYPpfW> ;
+	<#contextRelation> <#RfUrhQGA> ;
+	<#contextRelation> <#dghEpxkn> ;
+	<#contextRelation> <#wunxAXfY> ;
+	<#contextRelation> <#BcFETeXX> ;
+	<#contextRelation> <#myQUXWJZ> ;
+	<#contextRelation> <#ARuLjhIN> ;
+	<#contextRelation> <#wVFZQzKI> ;
+	<#contextRelation> <#XFqTfyRb> ;
+	<#contextRelation> <#mhuRKKvq> ;
+	<#contextRelation> <#lGWgSwap> ;
+	<#contextRelation> <#opRjSbUs> ;
+	<#numOfStrInCode> "7"^^xsd:integer .
+
+<#taaclant>
+	a <#DataStructure> ;
+	<#contextType> <#enum> ;
+	<#parent> <#UlGEMsSI> ;
+	<#has> <#Line8> ;
+	<#name> "MyEnum"^^xsd:string ;
+	<#typeNameI> ""^^xsd:string ;
+	<#typeNameR> ""^^xsd:string ;
+	<#typeNameV> ""^^xsd:string ;
+	<#typeNameD> ""^^xsd:string ;
+	<#typeNameForStaticErrorv> ""^^xsd:string ;
+	<#visibleText> ""^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#XAzLbqck> ;
+	<#contextRelation> <#gpemUmgh> ;
+	<#contextRelation> <#ALrftgVa> ;
+	<#contextRelation> <#bCyhFokQ> ;
+	<#contextRelation> <#tewfmszD> ;
+	<#contextRelation> <#iuPcTgCE> ;
+	<#contextRelation> <#pgWHsmaU> ;
+	<#contextRelation> <#liLcyqEu> ;
+	<#contextRelation> <#CZOxaxmt> ;
+	<#contextRelation> <#SmxiYoJb> ;
+	<#contextRelation> <#tydztPtJ> ;
+	<#contextRelation> <#EPQtOwsk> ;
+	<#contextRelation> <#aaKsYZpj> ;
+	<#contextRelation> <#wIAcuyax> ;
+	<#contextRelation> <#DLmFVaHS> ;
+	<#contextRelation> <#otgFrvHE> ;
+	<#numOfStrInCode> "8"^^xsd:integer .
+
+<#SbWlDalN>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#taaclant> ;
+	<#has> <#Line10> ;
+	<#name> "k"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#jaucoTpF> ;
+	<#contextRelation> <#DHsaKXpb> ;
+	<#contextRelation> <#xqhXSMWU> ;
+	<#contextRelation> <#RWdHEywD> ;
+	<#contextRelation> <#fDcCQGav> ;
+	<#contextRelation> <#MFJoaMRD> ;
+	<#contextRelation> <#fwRAAdpT> ;
+	<#contextRelation> <#ZdouviTz> ;
+	<#contextRelation> <#oumdJCWm> ;
+	<#contextRelation> <#snhwsXZU> ;
+	<#contextRelation> <#HXgpyFjo> ;
+	<#contextRelation> <#ITGWTqJM> ;
+	<#contextRelation> <#dgjvazDC> ;
+	<#contextRelation> <#JcdhZNQK> ;
+	<#contextRelation> <#rplUGnro> ;
+	<#contextRelation> <#EMMCYMkj> ;
+	<#numOfStrInCode> "10"^^xsd:integer .
+
+<#UUzNdwVu>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#taaclant> ;
+	<#has> <#Line11> ;
+	<#name> "b"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#jHqQaQLY> ;
+	<#contextRelation> <#TiPVdePZ> ;
+	<#contextRelation> <#YZBgpBvy> ;
+	<#contextRelation> <#gzYyQWgq> ;
+	<#contextRelation> <#LbBxJOTr> ;
+	<#contextRelation> <#ZFiOmBZH> ;
+	<#contextRelation> <#gbLpZxbI> ;
+	<#contextRelation> <#VjjJvvYa> ;
+	<#contextRelation> <#xVjawUrb> ;
+	<#contextRelation> <#zHvXKndB> ;
+	<#contextRelation> <#RozGGjCA> ;
+	<#contextRelation> <#WFPCoBkB> ;
+	<#contextRelation> <#mdLIlNHz> ;
+	<#contextRelation> <#cPMxYmsW> ;
+	<#contextRelation> <#vvOsjyWN> ;
+	<#contextRelation> <#UsvDqZPY> ;
+	<#numOfStrInCode> "11"^^xsd:integer .
+
+<#LgHCJfCO>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#UlGEMsSI> ;
+	<#has> <#Line13> ;
+	<#name> "something"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "false"^^xsd:boolean ;
+	<#lifecycle> <#dynamic> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#CIsurbcG> ;
+	<#contextRelation> <#TmAaryGq> ;
+	<#contextRelation> <#PRnyIPGI> ;
+	<#contextRelation> <#EBlDKBgp> ;
+	<#contextRelation> <#kttueHvh> ;
+	<#contextRelation> <#PEwQwKYb> ;
+	<#contextRelation> <#sqDLHuXu> ;
+	<#contextRelation> <#LdosvoOh> ;
+	<#contextRelation> <#vBRraSQv> ;
+	<#contextRelation> <#xuBQfzsE> ;
+	<#contextRelation> <#YhDnWtZh> ;
+	<#contextRelation> <#eeNwgQnd> ;
+	<#contextRelation> <#pxwawFFX> ;
+	<#contextRelation> <#LINZqNPd> ;
+	<#contextRelation> <#XkscOkxs> ;
+	<#contextRelation> <#LJVzWkpX> ;
+	<#numOfStrInCode> "13"^^xsd:integer .
+
+<#LWzhLFQO>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#UlGEMsSI> ;
+	<#has> <#Line14> ;
+	<#name> "c"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "false"^^xsd:boolean ;
+	<#lifecycle> <#dynamic> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#KwrREFGi> ;
+	<#contextRelation> <#nBbaHeWC> ;
+	<#contextRelation> <#EpNLvfkV> ;
+	<#contextRelation> <#frIQQePh> ;
+	<#contextRelation> <#CcPrWuEb> ;
+	<#contextRelation> <#fsPYiADi> ;
+	<#contextRelation> <#KApKCGdj> ;
+	<#contextRelation> <#pIFsiBZD> ;
+	<#contextRelation> <#zXTfUKTM> ;
+	<#contextRelation> <#IyzKiecr> ;
+	<#contextRelation> <#hhPzXFeq> ;
+	<#contextRelation> <#eGFZgRTO> ;
+	<#contextRelation> <#uViwtYAH> ;
+	<#contextRelation> <#NjTljhag> ;
+	<#contextRelation> <#rAkXGZJE> ;
+	<#contextRelation> <#AOSfcmEr> ;
+	<#numOfStrInCode> "14"^^xsd:integer .
+
+<#rWyWAPPM>
+	a <#Declaration> ;
+	<#contextType> <#declaration> ;
+	<#parent> <#JojDHCwA> ;
+	<#has> <#Line17> ;
+	<#name> "something"^^xsd:string ;
+	<#typeNameI> "переменная"^^xsd:string ;
+	<#typeNameR> "переменной"^^xsd:string ;
+	<#typeNameV> "переменную"^^xsd:string ;
+	<#typeNameD> "переменной"^^xsd:string ;
+	<#typeNameForStaticErrorv> "Переменная не является статической и не может быть видна"^^xsd:string ;
+	<#visibleText> "видна"^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#UgIlmgNJ> ;
+	<#contextRelation> <#KnDROShR> ;
+	<#contextRelation> <#mIuSLEhD> ;
+	<#contextRelation> <#romUpVdH> ;
+	<#contextRelation> <#snFjzLUU> ;
+	<#contextRelation> <#sLWYHuuF> ;
+	<#contextRelation> <#vUjWAnyc> ;
+	<#contextRelation> <#VFiNQqMZ> ;
+	<#contextRelation> <#uFzHjzrE> ;
+	<#contextRelation> <#KfZYwCRg> ;
+	<#contextRelation> <#ZpvkyESH> ;
+	<#contextRelation> <#wCNLZBNp> ;
+	<#contextRelation> <#xWrYedTe> ;
+	<#contextRelation> <#aPwcLExG> ;
+	<#contextRelation> <#tQermIRi> ;
+	<#contextRelation> <#hpPxVDcD> ;
+	<#numOfStrInCode> "17"^^xsd:integer .
+
+<#IprDwJPM>
+	a <#Context> ;
+	<#contextType> <#body> ;
+	<#parent> <#UlGEMsSI> ;
+	<#has> <#Line5> ;
+	<#name> ""^^xsd:string ;
+	<#typeNameI> ""^^xsd:string ;
+	<#typeNameR> ""^^xsd:string ;
+	<#typeNameV> ""^^xsd:string ;
+	<#typeNameD> ""^^xsd:string ;
+	<#typeNameForStaticErrorv> ""^^xsd:string ;
+	<#visibleText> ""^^xsd:string ;
+	<#isStatic> "false"^^xsd:boolean ;
+	<#lifecycle> <#dynamic> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#sVnKCyMm> ;
+	<#contextRelation> <#FZTrtCUH> ;
+	<#contextRelation> <#XBdVuxge> ;
+	<#contextRelation> <#xCpjeOmJ> ;
+	<#contextRelation> <#mMmzGmJZ> ;
+	<#contextRelation> <#lHrqxEzx> ;
+	<#contextRelation> <#FctkWXrs> ;
+	<#contextRelation> <#KkVGlqhB> ;
+	<#contextRelation> <#jupgXUrx> ;
+	<#contextRelation> <#XiWkYWSj> ;
+	<#contextRelation> <#uahqVoWz> ;
+	<#contextRelation> <#PBgrTTrS> ;
+	<#contextRelation> <#VnMSLqPZ> ;
+	<#contextRelation> <#dkVKZLHy> ;
+	<#contextRelation> <#XYaPAYkN> ;
+	<#contextRelation> <#qxxdMCqt> ;
+	<#numOfStrInCode> "5"^^xsd:integer .
+
+<#WpJbvcrv>
+	a <#Context> ;
+	<#contextType> <#body> ;
+	<#parent> <#taaclant> ;
+	<#has> <#Line9> ;
+	<#name> ""^^xsd:string ;
+	<#typeNameI> ""^^xsd:string ;
+	<#typeNameR> ""^^xsd:string ;
+	<#typeNameV> ""^^xsd:string ;
+	<#typeNameD> ""^^xsd:string ;
+	<#typeNameForStaticErrorv> ""^^xsd:string ;
+	<#visibleText> ""^^xsd:string ;
+	<#isStatic> "true"^^xsd:boolean ;
+	<#lifecycle> <#static> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#lLOMAUGl> ;
+	<#contextRelation> <#DznIuZud> ;
+	<#contextRelation> <#vPBevGcq> ;
+	<#contextRelation> <#fBBKYJzE> ;
+	<#contextRelation> <#wEWsHIFw> ;
+	<#contextRelation> <#pAIbdJRh> ;
+	<#contextRelation> <#MPueTOWp> ;
+	<#contextRelation> <#JhtDKeSI> ;
+	<#contextRelation> <#CGAOdmRu> ;
+	<#contextRelation> <#JhfvScGW> ;
+	<#contextRelation> <#zfBeyiMe> ;
+	<#contextRelation> <#EnQJUHzj> ;
+	<#contextRelation> <#uzBJPSCI> ;
+	<#contextRelation> <#QJkNYOSE> ;
+	<#contextRelation> <#gXSdmmyb> ;
+	<#contextRelation> <#evdEYetf> ;
+	<#numOfStrInCode> "9"^^xsd:integer .
+
+<#ccnUEfTw>
+	a <#Context> ;
+	<#contextType> <#body> ;
+	<#parent> <#UlGEMsSI> ;
+	<#has> <#Line15> ;
+	<#name> ""^^xsd:string ;
+	<#typeNameI> ""^^xsd:string ;
+	<#typeNameR> ""^^xsd:string ;
+	<#typeNameV> ""^^xsd:string ;
+	<#typeNameD> ""^^xsd:string ;
+	<#typeNameForStaticErrorv> ""^^xsd:string ;
+	<#visibleText> ""^^xsd:string ;
+	<#isStatic> "false"^^xsd:boolean ;
+	<#lifecycle> <#dynamic> ;
+	<#visiblyModifier> <#public> ;
+	<#contextRelation> <#pOFlHOwc> ;
+	<#contextRelation> <#xArMKROw> ;
+	<#contextRelation> <#ZtSneGWD> ;
+	<#contextRelation> <#dFKtnPkR> ;
+	<#contextRelation> <#cWWYomoW> ;
+	<#contextRelation> <#BfaizNkd> ;
+	<#contextRelation> <#CBDRZMgx> ;
+	<#contextRelation> <#mhTDxulh> ;
+	<#contextRelation> <#wdkjJQew> ;
+	<#contextRelation> <#KsLPoFLH> ;
+	<#contextRelation> <#ZEjGHhie> ;
+	<#contextRelation> <#bRFnLoVp> ;
+	<#contextRelation> <#pTxEAYYq> ;
+	<#contextRelation> <#cbGrZxyc> ;
+	<#contextRelation> <#SsnapzhW> ;
+	<#contextRelation> <#eqKUcTaQ> ;
+	<#numOfStrInCode> "15"^^xsd:integer .
+
+<#IEzGFQNc>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#cRKCoVif>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#LhnSycFe>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#CRVSJtAL>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#eaPkqjpU>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#LqPciqGn>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#EGGxBtZg>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#MNuLunNL>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#taaclant> .
+
+<#EDpBJIOH>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#VfVjtEuX>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#nIOMCyAo>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#nsFLSzfH>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#goMaEIZR>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#IgpfGtDk>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#xarqarYH>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#nvcngsfo>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#VdQWwxBO>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#mypZtPxZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#vJurfUbD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#wQMtRdzo>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#BAtzdvWY>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#jhmloemU>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#ufEGGgml>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#pHCTLSWB>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#jXiaLByy>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#gEWExTsy>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#DJlieelO>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#hpHSzuaA>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#Ipvwpstp>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#zVJZLjwW>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#KXTvXVby>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#MTiKGAVr>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#oChDsgwD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#IwHQaiIr>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#HVYuwEiN>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#KDOVYsqe>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#WvNxVhTB>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#uInxJHpo>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#jPrliFww>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#xXRojUrT>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#rXtHiUYR>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#MeHazjQS>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#VIrsHnOJ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#NrgQGxKZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#tVFDTfsv>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#HJHEuSnX>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#AucQphyw>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#GMuRYNPa>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#xCmdqhyr>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#WTFwLoRh>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#wRYnLebm>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#DVROlRHt>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#qtGyuKmg>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#qhOUQkhq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#uUFFWjrS>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#YDpeboCU>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#GvYnzEQP>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#gjPbxsjM>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#iSEoKWqY>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#MyWeZfDc>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#fVDJGbcI>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#OeWkhYDR>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#pRYpZWFt>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#UuSrHAqj>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#cWnuUTIO>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#jNwXZHEN>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#MFXCKsix>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#webjPWxf>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#taaclant> .
+
+<#XjIXwDwI>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#uewxWXAF>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#iPbBMttm>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#WGgRQzvp>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#GDZXdLKC>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#GhWTaBwF>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#XQdWYRdp>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#szukqhvK>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#wKUPvNHx>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#UmzTHxAo>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#iLDsxJXv>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#PToJRzoF>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#gowaiLIt>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#iuSQolyG>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#WXnmrdpC>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#taaclant> .
+
+<#nXvRogRu>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#iTsZZqTD>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#aPRcDZtl>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#mPKbVAXZ>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#UnYQhbUj>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#SITZImCm>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#QmRMNnKk>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#CeIgjAta>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#bFtUkRbZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#yjdYpPpH>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#gBSTzvKq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#PFpKPvJu>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#gLmMeZCx>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#UcnalkXi>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#ObOdJuzs>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#TNhAfpya>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#YcaOVbUX>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#JWYnXvnN>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#kSbitsNl>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#nXSYVZEd>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#TseZMHnp>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#KXopZFdW>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#bxsLfKBa>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#ebsKJdEZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#RPKavSyf>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#nsIdrmBU>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#QErnpupJ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#bMttsKuf>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#rRxraiaK>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#qvctRFte>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#rlgMLDgm>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#JTkjTyqq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#BIJEBUEG>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#hXLYPpfW>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#RfUrhQGA>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#dghEpxkn>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#wunxAXfY>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#BcFETeXX>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#myQUXWJZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#ARuLjhIN>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#wVFZQzKI>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#XFqTfyRb>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#mhuRKKvq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#lGWgSwap>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#opRjSbUs>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#XAzLbqck>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#gpemUmgh>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#ALrftgVa>
+	<#contextRelation> <#internal> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#bCyhFokQ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#tewfmszD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#iuPcTgCE>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#pgWHsmaU>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#liLcyqEu>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#CZOxaxmt>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#SmxiYoJb>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#tydztPtJ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#EPQtOwsk>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#aaKsYZpj>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#wIAcuyax>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#DLmFVaHS>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#otgFrvHE>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#jaucoTpF>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#DHsaKXpb>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#xqhXSMWU>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#RWdHEywD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#fDcCQGav>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#MFJoaMRD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#fwRAAdpT>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#ZdouviTz>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#oumdJCWm>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#snhwsXZU>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#HXgpyFjo>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#ITGWTqJM>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#dgjvazDC>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#JcdhZNQK>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#rplUGnro>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#EMMCYMkj>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#jHqQaQLY>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#TiPVdePZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#YZBgpBvy>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#gzYyQWgq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#LbBxJOTr>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#ZFiOmBZH>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#gbLpZxbI>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#VjjJvvYa>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#xVjawUrb>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#zHvXKndB>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#RozGGjCA>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#WFPCoBkB>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#mdLIlNHz>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#cPMxYmsW>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#vvOsjyWN>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#UsvDqZPY>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#CIsurbcG>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#TmAaryGq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#PRnyIPGI>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#EBlDKBgp>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#kttueHvh>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#PEwQwKYb>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#sqDLHuXu>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#LdosvoOh>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#vBRraSQv>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#xuBQfzsE>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#YhDnWtZh>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#eeNwgQnd>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#pxwawFFX>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#LINZqNPd>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#XkscOkxs>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#LJVzWkpX>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#KwrREFGi>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#nBbaHeWC>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#EpNLvfkV>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#frIQQePh>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#CcPrWuEb>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#fsPYiADi>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#KApKCGdj>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#pIFsiBZD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#zXTfUKTM>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#IyzKiecr>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#hhPzXFeq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#eGFZgRTO>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#uViwtYAH>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#NjTljhag>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#rAkXGZJE>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#AOSfcmEr>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#UgIlmgNJ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#KnDROShR>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#mIuSLEhD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#romUpVdH>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#snFjzLUU>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#sLWYHuuF>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#vUjWAnyc>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#VFiNQqMZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#uFzHjzrE>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#KfZYwCRg>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#ZpvkyESH>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#wCNLZBNp>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#xWrYedTe>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#aPwcLExG>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#tQermIRi>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#hpPxVDcD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#sVnKCyMm>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#FZTrtCUH>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#XBdVuxge>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#xCpjeOmJ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#mMmzGmJZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#lHrqxEzx>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#FctkWXrs>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#KkVGlqhB>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#jupgXUrx>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#XiWkYWSj>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#uahqVoWz>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#PBgrTTrS>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#VnMSLqPZ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#dkVKZLHy>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#XYaPAYkN>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .
+
+<#qxxdMCqt>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#lLOMAUGl>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#DznIuZud>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#vPBevGcq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#fBBKYJzE>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#wEWsHIFw>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#pAIbdJRh>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#MPueTOWp>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#JhtDKeSI>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#CGAOdmRu>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#JhfvScGW>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#zfBeyiMe>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#EnQJUHzj>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#uzBJPSCI>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#QJkNYOSE>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#gXSdmmyb>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#evdEYetf>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#ccnUEfTw> .
+
+<#pOFlHOwc>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#JojDHCwA> .
+
+<#xArMKROw>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#PrZarwLD> .
+
+<#ZtSneGWD>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#pwGMoslx> .
+
+<#dFKtnPkR>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LItSnYbb> .
+
+<#cWWYomoW>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#KNGjVpnh> .
+
+<#BfaizNkd>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UlGEMsSI> .
+
+<#CBDRZMgx>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#bdDqMOkT> .
+
+<#mhTDxulh>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#sIqfIKgH> .
+
+<#wdkjJQew>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#taaclant> .
+
+<#KsLPoFLH>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#SbWlDalN> .
+
+<#ZEjGHhie>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#UUzNdwVu> .
+
+<#bRFnLoVp>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LgHCJfCO> .
+
+<#pTxEAYYq>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#LWzhLFQO> .
+
+<#cbGrZxyc>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#rWyWAPPM> .
+
+<#SsnapzhW>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#IprDwJPM> .
+
+<#eqKUcTaQ>
+	<#contextRelation> <#external> ;
+	<#contextRelation> <#WpJbvcrv> .

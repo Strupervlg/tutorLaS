@@ -1,0 +1,71 @@
+{
+	"question": "В каких строках программы видно поле \"b\" из 6 строки с префиксом c::d::?",
+	"var": "Line6",
+	"prefix": "prefix",
+	"code": [
+		{
+			"text": "class c {",
+			"line": "Line1"
+		},
+		{
+			"text": "public:",
+			"line": ""
+		},
+		{
+			"text": "\tstatic const int a = 0;",
+			"line": "Line3"
+		},
+		{
+			"text": "\tclass d {",
+			"line": "Line4"
+		},
+		{
+			"text": "\tpublic:",
+			"line": ""
+		},
+		{
+			"text": "\t\tstatic const int b = 1;",
+			"line": "Line6"
+		},
+		{
+			"text": "\t\tint g = 3;",
+			"line": "Line7"
+		},
+		{
+			"text": "\tprivate:",
+			"line": ""
+		},
+		{
+			"text": "\t\tstatic const int f = 2;",
+			"line": "Line9"
+		},
+		{
+			"text": "\t};",
+			"line": ""
+		},
+		{
+			"text": " };",
+			"line": ""
+		},
+		{
+			"text": " void main() {",
+			"line": "Line12"
+		},
+		{
+			"text": "\tfor (int c = 0; ; ) {",
+			"line": "Line13"
+		},
+		{
+			"text": "\t\tc++;",
+			"line": "Line14"
+		},
+		{
+			"text": "\t}",
+			"line": ""
+		},
+		{
+			"text": " }",
+			"line": ""
+		}
+	]
+}
