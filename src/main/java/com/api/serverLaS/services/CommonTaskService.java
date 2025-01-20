@@ -42,8 +42,11 @@ public class CommonTaskService {
                 continue;
             }
             if(branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
-                errorText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br><br>";
-                countErrors++;
+                String errorNodeText = utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain);
+                if(!errorText.contains(errorNodeText)) {
+                    errorText += errorNodeText + "<br><br>";
+                    countErrors++;
+                }
             }
         }
         if(countErrors-4 == 1) {

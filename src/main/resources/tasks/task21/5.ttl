@@ -13,7 +13,7 @@
 	a <#LocalPrefix> ;
 	<#end> <#SeagullYWZUIUxl> ;
 	<#hasNamedContext> "true"^^xsd:boolean ;
-	<#name> "Seagull::"^^xsd:string ;
+	<#name> "и по префиксу \"Seagull::\""^^xsd:string ;
 	<#var...> "prefix"^^xsd:string .
 
 <#Line1>

@@ -13,7 +13,7 @@
 	a <#LocalPrefix> ;
 	<#end> <#DogHxkMfelZ> ;
 	<#hasNamedContext> "true"^^xsd:boolean ;
-	<#name> "Dog::"^^xsd:string ;
+	<#name> "и по префиксу \"Dog::\""^^xsd:string ;
 	<#var...> "prefix"^^xsd:string .
 
 <#Line1>

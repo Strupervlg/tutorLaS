@@ -7,7 +7,7 @@
 	a <#GlobalPrefix> ;
 	<#end> <#startMarker> ;
 	<#hasNamedContext> "false"^^xsd:boolean ;
-	<#name> "::"^^xsd:string ;
+	<#name> "и по префиксу \"::\""^^xsd:string ;
 	<#var...> "prefix"^^xsd:string .
 
 <#Line1>

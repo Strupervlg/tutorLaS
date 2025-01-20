@@ -13,7 +13,7 @@
 	a <#LocalPrefix> ;
 	<#end> <#CatWBVZyWqy> ;
 	<#hasNamedContext> "true"^^xsd:boolean ;
-	<#name> "Cat::"^^xsd:string ;
+	<#name> "и по префиксу \"Cat::\""^^xsd:string ;
 	<#var...> "prefix"^^xsd:string .
 
 <#Line1>

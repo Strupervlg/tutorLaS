@@ -13,7 +13,7 @@
 	a <#LocalPrefix> ;
 	<#end> <#SnakeVDTdSnVt> ;
 	<#hasNamedContext> "true"^^xsd:boolean ;
-	<#name> "Snake::"^^xsd:string ;
+	<#name> "и по префиксу \"Snake::\""^^xsd:string ;
 	<#var...> "prefix"^^xsd:string .
 
 <#Line1>
