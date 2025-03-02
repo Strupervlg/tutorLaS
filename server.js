@@ -26,6 +26,18 @@ app.get('/task3', function (req, res) {
 	res.sendfile(path.join(__dirname, 'app', 'index3.html'));
 });
 
+app.get('/en/task1', function (req, res) {
+	res.sendfile(path.join(__dirname, 'app', 'index_en.html'));
+});
+
+app.get('/en/task2', function (req, res) {
+	res.sendfile(path.join(__dirname, 'app', 'index2_en.html'));
+});
+
+app.get('/en/task3', function (req, res) {
+	res.sendfile(path.join(__dirname, 'app', 'index3_en.html'));
+});
+
 // запускаем сервер на порту 8080
 app.listen(8080);
 // отправляем сообщение
