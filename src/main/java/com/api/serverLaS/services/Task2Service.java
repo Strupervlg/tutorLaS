@@ -163,4 +163,10 @@ public class Task2Service {
 
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task2Data.fromJson(data.getTask()) : data.getTask());
     }
+
+    public GetNextTaskResponse getEnNext(GetNextTaskRequest getNextTaskRequest) {
+        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 222);
+
+        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task2Data.fromJson(data.getTask()) : data.getTask());
+    }
 }

@@ -34,4 +34,9 @@ public class Task3Controller {
     public GetNextTaskResponse getNext(@RequestBody GetNextTaskRequest getNextTaskRequest) {
         return task3Service.getNext(getNextTaskRequest);
     }
+
+    @PostMapping("/en/task-3/get-next")
+    public GetNextTaskResponse getEnNext(@RequestBody GetNextTaskRequest getNextTaskRequest) {
+        return task3Service.getEnNext(getNextTaskRequest);
+    }
 }

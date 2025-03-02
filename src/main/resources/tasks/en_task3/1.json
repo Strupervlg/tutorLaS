@@ -1,5 +1,5 @@
 {
-	"question": "Чем являются переменные?",
+	"question": "What semantic role do variables have?",
 	"function_def": "/**\n * @brief func\n * \n * @param[in] a\n * @param[in,out] b\n * @param[out] result\n */\nint func(int a, int &b, int &result);",
 	"vars": [
 		{

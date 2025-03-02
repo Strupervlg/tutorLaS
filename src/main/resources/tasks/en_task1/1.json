@@ -1,0 +1,96 @@
+{
+	"question": "In which lines of the track does the variable \"a\" from line 5 of the program exist, from the 1st iteration of the loop?",
+	"stepVar": "step8",
+	"var": "VariableA",
+	"code": "1.void main() {\n2.\tint a = 5;\n3.\t\tfor (int c = 0; c < 2; c++) { \n4.\t\t\tint d = 3; \n5.\t\t\tint a = 2;\n6.\t\t\td = d + c;\n7.\t}\n8.\ta += 3; \n9.}",
+	"trace": [
+		{
+			"text": "<span class='program'>Program</span> <span class='keyword'>began</span>",
+			"step": "step1"
+		},
+		{
+			"text": "<span class='program'>function main</span> <span class='keyword'>began</span>",
+			"step": "step2"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>5</span>;",
+			"step": "step3"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>c</span> = <span class='number'>0</span>;",
+			"step": "step4"
+		},
+		{
+			"text": "<span class='struct'>condition</span> <span class='variable'>c</span> < <span class='number'>2</span> <span class='keyword'>evaluated</span> <span class='number'>1st</span> time - <span class='atom'>true</span>",
+			"step": "step5"
+		},
+		{
+			"text": "<span class='struct'>iteration</span> <span class='number'>1</span> <span class='struct'>of loop</span> <span class='keyword'>began</span>",
+			"step": "step6"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>d</span> = <span class='number'>3</span>; <span class='keyword'>executed</span> <span class='number'>1st</span> time",
+			"step": "step7"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>2</span>; <span class='keyword'>executed</span> <span class='number'>1st</span> time",
+			"step": "step8"
+		},
+		{
+			"text": "<span class='variable'>d</span> = <span class='variable'>d</span> + <span class='variable'>c</span>; <span class='keyword'>executed</span> <span class='number'>1st</span> time",
+			"step": "step9"
+		},
+		{
+			"text": "<span class='variable'>c</span>++; <span class='keyword'>executed</span> <span class='number'>1st</span> time",
+			"step": "step10"
+		},
+		{
+			"text": "<span class='struct'>iteration</span> <span class='number'>1</span> <span class='struct'>of loop</span> <span class='keyword'>ended</span>",
+			"step": "step11"
+		},
+		{
+			"text": "<span class='struct'>condition</span> <span class='variable'>c</span> < <span class='number'>2</span> <span class='keyword'>evaluated</span> <span class='number'>2nd</span> time - <span class='atom'>true</span>",
+			"step": "step12"
+		},
+		{
+			"text": "<span class='struct'>iteration</span> <span class='number'>2</span> <span class='struct'>of loop</span> <span class='keyword'>began</span>",
+			"step": "step13"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>d</span> = <span class='number'>3</span>; <span class='keyword'>executed</span> <span class='number'>2nd</span> time",
+			"step": "step14"
+		},
+		{
+			"text": "<span class='variable'>int</span> <span class='variable'>a</span> = <span class='number'>2</span>; <span class='keyword'>executed</span> <span class='number'>2nd</span> time",
+			"step": "step15"
+		},
+		{
+			"text": "<span class='variable'>d</span> = <span class='variable'>d</span> + <span class='variable'>c</span>; <span class='keyword'>executed</span> <span class='number'>2nd</span> time",
+			"step": "step16"
+		},
+		{
+			"text": "<span class='variable'>c</span>++; <span class='keyword'>executed</span> <span class='number'>2nd</span> time",
+			"step": "step17"
+		},
+		{
+			"text": "<span class='struct'>iteration</span> <span class='number'>2</span> <span class='struct'>of loop</span> <span class='keyword'>ended</span>",
+			"step": "step18"
+		},
+		{
+			"text": "<span class='struct'>condition</span> <span class='variable'>c</span> < <span class='number'>2</span> <span class='keyword'>evaluated</span> <span class='number'>3rd</span> time - <span class='atom'>false</span>",
+			"step": "step19"
+		},
+		{
+			"text": "<span class='variable'>a</span> += <span class='number'>3</span>;",
+			"step": "step20"
+		},
+		{
+			"text": "<span class='program'>function main</span> <span class='keyword'>ended</span>",
+			"step": "step21"
+		},
+		{
+			"text": "<span class='program'>Program</span> <span class='keyword'>ended</span>",
+			"step": "step22"
+		}
+	]
+}

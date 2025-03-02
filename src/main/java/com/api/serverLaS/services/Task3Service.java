@@ -151,4 +151,10 @@ public class Task3Service {
         }
         return hintText;
     }
+
+    public GetNextTaskResponse getEnNext(GetNextTaskRequest getNextTaskRequest) {
+        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 333);
+
+        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task3Data.fromJson(data.getTask()) : data.getTask());
+    }
 }

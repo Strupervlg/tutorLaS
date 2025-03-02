@@ -71,6 +71,11 @@ public class DatabaseService {
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task11', '5.ttl', '5.json', 11)");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task11', '6.ttl', '6.json', 11)");
 
+
+        jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (111, 'Lifetime en')");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('en_task1', '1.ttl', '1.json', 111)");
+
+
         jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (2, 'Scope 1')");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task2', '1.ttl', '1.json', 2)");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task2', '2.ttl', '2.json', 2)");
@@ -101,6 +106,11 @@ public class DatabaseService {
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task22', '7.ttl', '7.json', 22)");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task22', '8.ttl', '8.json', 22)");
 
+
+        jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (222, 'Scope 1 en')");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('en_task2', '1.ttl', '1.json', 222)");
+
+
         jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (3, 'Expression')");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task31', '1.ttl', '1.json', 3)");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task31', '2.ttl', '2.json', 3)");
@@ -116,6 +126,9 @@ public class DatabaseService {
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task32', '5.ttl', '5.json', 31)");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task32', '6.ttl', '6.json', 31)");
 
+
+        jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (333, 'Expression en')");
+        jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('en_task3', '1.ttl', '1.json', 333)");
 
 
 
