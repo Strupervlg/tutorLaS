@@ -152,10 +152,11 @@ public class Task1Service {
     }
 
     public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {
-        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 1);
-        if(data.getTaskId() == -1) {
-            data = commonTaskService.getNext(getNextTaskRequest, 11);
-        }
+        Random random = new Random();
+        List<Integer> sectionsIds = List.of(1, 11);
+        int sectionId = sectionsIds.get(random.nextInt(sectionsIds.size()));
+
+        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, sectionId);
 
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task1Data.fromJson(data.getTask()) : data.getTask());
     }

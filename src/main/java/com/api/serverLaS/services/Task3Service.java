@@ -127,10 +127,11 @@ public class Task3Service {
     }
 
     public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {
-        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 3);
-        if(data.getTaskId() == -1) {
-            data = commonTaskService.getNext(getNextTaskRequest, 31);
-        }
+        Random random = new Random();
+        List<Integer> sectionsIds = List.of(3, 31);
+        int sectionId = sectionsIds.get(random.nextInt(sectionsIds.size()));
+
+        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, sectionId);
 
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task3Data.fromJson(data.getTask()) : data.getTask());
     }

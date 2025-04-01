@@ -111,33 +111,33 @@ public class CommonTaskService {
     }
 
     public void addCountOfCorrectToDB(String errorText, String uid, int taskId, String answer, String correctText) {
-        if(!solutionRepository.hasSolution(uid, taskId)) {
-            solutionRepository.create(uid, taskId);
-        }
-
-        if(errorText.isEmpty()) {
-            solutionRepository.addCountOfCorrect(uid, taskId, answer, correctText);
-        }
+//        if(!solutionRepository.hasSolution(uid, taskId)) {
+//            solutionRepository.create(uid, taskId);
+//        }
+//
+//        if(errorText.isEmpty()) {
+//            solutionRepository.addCountOfCorrect(uid, taskId, answer, correctText);
+//        }
     }
 
     public void addCountOfMistakesToDB(String errorText, String uid, int taskId, String answer) {
-        if(!solutionRepository.hasSolution(uid, taskId)) {
-            solutionRepository.create(uid, taskId);
-        }
-
-        if(!errorText.isEmpty()) {
-            solutionRepository.addCountOfMistakes(uid, taskId, answer, errorText);
-        }
+//        if(!solutionRepository.hasSolution(uid, taskId)) {
+//            solutionRepository.create(uid, taskId);
+//        }
+//
+//        if(!errorText.isEmpty()) {
+//            solutionRepository.addCountOfMistakes(uid, taskId, answer, errorText);
+//        }
     }
 
     public void addCountOfHintsToDB(String correctAnswer, String uid, int taskId, String hintText) {
-        if(!solutionRepository.hasSolution(uid, taskId)) {
-            solutionRepository.create(uid, taskId);
-        }
-
-        if(!correctAnswer.isEmpty()) {
-            solutionRepository.addCountOfHints(uid, taskId, correctAnswer, hintText);
-        }
+//        if(!solutionRepository.hasSolution(uid, taskId)) {
+//            solutionRepository.create(uid, taskId);
+//        }
+//
+//        if(!correctAnswer.isEmpty()) {
+//            solutionRepository.addCountOfHints(uid, taskId, correctAnswer, hintText);
+//        }
     }
 
     public String[] getErrorLines(List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes, DomainModel situationDomain, String nameVar) {
