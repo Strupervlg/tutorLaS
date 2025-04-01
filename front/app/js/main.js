@@ -9,8 +9,8 @@ function getCookie(name) {
 	let matches = document.cookie.match(new RegExp(
 		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
 	));
-	return matches ? decodeURIComponent(matches[1]) : undefined;
-	// return "09a8f9ac-a4d1-41bb-9f32-aa957dd22f71";
+	// return matches ? decodeURIComponent(matches[1]) : undefined;
+	return "09a8f9ac-a4d1-41bb-9f32-aa957dd22f71";
 }
 
 function setCookie(name, value, options = {}) {

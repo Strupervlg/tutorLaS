@@ -23,7 +23,8 @@ services:
       - sail
   frontend:
     build:
-      dockerfile: ./front/Dockerfile
+      context: ./front
+      dockerfile: ./Dockerfile
     image: image:front-serverlas
     ports:
       - '8080:8080'
