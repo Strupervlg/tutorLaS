@@ -20,5 +20,6 @@ public class ServerLaSApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		databaseService.createTables();
+		databaseService.fillDatabase();
 	}
 }

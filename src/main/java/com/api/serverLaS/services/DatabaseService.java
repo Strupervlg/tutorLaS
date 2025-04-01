@@ -54,6 +54,8 @@ public class DatabaseService {
         jdbcTemplate.execute("UPDATE SQLITE_SEQUENCE SET seq = 0 WHERE name = 'tasks'");
         jdbcTemplate.execute("DELETE FROM users");
         jdbcTemplate.execute("UPDATE SQLITE_SEQUENCE SET seq = 0 WHERE name = 'users'");
+        jdbcTemplate.execute("DELETE FROM answers");
+        jdbcTemplate.execute("DELETE FROM solutions");
 
         jdbcTemplate.execute("INSERT INTO sections (id, name) VALUES (1, 'Lifetime')");
         jdbcTemplate.execute("INSERT INTO tasks (name, name_ttl, name_json, section_id) VALUES ('task1', '1.ttl', '1.json', 1)");
