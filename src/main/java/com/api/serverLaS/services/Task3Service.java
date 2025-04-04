@@ -15,10 +15,8 @@ import its.model.definition.ObjectRef;
 import its.model.definition.rdf.DomainRDFFiller;
 import its.model.definition.rdf.DomainRDFWriter;
 import its.model.nodes.BranchResult;
-import its.model.nodes.BranchResultNode;
-import its.reasoner.BranchResultProcessor;
+import its.reasoner.nodes.DecisionTreeTrace;
 import its.reasoner.LearningSituation;
-import its.reasoner.nodes.DecisionTreeEvaluationResult;
 import its.reasoner.nodes.DecisionTreeReasoner;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -65,12 +63,11 @@ public class Task3Service {
                             "var", new ObjectRef(answer.getVar())
                     ))
             );
-            BranchResultProcessor resultProcessor = new BranchResultProcessor();
-            DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
-            List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes= resultProcessor.getList();
-            Collections.reverse(branchResultNodes);
-            errorText += commonTaskService.generateErrorText(resultProcessor.getList(), newSituationDomain, request.getUid(), request.getTaskId(), answer.getVar()+"_"+answer.getAnswer());
-            String correctText = commonTaskService.generateHintText(resultProcessor.getList(), newSituationDomain);
+            DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+            List<DecisionTreeTrace> branchResultNodes = commonTaskService.getListDecisionTreeTrace(result);
+
+            errorText += commonTaskService.generateErrorText(branchResultNodes, newSituationDomain, request.getUid(), request.getTaskId(), answer.getVar()+"_"+answer.getAnswer());
+            String correctText = commonTaskService.generateHintText(branchResultNodes, newSituationDomain);
             commonTaskService.addCountOfCorrectToDB(errorText, request.getUid(), request.getTaskId(), answer.getVar()+"_"+answer.getAnswer(), correctText);
         }
 
@@ -104,9 +101,17 @@ public class Task3Service {
                                 "var", new ObjectRef(userAnswer.getVar())
                         ))
                 );
-                BranchResultProcessor resultProcessor = new BranchResultProcessor();
-                DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
-                List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes= resultProcessor.getList();
+                DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+                List<DecisionTreeTrace> branchResultNodes = new ArrayList<DecisionTreeTrace>();
+                if(!result.getResultingElement().isAggregated()) {
+                    for (DecisionTreeTrace decisionTreeTrace : result.get(1).nestedTraces()) {
+                        branchResultNodes.add(decisionTreeTrace);
+                    }
+                    branchResultNodes.add(result);
+                } else {
+                    branchResultNodes = commonTaskService.getListDecisionTreeTrace(result);
+                }
+
                 Collections.reverse(branchResultNodes);
                 hintText = this.generateHintText(branchResultNodes, newSituationDomain);
                 if(!hintText.isEmpty()) {
@@ -136,15 +141,15 @@ public class Task3Service {
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task3Data.fromJson(data.getTask()) : data.getTask());
     }
 
-    public String generateHintText(List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes, DomainModel situationDomain) {
+    public String generateHintText(List<DecisionTreeTrace> branchResultNodes, DomainModel situationDomain) {
         String hintText = "";
         boolean isError = false;
-        for(DecisionTreeEvaluationResult<BranchResultNode> branchResultNode : branchResultNodes) {
-            if (branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
+        for(DecisionTreeTrace branchResultNode : branchResultNodes) {
+            if (branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
                 isError = true;
                 break;
-            } else if (branchResultNode.getNode().getValue() == BranchResult.CORRECT && branchResultNode.getNode().getMetadata().get("alias") != null) {
-                hintText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br><br>";
+            } else if (branchResultNode.getBranchResult() == BranchResult.CORRECT && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
+                hintText += utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain) + "<br><br>";
             }
         }
         if (isError) {

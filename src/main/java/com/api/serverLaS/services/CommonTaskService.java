@@ -7,8 +7,7 @@ import com.api.serverLaS.repositories.TaskRepository;
 import com.api.serverLaS.requests.GetNextTaskRequest;
 import its.model.definition.DomainModel;
 import its.model.nodes.BranchResult;
-import its.model.nodes.BranchResultNode;
-import its.reasoner.nodes.DecisionTreeEvaluationResult;
+import its.reasoner.nodes.DecisionTreeTrace;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
@@ -33,16 +32,16 @@ public class CommonTaskService {
     @Autowired
     public UtilService utilService;
 
-    public String generateErrorText(List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes, DomainModel situationDomain, String uid, int taskId, String answer) {
+    public String generateErrorText(List<DecisionTreeTrace> branchResultNodes, DomainModel situationDomain, String uid, int taskId, String answer) {
         String errorText = "";
         int countErrors = 0;
-        for(DecisionTreeEvaluationResult<BranchResultNode> branchResultNode : branchResultNodes) {
-            if(branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null && countErrors>=4) {
+        for(DecisionTreeTrace branchResultNode : branchResultNodes) {
+            if(!branchResultNode.getResultingElement().isAggregated() && branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null && countErrors>=4) {
                 countErrors++;
                 continue;
             }
-            if(branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
-                String errorNodeText = utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain);
+            if(!branchResultNode.getResultingElement().isAggregated() && branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
+                String errorNodeText = utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain);
                 if(!errorText.contains(errorNodeText)) {
                     errorText += errorNodeText + "<br><br>";
                     countErrors++;
@@ -97,13 +96,13 @@ public class CommonTaskService {
         return new NextTaskData(task.getId(), taskInTtl, jsonobj);
     }
 
-    public String generateHintText(List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes, DomainModel situationDomain) {
+    public String generateHintText(List<DecisionTreeTrace> branchResultNodes, DomainModel situationDomain) {
         String hintText = "";
-        for(DecisionTreeEvaluationResult<BranchResultNode> branchResultNode : branchResultNodes) {
-            if (branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
+        for(DecisionTreeTrace branchResultNode : branchResultNodes) {
+            if (branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
                 break;
-            } else if (branchResultNode.getValue() == BranchResult.CORRECT && branchResultNode.getNode().getMetadata().get("alias") != null) {
-                hintText = utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain);
+            } else if (branchResultNode.getBranchResult() == BranchResult.CORRECT && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
+                hintText = utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain);
                 break;
             }
         }
@@ -140,20 +139,40 @@ public class CommonTaskService {
 //        }
     }
 
-    public String[] getErrorLines(List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes, DomainModel situationDomain, String nameVar) {
+    public String[] getErrorLines(List<DecisionTreeTrace> branchResultNodes, DomainModel situationDomain, String nameVar) {
         ArrayList<String> lines = new ArrayList<String>();
         int countErrors = 0;
-        for(DecisionTreeEvaluationResult<BranchResultNode> branchResultNode : branchResultNodes) {
-            if(branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null && countErrors>=4) {
+        for(DecisionTreeTrace branchResultNode : branchResultNodes) {
+            if(!branchResultNode.getResultingElement().isAggregated() && branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null && countErrors>=4) {
                 countErrors++;
                 continue;
             }
-            if(branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
-                lines.add(branchResultNode.getVariablesSnapshot().get(nameVar).findIn(situationDomain).getName());
+
+            if(!branchResultNode.getResultingElement().isAggregated() && branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
+                lines.add(branchResultNode.getFinalVariableSnapshot().get(nameVar).findIn(situationDomain).getName());
                 countErrors++;
             }
         }
 
         return lines.toArray(new String[0]);
+    }
+
+    public List<DecisionTreeTrace> getListDecisionTreeTrace(DecisionTreeTrace trace) {
+        List<DecisionTreeTrace> branchResultNodes = new ArrayList<DecisionTreeTrace>();
+
+        this.addListDecisionTreeTrace(branchResultNodes, trace);
+
+        return branchResultNodes;
+    }
+
+    private void addListDecisionTreeTrace(List<DecisionTreeTrace> branchResultNodes, DecisionTreeTrace trace) {
+        if(trace.getResultingElement().isAggregated()) {
+            branchResultNodes.add(new DecisionTreeTrace(List.of(trace.get(trace.size() - 1))));
+            for (DecisionTreeTrace decisionTreeTrace : trace.getResultingElement().nestedTraces()) {
+                this.addListDecisionTreeTrace(branchResultNodes, decisionTreeTrace);
+            }
+        } else {
+            branchResultNodes.add(trace);
+        }
     }
 }

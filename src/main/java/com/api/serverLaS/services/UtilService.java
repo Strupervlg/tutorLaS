@@ -64,9 +64,9 @@ public class UtilService {
                     if(array[i+1].contains("(I)")) {
                         String property = array[i+1].replace("(I)", "");
                         isI = true;
-                        value = obj.getPropertyValue(property).toString();
+                        value = obj.getPropertyValue(property, Map.of()).toString();
                     } else {
-                        value = obj.getPropertyValue(array[i+1]).toString();
+                        value = obj.getPropertyValue(array[i+1], Map.of()).toString();
                     }
                 }
             }

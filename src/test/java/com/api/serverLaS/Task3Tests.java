@@ -7,11 +7,9 @@ import its.model.definition.DomainModel;
 import its.model.definition.ObjectRef;
 import its.model.definition.rdf.DomainRDFFiller;
 import its.model.nodes.BranchResult;
-import its.model.nodes.BranchResultNode;
-import its.reasoner.BranchResultProcessor;
 import its.reasoner.LearningSituation;
-import its.reasoner.nodes.DecisionTreeEvaluationResult;
 import its.reasoner.nodes.DecisionTreeReasoner;
+import its.reasoner.nodes.DecisionTreeTrace;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -59,7 +57,7 @@ class Task3Tests {
 				Arguments.of("31.ttl", "varV1", "answerInput", "Переменная \"v\" не является входной, так как:<br>Переменная \"v\" на позиции 1 является левым операндом оператора \"=\" и является выходной.<br>"),
 				Arguments.of("31.ttl", "varV1", "answerMutable", "Переменная \"v\" не является изменяемой, так как во всех местах её использования она используется только как выходная.<br>"),
 				Arguments.of("32.ttl", "varD3", "answerInput", "Переменная \"d\" не является входной, так как:<br>Переменная \"d\" на позиции 8 является 3 аргументом функции \"test\" и является выходной.<br>"),
-				Arguments.of("32.ttl", "varD3", "answerOutput", "Переменная \"d\" не является выходной, так как:<br>Переменная \"d\" на позиции 3 является левым операндом оператора \"-\" и является входной.<br>Переменная \"d\" на позиции 10 является правым операндом оператора \"*\" и является входной.<br>")
+				Arguments.of("32.ttl", "varD3", "answerOutput", "Переменная \"d\" не является выходной, так как:<br>Переменная \"d\" на позиции 10 является правым операндом оператора \"*\" и является входной.<br>Переменная \"d\" на позиции 3 является левым операндом оператора \"-\" и является входной.<br>")
 		);
 	}
 
@@ -78,8 +76,8 @@ class Task3Tests {
 				))
 		);
 
-        DecisionTreeEvaluationResult<?> result = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
-        Assertions.assertEquals(expResult, result.getValue());
+		DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+        Assertions.assertEquals(expResult, result.getBranchResult());
 	}
 
 	@ParameterizedTest
@@ -96,16 +94,23 @@ class Task3Tests {
 						"var", new ObjectRef(var)
 				))
 		);
-        BranchResultProcessor resultProcessor = new BranchResultProcessor();
-		DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
-        List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes = resultProcessor.getList();
+		DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+		List<DecisionTreeTrace> branchResultNodes = new ArrayList<DecisionTreeTrace>();
+		if(!result.getResultingElement().isAggregated()) {
+			for (DecisionTreeTrace decisionTreeTrace : result.get(1).nestedTraces()) {
+				branchResultNodes.add(decisionTreeTrace);
+			}
+			branchResultNodes.add(result);
+		} else {
+			branchResultNodes = commonTaskService.getListDecisionTreeTrace(result);
+		}
 		Collections.reverse(branchResultNodes);
 		String hintText = "";
-		for(DecisionTreeEvaluationResult<BranchResultNode> branchResultNode : branchResultNodes) {
-			if (branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
+		for(DecisionTreeTrace branchResultNode : branchResultNodes) {
+			if (branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
 				break;
-			} else if (branchResultNode.getValue() == BranchResult.CORRECT && branchResultNode.getNode().getMetadata().get("alias") != null) {
-				hintText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";
+			} else if (branchResultNode.getBranchResult() == BranchResult.CORRECT && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
+				hintText += utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain) + "<br>";
 			}
 		}
 		Assertions.assertEquals(expHint, hintText);
@@ -126,14 +131,12 @@ class Task3Tests {
 				))
 		);
 
-        BranchResultProcessor resultProcessor = new BranchResultProcessor();
-		DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
-        List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes = resultProcessor.getList();
-		Collections.reverse(branchResultNodes);
+		DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+		List<DecisionTreeTrace> branchResultNodes = commonTaskService.getListDecisionTreeTrace(result);
 		String errorText = "";
-		for(DecisionTreeEvaluationResult<BranchResultNode> branchResultNode : branchResultNodes) {
-			if(branchResultNode.getValue() == BranchResult.ERROR && branchResultNode.getNode().getMetadata().get("alias") != null) {
-				errorText += utilService.generateMessage(branchResultNode.getNode().getMetadata().get("alias").toString(), branchResultNode.getVariablesSnapshot(), situationDomain) + "<br>";
+		for(DecisionTreeTrace branchResultNode : branchResultNodes) {
+			if(!branchResultNode.getResultingElement().isAggregated() && branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
+				errorText += utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain) + "<br>";
 			}
 		}
 		Assertions.assertEquals(expError, errorText);

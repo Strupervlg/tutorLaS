@@ -16,11 +16,9 @@ import its.model.definition.DomainModel;
 import its.model.definition.ObjectRef;
 import its.model.definition.rdf.DomainRDFFiller;
 import its.model.definition.rdf.DomainRDFWriter;
-import its.model.nodes.BranchResultNode;
-import its.reasoner.BranchResultProcessor;
 import its.reasoner.LearningSituation;
-import its.reasoner.nodes.DecisionTreeEvaluationResult;
 import its.reasoner.nodes.DecisionTreeReasoner;
+import its.reasoner.nodes.DecisionTreeTrace;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,10 +64,11 @@ public class Task2Service {
                 ))
         );
 
-        BranchResultProcessor resultProcessor = new BranchResultProcessor();
-        DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
-        String errorText = commonTaskService.generateErrorText(resultProcessor.getList(), situationDomain, request.getUid(), request.getTaskId(), request.getUsageLine());
-        String correctText = commonTaskService.generateHintText(resultProcessor.getList(), situationDomain);
+        DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+        List<DecisionTreeTrace> branchResultNodes = commonTaskService.getListDecisionTreeTrace(result);
+
+        String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId(), request.getUsageLine());
+        String correctText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
         commonTaskService.addCountOfCorrectToDB(errorText, request.getUid(), request.getTaskId(), request.getUsageLine(), correctText);
 
         StringWriter stringWriter = new StringWriter();
@@ -97,14 +96,14 @@ public class Task2Service {
                 ))
         );
 
-        BranchResultProcessor resultProcessor = new BranchResultProcessor();
-        DecisionTreeReasoner.solve(model.getDecisionTrees().get("all"), situation, resultProcessor);
-        List<DecisionTreeEvaluationResult<BranchResultNode>> branchResultNodes = resultProcessor.getList();
+        DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTrees().get("all"), situation);
+        List<DecisionTreeTrace> branchResultNodes = commonTaskService.getListDecisionTreeTrace(result);
+
         branchResultNodes.sort(
                 Comparator.comparingInt(
-                        (DecisionTreeEvaluationResult<BranchResultNode> node) -> {
-                            if(node.getVariablesSnapshot().get("step") != null) {
-                                return (int) node.getVariablesSnapshot().get("step").findIn(situationDomain).getPropertyValue("number");
+                        (DecisionTreeTrace node) -> {
+                            if(node.getFinalVariableSnapshot().get("step") != null) {
+                                return (int) node.getFinalVariableSnapshot().get("step").findIn(situationDomain).getPropertyValue("number", Map.of());
                             } else {
                                 return 0;
                             }}));
@@ -136,9 +135,10 @@ public class Task2Service {
                             "prefix", new ObjectRef(request.getPrefix())
                     ))
             );
-            BranchResultProcessor resultProcessor = new BranchResultProcessor();
-            DecisionTreeReasoner.solve(model.getDecisionTree(), situation, resultProcessor);
-            hintText = commonTaskService.generateHintText(resultProcessor.getList(), situationDomain);
+            DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTree(), situation);
+            List<DecisionTreeTrace> branchResultNodes = commonTaskService.getListDecisionTreeTrace(result);
+
+            hintText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
             if(!hintText.isEmpty()) {
                 correctLine = line;
                 break;
