@@ -98,13 +98,17 @@ public class CommonTaskService {
 
     public String generateHintText(List<DecisionTreeTrace> branchResultNodes, DomainModel situationDomain) {
         String hintText = "";
+        boolean isError = false;
         for(DecisionTreeTrace branchResultNode : branchResultNodes) {
             if (branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
+                isError = true;
                 break;
             } else if (branchResultNode.getBranchResult() == BranchResult.CORRECT && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
-                hintText = utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain);
-                break;
+                hintText += utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain) + "<br><br>";
             }
+        }
+        if (isError) {
+            return "";
         }
         return hintText;
     }

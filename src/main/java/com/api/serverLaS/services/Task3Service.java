@@ -14,7 +14,6 @@ import its.model.definition.DomainModel;
 import its.model.definition.ObjectRef;
 import its.model.definition.rdf.DomainRDFFiller;
 import its.model.definition.rdf.DomainRDFWriter;
-import its.model.nodes.BranchResult;
 import its.reasoner.nodes.DecisionTreeTrace;
 import its.reasoner.LearningSituation;
 import its.reasoner.nodes.DecisionTreeReasoner;
@@ -113,7 +112,7 @@ public class Task3Service {
                 }
 
                 Collections.reverse(branchResultNodes);
-                hintText = this.generateHintText(branchResultNodes, newSituationDomain);
+                hintText = commonTaskService.generateHintText(branchResultNodes, newSituationDomain);
                 if(!hintText.isEmpty()) {
                     correctAnswer = answer;
                     break;
@@ -139,23 +138,6 @@ public class Task3Service {
         NextTaskData data = commonTaskService.getNext(getNextTaskRequest, sectionId);
 
         return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task3Data.fromJson(data.getTask()) : data.getTask());
-    }
-
-    public String generateHintText(List<DecisionTreeTrace> branchResultNodes, DomainModel situationDomain) {
-        String hintText = "";
-        boolean isError = false;
-        for(DecisionTreeTrace branchResultNode : branchResultNodes) {
-            if (branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
-                isError = true;
-                break;
-            } else if (branchResultNode.getBranchResult() == BranchResult.CORRECT && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
-                hintText += utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain) + "<br><br>";
-            }
-        }
-        if (isError) {
-            return "";
-        }
-        return hintText;
     }
 
     public GetNextTaskResponse getEnNext(GetNextTaskRequest getNextTaskRequest) {
