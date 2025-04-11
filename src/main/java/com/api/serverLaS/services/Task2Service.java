@@ -145,6 +145,19 @@ public class Task2Service {
             }
         }
 
+        if(hintText.isEmpty()) {
+            LearningSituation situation = new LearningSituation(situationDomain,
+                    new HashMap<>(Map.of(
+                            "var", new ObjectRef(request.getVar()),
+                            "prefix", new ObjectRef(request.getPrefix())
+                    ))
+            );
+            DecisionTreeTrace result = DecisionTreeReasoner.solve(model.getDecisionTrees().get("all"), situation);
+            List<DecisionTreeTrace> branchResultNodes = commonTaskService.getListDecisionTreeTrace(result);
+
+            hintText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
+        }
+
         commonTaskService.addCountOfHintsToDB(correctLine, request.getUid(), request.getTaskId(), hintText);
 
         StringWriter stringWriter = new StringWriter();

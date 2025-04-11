@@ -7,6 +7,7 @@ import com.api.serverLaS.repositories.TaskRepository;
 import com.api.serverLaS.requests.GetNextTaskRequest;
 import its.model.definition.DomainModel;
 import its.model.nodes.BranchResult;
+import its.model.nodes.BranchResultNode;
 import its.reasoner.nodes.DecisionTreeTrace;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
@@ -103,7 +104,7 @@ public class CommonTaskService {
             if (branchResultNode.getBranchResult() == BranchResult.ERROR && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
                 isError = true;
                 break;
-            } else if (branchResultNode.getBranchResult() == BranchResult.CORRECT && branchResultNode.getResultingNode().getMetadata().get("alias") != null) {
+            } else if (branchResultNode.getBranchResult() == BranchResult.CORRECT && branchResultNode.getResultingNode().getMetadata().get("alias") != null && branchResultNode.getResultingNode() instanceof BranchResultNode) {
                 hintText += utilService.generateMessage(branchResultNode.getResultingNode().getMetadata().get("alias").toString(), branchResultNode.getFinalVariableSnapshot(), situationDomain) + "<br><br>";
             }
         }
