@@ -159,7 +159,7 @@ function updateTask() {
 					incorrectsComplete[index].classList.value = incorrectsComplete[index].classList.value.replace('incorrect-complete', '');
 				}
 				if (response.line == "") {
-					$('#tip-text')[0].innerHTML = "Вы выбрали все правильные варианты ответов, пожалуйста, завершите задание и перейдите к следующей задаче.";
+					$('#tip-text')[0].innerHTML = response.hint;
 					$('#error-text')[0].innerHTML = "";
 
 				} else if (response.line != "") {

@@ -64,7 +64,6 @@ function updateBtnComplete2() {
 		$('#tip-text')[0].innerHTML = "";
 		getNextTask();
 		$('#btn-complete2').remove();
-		$('#btn-complete').removeClass('hidden');
 	});
 }
 
@@ -76,6 +75,21 @@ $(document).ready(function () {
 	}
 });
 
+function checkCompletedTask() {
+	var allCorrect = true;
+	$('#answer select').each(function () {
+		if (!$(this).hasClass('correct')) {
+			allCorrect = false;
+			return false;
+		}
+	});
+
+	if (allCorrect) {
+		$('.container-btn')[0].innerHTML += '<button id="btn-complete2">Следующая задача</button>';
+		nextTask = true;
+		updateBtnComplete2();
+	}
+}
 
 function updateTask() {
 	$('#btn-tip').on('click', function () {
@@ -116,62 +130,6 @@ function updateTask() {
 					$('#error-text')[0].innerHTML = "";
 				}
 
-			},
-			error: function (xhr, status, error) {
-				console.error('Ошибка запроса:', error);
-			}
-		});
-	});
-
-	$('#btn-complete').on('click', function () {
-		let isEmptyAnswer = false
-		var answers = $("#answer select").map(function () {
-			if ($(this).val() == '') {
-				isEmptyAnswer = true;
-			}
-			return {
-				var: $(this).attr('name'),
-				answer: $(this).val()
-			};
-		}).get();
-
-		if (isEmptyAnswer) {
-			$('#error-text')[0].innerHTML = "Не все переменные выбраны";
-			$('#tip-text')[0].innerHTML = "";
-			return;
-		}
-		var data = {
-			uid: getCookie('auth'),
-			taskId: $('#taskId')[0].value,
-			answers: answers,
-			taskInTTL: $('#taskInTTL')[0].value,
-		};
-
-		console.log(data);
-
-		$.ajax({
-			type: 'POST',
-			headers: {
-				'Accept': '*/*',
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Origin': '*'
-			},
-			dataType: "json",
-			url: serverUrl + '/task-3/check-answer',
-			data: JSON.stringify(data),
-			success: function (response) {
-				console.log(response);
-				if (!response.result) {
-					$('#error-text')[0].innerHTML = response.errorText;
-					$('#tip-text')[0].innerHTML = "";
-				} else if (response.result) {
-					$('#error-text')[0].innerHTML = "";
-					$('#tip-text')[0].innerHTML = "Задача выполнена!";
-					$('#btn-complete').addClass('hidden');
-					$('.container-btn')[0].innerHTML += '<button id="btn-complete2">Следующая задача</button>';
-					nextTask = true;
-					updateBtnComplete2();
-				}
 			},
 			error: function (xhr, status, error) {
 				console.error('Ошибка запроса:', error);
@@ -225,6 +183,7 @@ function onSelectChange() {
 					$('#error-text')[0].innerHTML = "";
 					$('#tip-text')[0].innerHTML = "";
 				}
+				checkCompletedTask();
 			},
 			error: function (xhr, status, error) {
 				console.error('Ошибка запроса:', error);
