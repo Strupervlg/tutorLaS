@@ -162,7 +162,7 @@ function updateTask() {
 					incorrectsComplete[index].classList.value = incorrectsComplete[index].classList.value.replace('incorrect-complete', '');
 				}
 				if (response.step == "") {
-					$('#tip-text')[0].innerHTML = "You have selected all the correct answer options. Please complete the task and proceed to the next one.";
+					$('#tip-text')[0].innerHTML = response.hint;
 					$('#error-text')[0].innerHTML = "";
 
 				} else if (response.step != "") {
