@@ -1,16 +1,11 @@
 package com.api.serverLaS.services;
 
-import com.api.serverLaS.data.NextTaskData;
-import com.api.serverLaS.data.Task1Data;
-import com.api.serverLaS.repositories.SolutionRepository;
 import com.api.serverLaS.requests.task1.CheckAnswerRequest;
 import com.api.serverLaS.requests.task1.CompleteTaskRequest;
 import com.api.serverLaS.requests.task1.GetHintRequest;
-import com.api.serverLaS.requests.GetNextTaskRequest;
 import com.api.serverLaS.response.CheckAnswerResponse;
 import com.api.serverLaS.response.CompleteTaskResponse;
 import com.api.serverLaS.response.task1.GetHintResponse;
-import com.api.serverLaS.response.GetNextTaskResponse;
 import its.model.DomainSolvingModel;
 import its.model.definition.DomainModel;
 import its.model.definition.ObjectRef;
@@ -30,9 +25,6 @@ import java.util.*;
 
 @Service
 public class Task1Service {
-
-    @Autowired
-    private SolutionRepository solutionRepository;
 
     @Autowired
     public CommonTaskService commonTaskService;
@@ -68,7 +60,6 @@ public class Task1Service {
 
         String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId(), request.getStep());
         String correctText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
-        commonTaskService.addCountOfCorrectToDB(errorText, request.getUid(), request.getTaskId(), request.getStep(), correctText);
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
@@ -156,26 +147,8 @@ public class Task1Service {
             hintText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
         }
 
-        commonTaskService.addCountOfHintsToDB(correctStep, request.getUid(), request.getTaskId(), hintText);
-
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of());
         return new GetHintResponse(correctStep, hintText, stringWriter.toString());
-    }
-
-    public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {
-        Random random = new Random();
-        List<Integer> sectionsIds = List.of(1, 11);
-        int sectionId = sectionsIds.get(random.nextInt(sectionsIds.size()));
-
-        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, sectionId);
-
-        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task1Data.fromJson(data.getTask()) : data.getTask());
-    }
-
-    public GetNextTaskResponse getEnNext(GetNextTaskRequest getNextTaskRequest) {
-        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 111);
-
-        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task1Data.fromJson(data.getTask()) : data.getTask());
     }
 }

@@ -1,13 +1,9 @@
 package com.api.serverLaS.services;
 
-import com.api.serverLaS.data.NextTaskData;
-import com.api.serverLaS.data.Task3Data;
-import com.api.serverLaS.requests.GetNextTaskRequest;
 import com.api.serverLaS.requests.task3.AnswerDataRequest;
 import com.api.serverLaS.requests.task3.CheckAnswerRequest;
 import com.api.serverLaS.requests.task3.GetHintRequest;
 import com.api.serverLaS.response.CheckAnswerResponse;
-import com.api.serverLaS.response.GetNextTaskResponse;
 import com.api.serverLaS.response.task3.GetHintResponse;
 import its.model.DomainSolvingModel;
 import its.model.definition.DomainModel;
@@ -31,9 +27,6 @@ public class Task3Service {
 
     @Autowired
     public CommonTaskService commonTaskService;
-
-    @Autowired
-    public UtilService utilService;
 
     public DomainSolvingModel model = new DomainSolvingModel(
             "./Task3",
@@ -67,7 +60,6 @@ public class Task3Service {
 
             errorText += commonTaskService.generateErrorText(branchResultNodes, newSituationDomain, request.getUid(), request.getTaskId(), answer.getVar()+"_"+answer.getAnswer());
             String correctText = commonTaskService.generateHintText(branchResultNodes, newSituationDomain);
-            commonTaskService.addCountOfCorrectToDB(errorText, request.getUid(), request.getTaskId(), answer.getVar()+"_"+answer.getAnswer(), correctText);
         }
 
         StringWriter stringWriter = new StringWriter();
@@ -123,26 +115,8 @@ public class Task3Service {
             }
         }
 
-        commonTaskService.addCountOfHintsToDB(correctAnswer, request.getUid(), request.getTaskId(), hintText);
-
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of(DomainRDFWriter.Option.NARY_RELATIONSHIPS_OLD_COMPAT));
         return new GetHintResponse(hintText, stringWriter.toString());
-    }
-
-    public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {
-        Random random = new Random();
-        List<Integer> sectionsIds = List.of(3, 31);
-        int sectionId = sectionsIds.get(random.nextInt(sectionsIds.size()));
-
-        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, sectionId);
-
-        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task3Data.fromJson(data.getTask()) : data.getTask());
-    }
-
-    public GetNextTaskResponse getEnNext(GetNextTaskRequest getNextTaskRequest) {
-        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 333);
-
-        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task3Data.fromJson(data.getTask()) : data.getTask());
     }
 }

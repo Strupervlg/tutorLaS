@@ -1,10 +1,8 @@
 package com.api.serverLaS.controllers;
 
-import com.api.serverLaS.requests.GetNextTaskRequest;
 import com.api.serverLaS.requests.task3.CheckAnswerRequest;
 import com.api.serverLaS.requests.task3.GetHintRequest;
 import com.api.serverLaS.response.CheckAnswerResponse;
-import com.api.serverLaS.response.GetNextTaskResponse;
 import com.api.serverLaS.response.task3.GetHintResponse;
 import com.api.serverLaS.services.Task3Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +26,5 @@ public class Task3Controller {
     @PostMapping("/task-3/get-hint")
     public GetHintResponse getHint(@RequestBody GetHintRequest getHintRequest) {
         return task3Service.getHint(getHintRequest);
-    }
-
-    @PostMapping("/task-3/get-next")
-    public GetNextTaskResponse getNext(@RequestBody GetNextTaskRequest getNextTaskRequest) {
-        return task3Service.getNext(getNextTaskRequest);
-    }
-
-    @PostMapping("/en/task-3/get-next")
-    public GetNextTaskResponse getEnNext(@RequestBody GetNextTaskRequest getNextTaskRequest) {
-        return task3Service.getEnNext(getNextTaskRequest);
     }
 }

@@ -1,15 +1,10 @@
 package com.api.serverLaS.services;
 
-import com.api.serverLaS.data.NextTaskData;
-import com.api.serverLaS.data.Task2Data;
-import com.api.serverLaS.repositories.SolutionRepository;
-import com.api.serverLaS.requests.GetNextTaskRequest;
 import com.api.serverLaS.requests.task2.CheckAnswerRequest;
 import com.api.serverLaS.requests.task2.CompleteTaskRequest;
 import com.api.serverLaS.requests.task2.GetHintRequest;
 import com.api.serverLaS.response.CheckAnswerResponse;
 import com.api.serverLaS.response.CompleteTaskResponse;
-import com.api.serverLaS.response.GetNextTaskResponse;
 import com.api.serverLaS.response.task2.GetHintResponse;
 import its.model.DomainSolvingModel;
 import its.model.definition.DomainModel;
@@ -31,9 +26,6 @@ import java.util.*;
 
 @Service
 public class Task2Service {
-
-    @Autowired
-    private SolutionRepository solutionRepository;
 
     @Autowired
     public CommonTaskService commonTaskService;
@@ -69,7 +61,6 @@ public class Task2Service {
 
         String errorText = commonTaskService.generateErrorText(branchResultNodes, situationDomain, request.getUid(), request.getTaskId(), request.getUsageLine());
         String correctText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
-        commonTaskService.addCountOfCorrectToDB(errorText, request.getUid(), request.getTaskId(), request.getUsageLine(), correctText);
 
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of(DomainRDFWriter.Option.NARY_RELATIONSHIPS_OLD_COMPAT));
@@ -158,26 +149,8 @@ public class Task2Service {
             hintText = commonTaskService.generateHintText(branchResultNodes, situationDomain);
         }
 
-        commonTaskService.addCountOfHintsToDB(correctLine, request.getUid(), request.getTaskId(), hintText);
-
         StringWriter stringWriter = new StringWriter();
         DomainRDFWriter.saveDomain(situationDomain, stringWriter, "poas:poas/", Set.of(DomainRDFWriter.Option.NARY_RELATIONSHIPS_OLD_COMPAT));
         return new GetHintResponse(correctLine, hintText, stringWriter.toString());
-    }
-
-    public GetNextTaskResponse getNext(GetNextTaskRequest getNextTaskRequest) {
-        Random random = new Random();
-        List<Integer> sectionsIds = List.of(2, 21, 22);
-        int sectionId = sectionsIds.get(random.nextInt(sectionsIds.size()));
-
-        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, sectionId);
-
-        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task2Data.fromJson(data.getTask()) : data.getTask());
-    }
-
-    public GetNextTaskResponse getEnNext(GetNextTaskRequest getNextTaskRequest) {
-        NextTaskData data = commonTaskService.getNext(getNextTaskRequest, 222);
-
-        return new GetNextTaskResponse(data.getTaskId(), data.getTaskInTTL(), data.getTask() != null ? Task2Data.fromJson(data.getTask()) : data.getTask());
     }
 }
